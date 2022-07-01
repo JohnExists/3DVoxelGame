@@ -1,0 +1,8 @@
+{
+    "block-id": 5,
+    "unique-face-count": 1,
+    "sides" : {
+        "location": [0.75, 0.875],
+        "size": [0.125, 0.125]
+    }
+}

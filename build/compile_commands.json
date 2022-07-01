@@ -1,0 +1,92 @@
+[
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Random.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Random.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/gcc.exe  @CMakeFiles/MinecraftGL.dir/includes_C.rsp -g   -Wall -g -o CMakeFiles/MinecraftGL.dir/src/game1/glad.c.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/glad.c\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/glad.c"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/main.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/main.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLObject.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLObject.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Shader.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Shader.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/stb_image.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/stb_image.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Block.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Block.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Decoration.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Decoration.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/Biome.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/Biome.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.cpp"
+}
+]
