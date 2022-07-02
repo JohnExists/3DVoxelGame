@@ -34,13 +34,15 @@ public:
 	static std::string vectorToString(const glm::vec2& vec);
 
 private:
-	const int RENDER_DISTANCE = 12;
+	const int RENDER_DISTANCE = 10;
 
 	using ChunkList_t = std::map<std::string, Chunk*>;
 	using Location_t = glm::vec3;
 	using ChunkLocation_t = glm::vec2;
 
-	ChunkList_t chunks;	
+	bool currentlyDrawing = false;
+
+	ChunkList_t chunks;
 	std::deque<ChunkLocation_t> chunksBuildQueue;
 	std::deque<Chunk*> chunksMeshQueue;
 	FastNoiseLite* noise;
@@ -67,7 +69,7 @@ public:
 	void updateChunks(Camera* camera);
 	void addToQueue(Chunk* chunk);
 
-	void updateChunksBuilds(Camera* camera);
+	void updateChunksBuilds(Camera* camera, int task);
 	void updateChunksMeshing();
 
 	void castRay(Camera& camera, bool shouldBreak);

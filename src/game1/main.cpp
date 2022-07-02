@@ -79,18 +79,26 @@ int main(int argc, char const **argv)
 		std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
 		while (true)
 		{
-			world.updateChunksBuilds(&camera);
+			world.updateChunksBuilds(&camera, 0);
+		}
+	});
+
+	std::thread chunkDeletionThread([&]() {
+		std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
+		while (true)
+		{
+			world.updateChunksBuilds(&camera, 1);
+		}
+	});
+
+	std::thread chunkMeshingThread([&]() {
+		std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
+		while (true)
+		{
 			world.updateChunksMeshing();
 		}
 	});
 
-	//std::thread chunkMeshingThread([&]() {
-	//	std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
-	//	while (true)
-	//	{
-	//		world.updateChunksMeshing();
-	//	}
-	//});
 
 	// render loop
 	// -----------
@@ -120,9 +128,7 @@ int main(int argc, char const **argv)
 		shader.setMatrix("view", view);
 		shader.setVec3("cameraPos", camera.getPosition().x,
 					   camera.getPosition().y, camera.getPosition().z);
-		shader.setFloat("minFog", 12 * 8.5f);
-
-		// world.updateVBOs();
+		shader.setFloat("minFog", 10 * 8.5f);
 
 		renderer.render();
 

@@ -37,15 +37,10 @@ VertexArrayObject::VertexArrayObject(std::vector<Quad>* quads)
 {
 	glGenVertexArrays(1, &data);
 	this->use();
-	vertexData = new VertexObject(quads);
+	vertexData = std::make_unique<VertexObject>(quads);
 	this->link();
 	this->abandon();
 	vertexData->abandon();
-}
-
-VertexArrayObject::~VertexArrayObject()
-{
-	delete vertexData;
 }
 
 void VertexArrayObject::use()

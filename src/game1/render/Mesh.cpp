@@ -18,22 +18,14 @@ Mesh::Mesh(const Texture* texture)
 	this->texture = texture;
 }
 
-Mesh::~Mesh()
-{
-	delete vao;
-}
-
-
-
 bool Mesh::isLoaded() 
 {
-	return vao != nullptr;
+	return vao.get() == nullptr;
 }
 
 void Mesh::clearVertexObject() 
 {
-	delete vao;
-	vao = nullptr;	
+	vao.reset();
 }
 
 void Mesh::scale(float x, float y, float z)
@@ -54,7 +46,7 @@ void Mesh::draw()
 
 	vao->use();
 	glDrawArrays(GL_TRIANGLES, 0, quads.size() * 6);
-	vao->abandon();
+	// vao->abandon();
 }
 
 void Mesh::loadVertexObject()
@@ -62,7 +54,7 @@ void Mesh::loadVertexObject()
 	if (quads.empty()) return;
 
 	clearVertexObject();
-	vao = new VertexArrayObject(&this->quads);
+	vao = std::make_unique<VertexArrayObject>(&this->quads);
 }
 
 std::vector<Quad>& Mesh::getQuads()

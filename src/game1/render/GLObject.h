@@ -6,6 +6,7 @@
 
 #include<vector>
 #include<array>
+#include<utility>
 
 #include"../world/Block.h"
 
@@ -47,10 +48,10 @@ public:
 class VertexArrayObject : public GLObject
 {
 private:
-	VertexObject* vertexData;
+	std::unique_ptr<VertexObject> vertexData;
 public:
 	VertexArrayObject(std::vector<Quad>* vertices);
-	~VertexArrayObject();
+
 	// Inherited via GLObject
 	virtual void use() override;
 	virtual void abandon() override;

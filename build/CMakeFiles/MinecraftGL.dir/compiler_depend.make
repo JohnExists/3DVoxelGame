@@ -396,6 +396,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj: C:/Users/John\ Kolta/Deskto
   C:/msys64/mingw64/include/c++/12.1.0/bits/istream.tcc \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glad/glad.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/KHR/khrplatform.h \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/msys64/mingw64/include/c++/12.1.0/array \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
@@ -468,8 +470,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj: C:/Users/John\ Kolta/Deskto
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -1595,6 +1595,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj: C:/Users/John\ Kolta/Desktop/
   C:/msys64/mingw64/include/c++/12.1.0/list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/list.tcc \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/msys64/mingw64/include/c++/12.1.0/array \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
@@ -1641,8 +1643,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj: C:/Users/John\ Kolta/Desktop/
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -2061,6 +2061,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj: C:/Users/John\ 
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.hpp \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.inl \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.inl \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
   C:/msys64/mingw64/include/c++/12.1.0/filesystem \
@@ -2137,8 +2139,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj: C:/Users/John\ 
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -2499,6 +2499,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj: C:/Users/John\ Kol
   C:/msys64/mingw64/include/c++/12.1.0/bits/range_access.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/vector.tcc \
   C:/msys64/mingw64/include/c++/12.1.0/array \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Block.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.h \
   C:/msys64/mingw64/include/c++/12.1.0/string \
@@ -2631,8 +2633,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj: C:/Users/John\ Kol
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -3085,6 +3085,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj: C:/Users/John\ Kolta/D
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/detail/func_trigonometric.inl \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/detail/func_trigonometric_simd.inl \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/matrix.hpp \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/msys64/mingw64/include/c++/12.1.0/array \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
@@ -3187,8 +3189,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj: C:/Users/John\ Kolta/D
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -3652,6 +3652,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj: C:/Users/John\ Kol
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.hpp \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.inl \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.inl \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/msys64/mingw64/include/c++/12.1.0/array \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
@@ -3724,8 +3726,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj: C:/Users/John\ Kol
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -5523,6 +5523,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: C:/Users/John\ Kolta/D
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.hpp \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.inl \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.inl \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/msys64/mingw64/include/c++/12.1.0/array \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
@@ -5571,8 +5573,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: C:/Users/John\ Kolta/D
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -6069,6 +6069,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: C:/Users/John\ Kolta/D
   C:/msys64/mingw64/include/c++/12.1.0/list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/list.tcc \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLObject.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Block.h \
@@ -6094,8 +6096,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: C:/Users/John\ Kolta/D
   C:/msys64/mingw64/include/c++/12.1.0/bits/ranges_uninitialized.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/uses_allocator_args.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_memory_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -7098,6 +7098,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj: C:/Users/John\ Kolta/D
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.hpp \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.inl \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.inl \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/msys64/mingw64/include/c++/12.1.0/array \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
@@ -7146,8 +7148,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj: C:/Users/John\ Kolta/D
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -8150,6 +8150,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj: C:/Users/J
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.hpp \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.inl \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.inl \
+  C:/msys64/mingw64/include/c++/12.1.0/utility \
+  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
   C:/msys64/mingw64/include/c++/12.1.0/array \
   C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
@@ -8198,8 +8200,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj: C:/Users/J
   C:/msys64/mingw64/include/c++/12.1.0/numeric \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h \
   C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h \
-  C:/msys64/mingw64/include/c++/12.1.0/utility \
-  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
   C:/msys64/mingw64/include/c++/12.1.0/forward_list \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/forward_list.tcc \
@@ -9015,9 +9015,9 @@ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/detail/func_matrix_s
 
 C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/simd/matrix.h:
 
-C:/msys64/mingw64/include/c++/12.1.0/bits/sstream.tcc:
-
 C:/msys64/mingw64/include/c++/12.1.0/utility:
+
+C:/msys64/mingw64/include/c++/12.1.0/bits/sstream.tcc:
 
 C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/exponential.hpp:
 
@@ -9287,6 +9287,8 @@ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glad/glad.h:
 
 C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/KHR/khrplatform.h:
 
+C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h:
+
 C:/msys64/mingw64/include/c++/12.1.0/bits/fs_fwd.h:
 
 C:/msys64/mingw64/include/c++/12.1.0/ratio:
@@ -9378,8 +9380,6 @@ C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_memory_defs.h:
 C:/msys64/mingw64/include/c++/12.1.0/bits/stl_numeric.h:
 
 C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_numeric_defs.h:
-
-C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h:
 
 C:/msys64/mingw64/include/c++/12.1.0/bits/valarray_after.h:
 

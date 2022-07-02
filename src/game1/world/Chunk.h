@@ -56,12 +56,12 @@ private:
 	BiomeLoader* loader = nullptr;
 	FastNoiseLite* noise = nullptr;
 	bool currentlyDrawing = false;
+	bool currentlyBuilding = false;
 
 	Chunk* cacheFront = nullptr;
 	Chunk* cacheBehind = nullptr;
 	Chunk* cacheLeft = nullptr;
 	Chunk* cacheRight = nullptr;
-
 
 public:
 	Chunk(const glm::vec2& position, World* world, BiomeLoader& loader, FastNoiseLite* noise);
@@ -71,7 +71,7 @@ public:
 	void buildBlocks();
 	bool isReady();
 	bool isCurrentlyDrawing() const;
-	void loadVBOs(int meshToLoad);
+	bool isCurrentlyBuilding() const;
 
 	Block& getBlockAt(Location_t& positon);
 	void setBlockAt(Location_t& position, BlockType newBlock, bool replaceAir);
@@ -87,6 +87,7 @@ public:
 	LocalLocation_t toChunkCoordinatesAt(int x, int y, int z);
 
 	void loadDecoration(Decoration decoration, int x, int y, int z);
+
 
 private:
 	void cacheChunks();

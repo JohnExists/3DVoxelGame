@@ -49,6 +49,8 @@ void Chunk::draw(Renderer& renderer, int meshToDraw)
 
 void Chunk::buildBlocks()
 {
+	currentlyBuilding = true;
+
 	cacheChunks();
 
 	delete primary;
@@ -85,7 +87,7 @@ void Chunk::buildBlocks()
 			break;
 		}
 	}
-	
+	currentlyBuilding = false;	
 }
 
 bool Chunk::isReady()
@@ -101,22 +103,6 @@ bool Chunk::isReady()
 bool Chunk::isCurrentlyDrawing() const 
 {
 	return currentlyDrawing;
-}
-
-void Chunk::loadVBOs(int meshToLoad)
-{
-	switch (meshToLoad)
-	{
-	case PRIMARY_MESH:
-		if(!primary->isLoaded()) primary->loadVertexObject();
-		break;
-	case SECONDARY_MESH:
-		if(!secondary->isLoaded()) secondary->loadVertexObject();
-		break;
-	case TERTIARY_MESH:
-		if(!tertiary->isLoaded()) tertiary->loadVertexObject();
-		break;
-	}
 }
 
 void Chunk::setBiomeAt(int x, int z, BiomeType newBiome)
@@ -225,6 +211,11 @@ void Chunk::loadDecoration(Decoration decoration, int x, int y, int z)
 	}
 }
 
+bool Chunk::isCurrentlyBuilding() const
+{
+	return currentlyBuilding;
+}
+
 Block& Chunk::getLocalBlockAt(int x, int y, int z) const
 {
 	return blocks[x + MAX_XZ * (y + MAX_Y * z)];
@@ -249,7 +240,12 @@ BlockType Chunk::getBlockTypeAt(int x, int y, int z)
 		if (z > MAX_XZ - 1) storedChunk = cacheFront;
 
 		if (storedChunk != nullptr) 
+		{
+			bool cachedBool = storedChunk->isCurrentlyBuilding();
+			storedChunk->currentlyDrawing = true;
 			return storedChunk->getBlockAt(worldLocation).getType();
+			storedChunk->currentlyDrawing = cachedBool;
+		}
 
 		return loader->getBlockAt(
 			y, 

@@ -50,6 +50,7 @@ Block* World::getBlockAt(Location_t position)
 
 void World::draw(Renderer& renderer)
 {
+	currentlyDrawing = true;
 	texture->useSlot(renderer.getShader(ShaderType::DEFAULT_SHADER), "texture1", 0);
 
 	for (auto& [position, chunk] : chunks)
@@ -61,6 +62,7 @@ void World::draw(Renderer& renderer)
 		if(chunk != nullptr) chunk->draw(renderer, Chunk::SECONDARY_MESH);
 		if(chunk != nullptr) chunk->draw(renderer, Chunk::TERTIARY_MESH);
 	}
+	currentlyDrawing = false;
 }
 
 void World::addToQueue(Chunk* chunk)
@@ -68,15 +70,15 @@ void World::addToQueue(Chunk* chunk)
 	chunk->buildBlocks();
 }
 
-void World::updateChunksBuilds(Camera* camera) 
+void World::updateChunksBuilds(Camera* camera, int task) 
 {
 	static ChunkLocation_t playerChunk = glm::vec2(0.0f, 0.0f);
 	Location_t playerLocation = camera->getPosition();
 
 	if(playerChunk != getChunkAtWorld(playerLocation)->getPosition())
 	{
-		loadNearbyChunks(playerChunk, true);
-		unloadFarChunks(playerChunk);
+		if(task == 0) loadNearbyChunks(playerChunk, true);
+		if(task == 1) unloadFarChunks(playerChunk);
 	}
 	
 	playerChunk = getChunkAtWorld(playerLocation)->getPosition();
@@ -99,7 +101,6 @@ void World::updateChunksMeshing()
 					break;
 				}
 			}
-			
 		}
 	}
 }
@@ -172,19 +173,20 @@ void World::unloadFarChunks(const ChunkLocation_t playerChunkLocation)
 	for (auto && position : positions)
 	{
 		Chunk* current = chunks.at(position);
+
+		chunksMeshQueue.erase(std::remove(chunksMeshQueue.begin(), chunksMeshQueue.end(), 
+		current), 
+		chunksMeshQueue.end());
+
+		chunksBuildQueue.erase(std::remove(chunksBuildQueue.begin(), chunksBuildQueue.end(), 
+		current->getPosition()), 
+		chunksBuildQueue.end());
+		chunks.erase(position);
+
 		while (true)
 		{
-			if(!current->isCurrentlyDrawing())
-			{
-				chunksMeshQueue.erase(std::remove(chunksMeshQueue.begin(), chunksMeshQueue.end(), 
-				current), 
-				chunksMeshQueue.end());
-
-				chunksBuildQueue.erase(std::remove(chunksBuildQueue.begin(), chunksBuildQueue.end(), 
-				current->getPosition()), 
-				chunksBuildQueue.end());
-
-				chunks.erase(position);
+			if(!currentlyDrawing && !current->isCurrentlyBuilding() && !current->isCurrentlyDrawing())
+			{		
 				delete current;
 				current = nullptr;
 				break;
@@ -211,7 +213,7 @@ void World::loadNearbyChunks(const ChunkLocation_t& nearby, bool firstTime)
 		return glm::length(left - nearby) < glm::length(right - nearby);
 	});
 
-	for (auto &&location : chunksLocations)
+	for (auto&& location : chunksLocations)
 	{
 		loadChunk(location);
 	}

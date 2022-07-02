@@ -3,13 +3,14 @@
 
 #include<list>
 #include<iostream>
-#include <glad/glad.h>
+#include<glad/glad.h>
 #include<initializer_list>
 #include<glm/gtc/matrix_transform.hpp>
+#include<utility>
 
-#include "Texture.h"
-#include "Shader.h"
-#include "GLObject.h"
+#include"Texture.h"
+#include"Shader.h"
+#include"GLObject.h"
 
 class VertexArrayObject;
 struct Vertex;
@@ -18,11 +19,11 @@ struct Quad;
 class Mesh
 {
 protected:
-	std::vector<Quad>		quads;
-	std::vector<char>		indices;
-	const Texture*			texture;
-	glm::mat4 				modelMatrix;
-	VertexArrayObject* vao = nullptr;
+	std::vector<Quad>					quads;
+	std::vector<char>					indices;
+	const Texture*						texture;
+	glm::mat4 							modelMatrix;
+	std::unique_ptr<VertexArrayObject> 	vao;
 public:
 	Mesh(
 		const std::vector<Quad>			quads,
@@ -30,7 +31,6 @@ public:
 	);
 
 	Mesh(const Texture* texture);
-	~Mesh();
 	bool isLoaded();
 	void clearVertexObject();
 
