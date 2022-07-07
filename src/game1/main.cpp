@@ -61,7 +61,7 @@ int main(int argc, char const **argv)
 	double startTime = glfwGetTime();
 
 	World world(399393994);
-	Renderer renderer(&world);
+	Renderer renderer(&world, &camera);
 
 	worldPtr = &world;
 
@@ -70,14 +70,11 @@ int main(int argc, char const **argv)
 
 	int frameCount = 0;
 
-	glm::mat4 projection = glm::perspective(glm::radians(80.0f),
-											(float)(SCR_WIDTH / SCR_HEIGHT), 0.1f, 3000.0f);
-
 	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	std::thread chunkBuildThread([&]() {
 		std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
-		while (true)
+		while (!glfwWindowShouldClose(window))
 		{
 			world.updateChunksBuilds(&camera, 0);
 		}
@@ -85,7 +82,7 @@ int main(int argc, char const **argv)
 
 	std::thread chunkDeletionThread([&]() {
 		std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
-		while (true)
+		while (!glfwWindowShouldClose(window))
 		{
 			world.updateChunksBuilds(&camera, 1);
 		}
@@ -93,11 +90,15 @@ int main(int argc, char const **argv)
 
 	std::thread chunkMeshingThread([&]() {
 		std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
-		while (true)
+		while (!glfwWindowShouldClose(window))
 		{
 			world.updateChunksMeshing();
 		}
 	});
+
+	chunkBuildThread.detach();
+	chunkDeletionThread.detach();
+	chunkMeshingThread.detach();
 
 
 	// render loop
@@ -119,15 +120,9 @@ int main(int argc, char const **argv)
 		glClearColor(0.53f, 0.81f, 0.92f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		glm::mat4 view = camera.getViewMatrix();
-
 		Shader &shader = renderer.getShader(ShaderType::DEFAULT_SHADER);
 
 		shader.use();
-		shader.setMatrix("projection", projection);
-		shader.setMatrix("view", view);
-		shader.setVec3("cameraPos", camera.getPosition().x,
-					   camera.getPosition().y, camera.getPosition().z);
 		shader.setFloat("minFog", 10 * 8.5f);
 
 		renderer.render();

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj"
   "CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj.d"
+  "CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.obj"
+  "CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.obj.d"
   "CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.obj"
   "CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.obj.d"
   "CMakeFiles/MinecraftGL.dir/src/game1/glad.c.obj"

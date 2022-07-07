@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/glad.c" "CMakeFiles/MinecraftGL.dir/src/game1/glad.c.obj" "gcc" "CMakeFiles/MinecraftGL.dir/src/game1/glad.c.obj.d"
   "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.cpp" "CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj" "gcc" "CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj.d"
+  "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/GameState.cpp" "CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.obj" "gcc" "CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.obj.d"
   "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Random.cpp" "CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.obj" "gcc" "CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.obj.d"
   "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/main.cpp" "CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj" "gcc" "CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj.d"
   "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.cpp" "CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj" "gcc" "CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj.d"

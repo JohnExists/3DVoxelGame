@@ -34,7 +34,7 @@ public:
 	static std::string vectorToString(const glm::vec2& vec);
 
 private:
-	const int RENDER_DISTANCE = 10;
+	const int RENDER_DISTANCE = 12;
 
 	using ChunkList_t = std::map<std::string, Chunk*>;
 	using Location_t = glm::vec3;

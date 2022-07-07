@@ -518,4 +518,5 @@ CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Constants.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLSL_Shaders.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h

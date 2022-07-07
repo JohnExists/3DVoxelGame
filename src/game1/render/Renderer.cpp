@@ -1,6 +1,7 @@
 #include "Renderer.h"
 
-Renderer::Renderer(World* world)
+Renderer::Renderer(World* world, Camera* camera)
+	: world(world), camera(camera)
 {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -14,20 +15,30 @@ Renderer::Renderer(World* world)
 	currentShader = ShaderType::DEFAULT_SHADER;
 	shaders[0] = Shader(DEF_VERTEX_SHADER, DEF_FRAG_SHADER);
 	shaders[1] = Shader(TEMP_VERTEX_SHADER, TEMP_FRAG_SHADER);
-	this->world = world;
 }
+
 void Renderer::draw(Mesh* mesh)
 {
 	Shader& current = getShader(currentShader);
-	
 	current.use();
 	current.setMatrix("model", mesh->getModelMatrix());
+	
 	mesh->draw();
 }
 
 void Renderer::render()
 {
+	glm::mat4 viewMatrix = camera->getViewMatrix();
+	glm::mat4 projectionMatrix = glm::perspective(glm::radians(FOV), ASPECT_RATIO, NEAR, FAR);
+
 	setShader(ShaderType::DEFAULT_SHADER);
+	Shader& shader = getShader(ShaderType::DEFAULT_SHADER);
+	shader.setMatrix("projection", projectionMatrix);
+	shader.setMatrix("view", viewMatrix);
+	shader.setVec3("cameraPos", camera->getPosition().x, 
+		camera->getPosition().y, camera->getPosition().z);
+
+
 	world->draw(*this);
 
 	setShader(ShaderType::TEMPORARY_SHADER);

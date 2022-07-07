@@ -399,6 +399,18 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/this_thread_sleep.h \
  C:/msys64/mingw64/include/semaphore.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.hpp \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.hpp \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.inl \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.inl \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.hpp \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion.hpp \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion.inl \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion_simd.inl \
+ C:/msys64/mingw64/include/c++/12.1.0/cstring \
+ C:/msys64/mingw64/include/string.h \
+ C:/msys64/mingw64/include/sec_api/string_s.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.inl \
  C:/msys64/mingw64/include/c++/12.1.0/stack \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_stack.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.h \
@@ -410,10 +422,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/istream.tcc \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glad/glad.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/KHR/khrplatform.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.hpp \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.hpp \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.inl \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/matrix_transform.inl \
  C:/msys64/mingw64/include/c++/12.1.0/utility \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_relops.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
@@ -478,9 +486,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/mask_array.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/indirect_array.h \
  C:/msys64/mingw64/include/c++/12.1.0/version \
- C:/msys64/mingw64/include/c++/12.1.0/cstring \
- C:/msys64/mingw64/include/string.h \
- C:/msys64/mingw64/include/sec_api/string_s.h \
  C:/msys64/mingw64/include/c++/12.1.0/ranges \
  C:/msys64/mingw64/include/c++/12.1.0/optional \
  C:/msys64/mingw64/include/c++/12.1.0/span \
@@ -509,12 +514,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLSL_Shaders.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Shader.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.hpp \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion.hpp \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion.inl \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion_simd.inl \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.inl \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.h
