@@ -25,32 +25,34 @@ void Shader::use() const
 	glUseProgram(ID);
 }
 
-void Shader::setBool(const std::string& name, bool value) const
+Shader::ShaderUniform Shader::operator[](std::string variableName)
 {
-	glUniform1i(
-		glGetUniformLocation(ID, name.c_str()),
-		static_cast<int>(value)
-	);
-}
-void Shader::setInt(const std::string& name, int value) const
-{
-	glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
+	return ShaderUniform(glGetUniformLocation(ID, variableName.c_str()));
 }
 
-void Shader::setFloat(const std::string& name, float value) const
+Shader::ShaderUniform::ShaderUniform(GLint value) : value(value) { }
+
+void Shader::ShaderUniform::operator=(glm::mat4& variableValue)
 {
-	glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+	glUniformMatrix4fv(value, 1, GL_FALSE, glm::value_ptr(variableValue));
 }
 
-void Shader::setMatrix(const std::string& name, glm::mat4& matrix) const
+void Shader::ShaderUniform::operator=(glm::vec3 variableValue)
 {
-	glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(matrix));
+	glUniform3f(value, variableValue.x, variableValue.y, variableValue.z);
 }
 
-void Shader::setVec3(const std::string& name, float x, float y, float z) const
+void Shader::ShaderUniform::operator=(float variableValue)
 {
-	glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
+	glUniform1f(value, variableValue);
 }
+
+void Shader::ShaderUniform::operator=(int variableName)
+{
+	glUniform1i(value, variableName);
+}
+
+
 
 GLuint Shader::getID() const
 {
@@ -90,4 +92,3 @@ void Shader::checkErrors(const GLuint data, const std::string& type)
 
 	std::cout << type << " failed to compile!\n" << infoLog << '\n';
 }
-

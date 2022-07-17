@@ -34,6 +34,7 @@ void VertexObject::abandon()
 //////////////////////////////////
 
 VertexArrayObject::VertexArrayObject(std::vector<Quad>* quads)
+	: quads(quads)
 {
 	glGenVertexArrays(1, &data);
 	this->use();
@@ -51,6 +52,13 @@ void VertexArrayObject::use()
 void VertexArrayObject::abandon()
 {
 	glBindVertexArray(0);
+}
+
+void VertexArrayObject::draw()
+{
+	use();
+	glDrawArrays(GL_TRIANGLES, 0, quads->size() * 6);
+	abandon();	
 }
 
 void VertexArrayObject::link()

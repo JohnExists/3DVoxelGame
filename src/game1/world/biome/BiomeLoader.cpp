@@ -39,7 +39,7 @@ void BiomeLoader::loadXZ(float x, float z, Chunk* chunk)
 	BiomeType biome = chunk->getBiomeAt(x, z);
 	Biome biomeData = getBiomeData(biome);
 
-	int maxY = getYHeight(x, z, chunk);
+	int maxY = getYHeight(x, z, chunk->getPosition());
 
 	if (maxY > SEA_LEVEL + 5)
 		chunk->loadDecoration(biomeData.obtainDecoration(), x, maxY, z);
@@ -56,8 +56,8 @@ BiomeType BiomeLoader::getBiomeAt(float x, float z)
 {
 	noise.setNoiseType(FastNoiseLite::NoiseType::NoiseType_OpenSimplex2);
 
-	x /= 18.f;
-	z /= 18.f;
+	x /= 6.f;
+	z /= 6.f;
 
 	int totalBiomes = static_cast<int>(BiomeType::TOTAL_BIOMES);
 	float generatedNoise = abs(noise.getNoise(x, z));
@@ -67,7 +67,6 @@ BiomeType BiomeLoader::getBiomeAt(float x, float z)
 
 	return result;
 }
-
 //////////////////////////////////
 /*		Private Functions		*/
 //////////////////////////////////
@@ -77,17 +76,33 @@ Biome& BiomeLoader::getBiomeData(BiomeType biome)
 	using enum BlockType;
 
 	static Biome biomes[] = {
-		// Plains
-		Biome(14, 59, GRASS, DIRT, STONE, {
+		// Ocean
+		Biome(25, 5, STONE, STONE, STONE, { }),
+
+		// Forest
+		Biome(62, 23, GRASS, DIRT, STONE, {
 			Placeables_t(1.5f, Decoration::TREE),
+			Placeables_t(25.0f, Decoration::GRASS_BLADE),
+		}),
+
+		// Plains
+		Biome(55, 12, GRASS, DIRT, STONE, {
+			Placeables_t(0.075f, Decoration::TREE),
 			Placeables_t(15.0f, Decoration::GRASS_BLADE),
 		}),
 
-		// Desert
-		Biome(9, 62, SAND, SAND, STONE, { }),
+		// Plains Mountain
+		Biome(85, 25, GRASS, DIRT, STONE, { 
+			Placeables_t(0.025f, Decoration::TREE),
+			Placeables_t(45.0f, Decoration::GRASS_BLADE),
+		}),
 
-		// Mountains
-		Biome(42, 72, STONE, STONE, STONE, { }),
+		// Desert
+		Biome(60, 5, SAND, SAND, STONE, { }),
+
+		// Desert Mountain
+		Biome(75, 35, SAND, SAND, STONE, { }),
+	
 	};
 
 	int selectedBiomeIndex = static_cast<int>(biome);
@@ -98,7 +113,7 @@ float BiomeLoader::calculateYHeightAt(glm::vec2 position)
 {
 	BiomeType biome = getBiomeAt(position.x, position.y);
 	float noiseData = noise.getNoise(position.x, position.y);
-	return calculateYHeightAt(biome, noiseData);
+	return calculateYHeightAt(biome, abs(noiseData));
 }
 
 float BiomeLoader::calculateYHeightAt(BiomeType biome, float perlinNoiseData)
@@ -109,9 +124,19 @@ float BiomeLoader::calculateYHeightAt(BiomeType biome, float perlinNoiseData)
 	return result;
 }
 
-int BiomeLoader::getYHeight(int x, int z, Chunk* chunk)
+int BiomeLoader::getYHeight(int worldX, int worldZ)
 {
-	glm::vec3 a = chunk->toWorldCoordinatesAt(1, 0, 1);
+	int chunkX = floor(worldX / Chunk::MAX_XZ);	
+	int chunkZ = floor(worldZ / Chunk::MAX_XZ);	
+	int x = worldX - (chunkX * (Chunk::MAX_XZ - 1));
+	int z = worldZ - (chunkZ * (Chunk::MAX_XZ - 1));
+
+	return getYHeight(x, z, glm::vec2(chunkX, chunkZ));
+}
+
+int BiomeLoader::getYHeight(int x, int z, glm::vec2 chunkPosition)
+{
+	glm::vec3 a(chunkPosition.x * Chunk::MAX_XZ + 1, 0, chunkPosition.y * Chunk::MAX_XZ + 1);
 	static const float w = 15.0f;
 	glm::vec2 b[] = {
 		glm::vec2(a.x, a.z),

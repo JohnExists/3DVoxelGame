@@ -14,6 +14,7 @@
 #include"GLSL_Shaders.h"
 #include"../world/World.h"
 #include"../Camera.h"
+#include"Frustum.h"
 
 class World;
 class Mesh;
@@ -31,8 +32,8 @@ class Renderer
 public:
 	static constexpr float FOV = 80.0f;
 	static constexpr float NEAR = 0.1f;
-	static constexpr float FAR = 3000.0f;
-	static constexpr float ASPECT_RATIO = static_cast<float>(960 / 540);
+	static constexpr float FAR = 1000.0f;
+	static constexpr float ASPECT_RATIO = 960.0f / 540.0f;
 
 private:
 	std::array<Shader, static_cast<int>(ShaderType::MAX_SHADERS_COUNT)> shaders{};

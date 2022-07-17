@@ -7,26 +7,19 @@
 Chunk::Chunk(const glm::vec2& position, World* world, BiomeLoader& loader, FastNoiseLite* noise)
 	: loader(&loader), position(position), world(world), noise(noise)
 {
-	blocks = new Block[MAX_XZ * MAX_Y * MAX_XZ]();
-	biomes = new BiomeType[MAX_XZ * MAX_XZ];
+	blocks = std::make_unique<Block[]>(MAX_XZ * MAX_Y * MAX_XZ);
+	biomes = std::make_unique<BiomeType[]>(MAX_XZ * MAX_XZ);
+
+	this->aabb.position = glm::vec3(position.x * MAX_XZ, 0, position.y * MAX_XZ);
+	this->aabb.size = glm::vec3(MAX_XZ, MAX_Y, MAX_XZ);
 
 	this->loader->loadBiomes(this);
 	loadBlocks();
+	buildBlocks();
 }
-
-Chunk::~Chunk()
-{
-	delete[] blocks;
-	delete[] biomes;
-	delete primary;
-	delete secondary;
-	delete tertiary;
-}
-
 
 void Chunk::draw(Renderer& renderer, int meshToDraw)
 {
-	currentlyDrawing = true;
 	loadMatrix(renderer);
 
 	if (meshToDraw == PRIMARY_MESH && primary != nullptr)
@@ -41,25 +34,22 @@ void Chunk::draw(Renderer& renderer, int meshToDraw)
 	}
 	if (meshToDraw == SECONDARY_MESH && secondary != nullptr)
 	{
-		glEnable(GL_CULL_FACE);
+		glDisable(GL_CULL_FACE);
 		secondary->draw();
 	}
-	currentlyDrawing = false;
 }
 
 void Chunk::buildBlocks()
 {
-	currentlyBuilding = true;
-
 	cacheChunks();
 
-	delete primary;
-	delete secondary;
-	delete tertiary;
+	primary.reset();
+	secondary.reset();
+	tertiary.reset();
 
-	primary = new Mesh(world->getTexture());
-	secondary = new Mesh(world->getTexture());
-	tertiary = new Mesh(world->getTexture());
+	primary = std::make_unique<Mesh>(world->getTexture());
+	secondary = std::make_unique<Mesh>(world->getTexture());
+	tertiary = std::make_unique<Mesh>(world->getTexture());
 
 
 	for (int x = 0; x < MAX_XZ; x++)
@@ -74,40 +64,16 @@ void Chunk::buildBlocks()
 				buildBlockAt(x, y, z);
 			}
 		}
-
 	}
 
-	while (true)
-	{
-		if(!isCurrentlyDrawing())
-		{
-			primary->clearVertexObject();
-			secondary->clearVertexObject();
-			tertiary->clearVertexObject();
-			break;
-		}
-	}
-	currentlyBuilding = false;	
-}
-
-bool Chunk::isReady()
-{
-	cacheChunks();
-
-	return !((cacheFront == nullptr) ||
-		(cacheBehind == nullptr) ||
-		(cacheLeft == nullptr) ||
-		(cacheRight == nullptr));
-}
-
-bool Chunk::isCurrentlyDrawing() const 
-{
-	return currentlyDrawing;
+	primary->clearVertexObject();
+	secondary->clearVertexObject();
+	tertiary->clearVertexObject();
 }
 
 void Chunk::setBiomeAt(int x, int z, BiomeType newBiome)
 {
-	biomes[MAX_XZ * x + z] = newBiome;
+	biomes.get()[MAX_XZ * x + z] = newBiome;
 }
 
 BiomeType Chunk::getBiomeAt(int x, int z)
@@ -130,12 +96,13 @@ void Chunk::setBlockAt(Location_t& position, BlockType newBlock, bool replaceNon
 	Block& block = getBlockAt(position);
 	if (!replaceNonAirBlocks && (block != BlockType::AIR)) return;
 	LocalLocation_t local = toChunkCoordinatesAt(position.x, position.y, position.z);
+
 	block.setType(newBlock);
-	world->addToQueue(this);
-	if (local.x < 1)			world->addToQueue(cacheLeft);
-	if (local.x >= MAX_XZ - 1)	world->addToQueue(cacheRight);
-	if (local.z < 1)			world->addToQueue(cacheBehind);
-	if (local.z >= MAX_XZ - 1)	world->addToQueue(cacheFront);
+	buildBlocks();
+	if (local.x < 1)			cacheLeft->buildBlocks();
+	if (local.x >= MAX_XZ - 1)	cacheRight->buildBlocks();
+	if (local.z < 1)			cacheBehind->buildBlocks();
+	if (local.z >= MAX_XZ - 1)	cacheFront->buildBlocks();
 }
 
 const glm::vec2& Chunk::getPosition() const
@@ -143,22 +110,38 @@ const glm::vec2& Chunk::getPosition() const
 	return position;
 }
 
-Chunk* Chunk::getCachedChunk(char cachedDirection) const
+Chunk** Chunk::getCachedChunk(char cachedDirection)
 {
 	switch (cachedDirection)
 	{
-	case 'F': return cacheFront;
-	case 'B': return cacheBehind;
-	case 'L': return cacheLeft;
-	case 'R': return cacheRight;
+	case 'F': return &cacheFront;
+	case 'B': return &cacheBehind;
+	case 'L': return &cacheLeft;
+	case 'R': return &cacheRight;
 	default: return nullptr;
 	}
+}
+
+void Chunk::clearCache()
+{
+	if(cacheLeft != nullptr) 	cacheLeft->cacheRight = nullptr;
+	if(cacheRight != nullptr) 	cacheRight->cacheLeft = nullptr;
+	if(cacheBehind != nullptr) 	cacheBehind->cacheFront = nullptr;
+	if(cacheFront != nullptr) 	cacheFront->cacheBehind = nullptr;
+	primary = nullptr;
+	secondary = nullptr;
+	tertiary = nullptr;
 }
 
 void Chunk::ghostSetBlockAt(Location_t position, BlockType newBlock)
 {
 	Block& block = getLocalBlockAt(position);
 	block = newBlock;
+}
+
+const AABB& Chunk::getAABB() const
+{
+	return aabb;
 }
 
 //////////////////////////////////
@@ -171,7 +154,6 @@ void Chunk::cacheChunks()
 	cacheRight = world->getChunkAt(position + glm::vec2(1, 0));  // RIGHT
 	cacheBehind = world->getChunkAt(position + glm::vec2(0, -1)); // BEHIND
 	cacheFront = world->getChunkAt(position + glm::vec2(0, 1));  // FRONT
-
 }
 
 void Chunk::loadMatrix(Renderer& renderer)
@@ -184,7 +166,7 @@ void Chunk::loadMatrix(Renderer& renderer)
 	if (tertiary != nullptr) tertiary->setModelMatrix(model);
 
 	Shader& shader = renderer.getShader(ShaderType::DEFAULT_SHADER);
-	shader.setMatrix("model", model);
+	shader["model"] = model;
 }
 
 void Chunk::loadBlocks()
@@ -211,11 +193,6 @@ void Chunk::loadDecoration(Decoration decoration, int x, int y, int z)
 	}
 }
 
-bool Chunk::isCurrentlyBuilding() const
-{
-	return currentlyBuilding;
-}
-
 Block& Chunk::getLocalBlockAt(int x, int y, int z) const
 {
 	return blocks[x + MAX_XZ * (y + MAX_Y * z)];
@@ -233,25 +210,47 @@ BlockType Chunk::getBlockTypeAt(int x, int y, int z)
 	if (!isBlockWithinBounds(x, z))
 	{
 		Location_t worldLocation = toWorldCoordinatesAt(x, y, z);
-		Chunk* storedChunk = nullptr;
-		if (x < 0) storedChunk = cacheLeft;
-		if (x > MAX_XZ - 1) storedChunk = cacheRight;
-		if (z < 0) storedChunk = cacheBehind;
-		if (z > MAX_XZ - 1) storedChunk = cacheFront;
+		char direction = ' ';
+		if (x < 0) 				direction = 'L';
+		if (x > MAX_XZ - 1) 	direction = 'R';
+		if (z < 0) 				direction = 'B';
+		if (z > MAX_XZ - 1) 	direction = 'F';
 
-		if (storedChunk != nullptr) 
+		if (direction != ' ')
 		{
-			bool cachedBool = storedChunk->isCurrentlyBuilding();
-			storedChunk->currentlyDrawing = true;
-			return storedChunk->getBlockAt(worldLocation).getType();
-			storedChunk->currentlyDrawing = cachedBool;
+			Chunk** chunk = getCachedChunk(direction);
+			if(*chunk != nullptr) return (*chunk)->getBlockAt(worldLocation).getType();
 		}
+
+
+		glm::vec2 chunkPosition;
+
+		switch (direction)
+		{
+		case 'L': chunkPosition = position + glm::vec2(-1, 0);
+			break;
+		case 'R': chunkPosition = position + glm::vec2(1, 0);
+			break;
+		case 'F': chunkPosition = position + glm::vec2(0, 1);
+			break;
+		case 'B': chunkPosition = position + glm::vec2(0, -1);
+			break;
+		}
+
+		glm::vec3 blockPosition(
+			worldLocation.x - (chunkPosition.x * MAX_XZ),
+			worldLocation.y,
+			worldLocation.z - (chunkPosition.y * MAX_XZ)
+		);
+
 
 		return loader->getBlockAt(
 			y, 
-			loader->calculateYHeightAt(glm::vec2(worldLocation.x, worldLocation.z)),
+			loader->getYHeight(blockPosition.x, blockPosition.z, chunkPosition),
 			loader->getBiomeAt(worldLocation.x, worldLocation.z)
 		);
+
+
 	}
 	return getLocalBlockAt(x, y, z).getType();
 

@@ -1,8 +1,6 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#include<chrono>
-
 enum class BlockType
 {
 	AIR = 0,
@@ -18,9 +16,12 @@ enum class BlockType
 
 enum class BiomeType
 {
+	OCEAN,
+	FOREST,
 	PLAINS,
+	PLAINS_MOUNTAIN,
 	DESERT,
-	MOUNTAIN,
+	DESERT_MOUNTAIN,
 	TOTAL_BIOMES
 };
 

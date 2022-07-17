@@ -26,8 +26,8 @@ void Texture::use() const
 }
 
 void Texture::useSlot(
-	const Shader& shader, 
-	const std::string variableName, 
+	Shader& shader, 
+	std::string variableName, 
 	int slot
 )
 {
@@ -35,7 +35,8 @@ void Texture::useSlot(
 	assert((slot < 31 || slot > 0) && "Assign a slot between 0 and 31");
 
 	shader.use();
-	shader.setInt(variableName, slot);
+	shader[variableName] = slot;
+
 	glActiveTexture(GL_TEXTURE0 + slot);
 	use();
 }

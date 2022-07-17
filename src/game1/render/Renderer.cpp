@@ -21,25 +21,29 @@ void Renderer::draw(Mesh* mesh)
 {
 	Shader& current = getShader(currentShader);
 	current.use();
-	current.setMatrix("model", mesh->getModelMatrix());
-	
+	current["model"] = mesh->getModelMatrix();
+
 	mesh->draw();
 }
 
 void Renderer::render()
 {
+	glClearColor(0.53f, 0.81f, 0.92f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	glm::mat4 viewMatrix = camera->getViewMatrix();
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(FOV), ASPECT_RATIO, NEAR, FAR);
 
 	setShader(ShaderType::DEFAULT_SHADER);
 	Shader& shader = getShader(ShaderType::DEFAULT_SHADER);
-	shader.setMatrix("projection", projectionMatrix);
-	shader.setMatrix("view", viewMatrix);
-	shader.setVec3("cameraPos", camera->getPosition().x, 
-		camera->getPosition().y, camera->getPosition().z);
+	shader.use();
+	shader["minFog"] 		= World::RENDER_DISTANCE * 8.5f;
+	shader["projection"] 	= projectionMatrix;
+	shader["view"] 			= viewMatrix;
+	shader["cameraPos"] 	= camera->getPosition();
 
-
-	world->draw(*this);
+	Frustum frustum = camera->generateFrustum();
+	world->draw(*this, frustum);
 
 	setShader(ShaderType::TEMPORARY_SHADER);
 	drawTempGUI();

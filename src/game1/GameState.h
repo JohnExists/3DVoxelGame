@@ -18,16 +18,14 @@ private:
     
 public:
     GameState();
-    void update(float deltaTime);    
     void update1(float deltaTime);    
     void update2(float deltaTime);    
-    void update3(float deltaTime);
 
     void render();
     void cleanUp();
 
-    //World& getWorld();
-    //Camera& getPlayer();
+    World& getWorld();
+    Camera& getPlayer();
 
 private:
 };

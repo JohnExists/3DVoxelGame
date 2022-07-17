@@ -14,6 +14,7 @@
 #include"../render/Renderer.h"
 #include"../render/Shader.h"
 #include"../Camera.h"
+#include"../render/Frustum.h"
 
 #include"biome/Biome.h"
 #include"biome/BiomeLoader.h"
@@ -33,18 +34,15 @@ class World
 public:
 	static std::string vectorToString(const glm::vec2& vec);
 
+	static const int RENDER_DISTANCE = 12;
 private:
-	const int RENDER_DISTANCE = 12;
 
-	using ChunkList_t = std::map<std::string, Chunk*>;
+	using ChunkPtr_t = std::unique_ptr<Chunk>;
+	using ChunkList_t = std::map<std::string, std::unique_ptr<Chunk>>;
 	using Location_t = glm::vec3;
 	using ChunkLocation_t = glm::vec2;
 
-	bool currentlyDrawing = false;
-
 	ChunkList_t chunks;
-	std::deque<ChunkLocation_t> chunksBuildQueue;
-	std::deque<Chunk*> chunksMeshQueue;
 	FastNoiseLite* noise;
 	BiomeLoader* loader;
 	Texture* texture;
@@ -64,13 +62,13 @@ public:
 	Chunk* getChunkAt(const ChunkLocation_t& position);
 	Chunk* getChunkAtWorld(const Location_t& position);
 	Block* getBlockAt(Location_t position);
+	glm::vec2 getChunkPositionAt(Location_t postion);
 
-	void draw(Renderer& renderer);
+	void draw(Renderer& renderer, Frustum& frustrum);
 	void updateChunks(Camera* camera);
 	void addToQueue(Chunk* chunk);
 
 	void updateChunksBuilds(Camera* camera, int task);
-	void updateChunksMeshing();
 
 	void castRay(Camera& camera, bool shouldBreak);
 	void breakBlockAt(Location_t position);
@@ -79,8 +77,8 @@ public:
 	const Texture* getTexture() const;
 private:
 	void unloadFarChunks(const ChunkLocation_t playerChunkLocation);
-	void loadNearbyChunks(const ChunkLocation_t& nearby, bool firstTime);
-	void loadChunk(const ChunkLocation_t& vectorPosition);
+	void loadNearbyChunks(const ChunkLocation_t& nearby, Camera* camera);
+	void preloadChunk(const ChunkLocation_t& vectorPosition, Camera* camera);
 	World::Location_t getBlockSide(Location_t rayLanding);
 };
 

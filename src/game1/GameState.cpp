@@ -10,17 +10,6 @@ GameState::GameState()
     // std::thread thr5(cleanUp);
 }
 
-void GameState::update(float deltaTime)
-{
-    std::thread thr1(update1, 1.0f);
-    std::thread thr2(update2, 1.0f);
-    
-    while (isActive)
-    {
-    }
-
-}
-
 void GameState::update1(float deltaTime)
 {
     
@@ -31,27 +20,22 @@ void GameState::update2(float deltaTime)
     
 }
 
-void GameState::update3(float deltaTime)
-{
-    
-}
-
 void GameState::render()
 {
-    
+    renderer->render();    
 }
 
 void GameState::cleanUp()
 {
-    
+    world->updateChunksBuilds(player.get(), 1);
 }
 
-//World& GameState::getWorld()
-//{
-//    // return world.get();
-//}
+World& GameState::getWorld()
+{
+   return *world;
+}
 
-//Camera& GameState::getPlayer()
-//{
-//    // return player.get();
-//}
+Camera& GameState::getPlayer()
+{
+   return *player;
+}

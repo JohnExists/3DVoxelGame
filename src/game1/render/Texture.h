@@ -58,12 +58,15 @@ public:
 	 * The slot in memory that is going to 
 	 * hold the image
 	 */
-	void useSlot(const Shader& shader, 
-		const std::string variableName, int slot);
+	void useSlot(
+	Shader& shader, 
+	std::string variableName, 
+	int slot
+);
 
 	/**
 	* Chooses how to wrap a texture in case
-	* the specified tex parameters are too large
+	* the specified UV parameters are too large
 	* 
 	* (ex. GL_REPEAT, GL_MIRRORED_REPEAT, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_BORDER)
 	* 

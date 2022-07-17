@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.obj"
+  "CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.obj.d"
   "CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj"
   "CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj.d"
   "CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.obj"
@@ -11,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj.d"
   "CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj"
   "CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj.d"
+  "CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj"
+  "CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj.d"
   "CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj"
   "CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj.d"
   "CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj"

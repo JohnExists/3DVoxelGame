@@ -49,12 +49,15 @@ class VertexArrayObject : public GLObject
 {
 private:
 	std::unique_ptr<VertexObject> vertexData;
+	std::vector<Quad>* quads;
 public:
 	VertexArrayObject(std::vector<Quad>* vertices);
 
 	// Inherited via GLObject
 	virtual void use() override;
 	virtual void abandon() override;
+
+	void draw();
 
 private:
 	void link();

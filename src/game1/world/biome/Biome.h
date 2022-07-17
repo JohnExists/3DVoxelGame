@@ -29,8 +29,8 @@ public:
 	static const int BOTTOM = 2;
 
 private:
-	int scaleBy = 0;
-	int addBy = 0;
+	int minHeight = 0;
+	int altitude = 0;
 	int decorationCount;
 
 	Placeables_t *decoration;

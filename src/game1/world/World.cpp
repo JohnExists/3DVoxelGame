@@ -18,14 +18,14 @@ World::World(int seed)
 	texture->setScalingFilter(GL_NEAREST, GL_NEAREST);
 	texture->setWrapAround(GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE);
 
-	loadNearbyChunks(ChunkLocation_t(0.0f, 0.0f), true);
+	preloadChunk(ChunkLocation_t(0, 0), nullptr);
 }
 
 Chunk* World::getChunkAt(const ChunkLocation_t& vectorPosition)
 { 
 	std::string position = vectorToString(vectorPosition);
 	Chunk* chunk = nullptr;
-	if (chunks.count(position)) chunk = chunks.at(position);
+	if (chunks.count(position)) chunk = chunks.at(position).get();
 
 	return chunk;
 }
@@ -47,22 +47,42 @@ Block* World::getBlockAt(Location_t position)
 	return &chunk->getBlockAt(position);
 }
 
-
-void World::draw(Renderer& renderer)
+glm::vec2 World::getChunkPositionAt(Location_t position)
 {
-	currentlyDrawing = true;
+	return glm::vec2(
+		floor(position.x / Chunk::MAX_XZ),
+		floor(position.z / Chunk::MAX_XZ)
+	);
+}
+
+
+void World::draw(Renderer& renderer, Frustum& frustum)
+{
 	texture->useSlot(renderer.getShader(ShaderType::DEFAULT_SHADER), "texture1", 0);
 
+	int passes = 0;
+	int culledPasses = 0;
+
 	for (auto& [position, chunk] : chunks)
 	{
-		if(chunk != nullptr) chunk->draw(renderer, Chunk::PRIMARY_MESH);
+		++passes;
+		if( frustum.collidesWith(chunk->getAABB()) )
+		{
+			++culledPasses;
+			if(chunk) chunk->draw(renderer, Chunk::PRIMARY_MESH);
+		}
 	}
 	for (auto& [position, chunk] : chunks)
 	{
-		if(chunk != nullptr) chunk->draw(renderer, Chunk::SECONDARY_MESH);
-		if(chunk != nullptr) chunk->draw(renderer, Chunk::TERTIARY_MESH);
+		if( frustum.collidesWith(chunk->getAABB()) )
+		{
+			if(chunk) chunk->draw(renderer, Chunk::SECONDARY_MESH);
+			if(chunk) chunk->draw(renderer, Chunk::TERTIARY_MESH);
+		}
 	}
-	currentlyDrawing = false;
+
+	std::cout << "All: " << passes << ": " << "Culled: " << culledPasses << '\n';
+
 }
 
 void World::addToQueue(Chunk* chunk)
@@ -72,37 +92,12 @@ void World::addToQueue(Chunk* chunk)
 
 void World::updateChunksBuilds(Camera* camera, int task) 
 {
-	static ChunkLocation_t playerChunk = glm::vec2(0.0f, 0.0f);
 	Location_t playerLocation = camera->getPosition();
-
-	if(playerChunk != getChunkAtWorld(playerLocation)->getPosition())
-	{
-		if(task == 0) loadNearbyChunks(playerChunk, true);
-		if(task == 1) unloadFarChunks(playerChunk);
-	}
+	ChunkLocation_t playerChunk = getChunkPositionAt(playerLocation);
 	
-	playerChunk = getChunkAtWorld(playerLocation)->getPosition();
+	if(task == 0) loadNearbyChunks(playerChunk, camera);
+	if(task == 1) unloadFarChunks(playerChunk);
 
-}
-
-void World::updateChunksMeshing()
-{
-	if (!chunksMeshQueue.empty())
-	{
-		Chunk* front = chunksMeshQueue.front();
-		if (front != nullptr)
-		{
-			while (true)
-			{
-				if(!front->isCurrentlyDrawing())
-				{
-					front->buildBlocks();
-					chunksMeshQueue.pop_front();
-					break;
-				}
-			}
-		}
-	}
 }
 
 void World::breakBlockAt(Location_t position)
@@ -130,26 +125,11 @@ void World::castRay(Camera& camera, bool shouldBreak)
 		Location_t rayLocation = castFrom + (castTo * rayLength);
 		Block* block = getBlockAt(rayLocation);
 
-		if (*block != BlockType::AIR && *block != BlockType::WATER)
-		{
-			if (shouldBreak)
-			{
-				breakBlockAt(rayLocation);
-				return;
-			}
-			if (!shouldBreak)
-			{
-				try
-				{
-					placeBlockAt(rayLocation + getBlockSide(rayLocation), BlockType::SAND);
-					return;
-				}
-				catch(const std::exception& e)
-				{
-					return;
-				}
-			}
-		}
+		if (*block == BlockType::AIR || *block == BlockType::WATER) continue;
+
+		if (shouldBreak) breakBlockAt(rayLocation);
+		if (!shouldBreak) placeBlockAt(rayLocation + getBlockSide(rayLocation), BlockType::SAND);
+		break;
 	}
 }
 
@@ -160,74 +140,72 @@ const Texture* World::getTexture() const
 
 void World::unloadFarChunks(const ChunkLocation_t playerChunkLocation) 
 {
-	std::vector<std::string> positions;
+	std::vector<std::string> unloadedChunks;
 
-	for (auto&& [position, chunk] : chunks)
+	for (auto it = chunks.cbegin(); it != chunks.cend(); ++it)	
 	{
-		if(abs(glm::length(chunk->getPosition() - playerChunkLocation)) > RENDER_DISTANCE)
+		Chunk* chunk =  it->second.get();
+		
+		if(chunk == nullptr) continue;
+		if(abs(glm::length(chunk->getPosition() - playerChunkLocation)) >= RENDER_DISTANCE)
 		{
-			positions.push_back(position);
+			chunk->clearCache();
+			unloadedChunks.push_back(it->first);
 		}
 	}
 
-	for (auto && position : positions)
+	for (auto&& unloadedChunk : unloadedChunks)
 	{
-		Chunk* current = chunks.at(position);
-
-		chunksMeshQueue.erase(std::remove(chunksMeshQueue.begin(), chunksMeshQueue.end(), 
-		current), 
-		chunksMeshQueue.end());
-
-		chunksBuildQueue.erase(std::remove(chunksBuildQueue.begin(), chunksBuildQueue.end(), 
-		current->getPosition()), 
-		chunksBuildQueue.end());
-		chunks.erase(position);
-
-		while (true)
-		{
-			if(!currentlyDrawing && !current->isCurrentlyBuilding() && !current->isCurrentlyDrawing())
-			{		
-				delete current;
-				current = nullptr;
-				break;
-			}
-		}
+		// chunks[unloadedChunk] = nullptr;
+		// chunks.erase(unloadedChunk);
 	}
-}
+}        
 
-void World::loadNearbyChunks(const ChunkLocation_t& nearby, bool firstTime)
+void World::loadNearbyChunks(const ChunkLocation_t& nearby, Camera* camera)
 {
 	std::vector<ChunkLocation_t> chunksLocations;
 
-	for (int i = nearby.x - RENDER_DISTANCE; i <= nearby.x + RENDER_DISTANCE; i++)
+	for (int x = nearby.x - RENDER_DISTANCE; x <= nearby.x + RENDER_DISTANCE; x++)
 	{
-		for (int j = nearby.y - RENDER_DISTANCE; j <= nearby.y + RENDER_DISTANCE; j++)
+		for (int z = nearby.y - RENDER_DISTANCE; z <= nearby.y + RENDER_DISTANCE; z++)
 		{
-			std::string positon = vectorToString(ChunkLocation_t(i, j));
+			ChunkLocation_t location(x, z);
+			std::string positon = vectorToString(ChunkLocation_t(x, z));
+			if (abs(glm::length(location - nearby)) > RENDER_DISTANCE) continue;
 			if (chunks.count(positon)) continue;
-			chunksLocations.push_back(ChunkLocation_t(i, j));
+		
+			chunksLocations.push_back(ChunkLocation_t(x, z));
 		}
 	}
-	
-	std::sort(chunksLocations.begin(), chunksLocations.end(), [&](auto& left, auto& right) {
-		return glm::length(left - nearby) < glm::length(right - nearby);
-	});
+
+	std::sort(chunksLocations.begin(), chunksLocations.end(), 
+		[&] (const auto& left, const auto& right) {
+			return glm::length(left - nearby) < glm::length(right - nearby);
+		});
 
 	for (auto&& location : chunksLocations)
 	{
-		loadChunk(location);
+		preloadChunk(location, camera);
 	}
 }
 
-void World::loadChunk(const ChunkLocation_t& vectorPosition)
+void World::preloadChunk(const ChunkLocation_t& vectorPosition, Camera* camera)
 {
 	std::string positon = vectorToString(vectorPosition);
-	if (chunks.count(positon)) return;
+	if(camera != nullptr)
+	{
+		ChunkLocation_t cameraLocation = getChunkPositionAt(camera->getPosition());
+		if (abs(glm::length(cameraLocation - vectorPosition)) > RENDER_DISTANCE) 
+		{
+			return;	
+		}
+	}
+ 
+	chunks.insert({ 
+		positon, 
+		(std::make_unique<Chunk>(vectorPosition, this, *loader, noise)) 
+	});
 
-	Chunk* chunk = new Chunk(vectorPosition, this, *loader, noise);
-	
-	chunks.insert({ positon, (chunk) });
-	chunksMeshQueue.push_back(chunk);
 }
 
 World::Location_t World::getBlockSide(Location_t rayLanding) {
@@ -250,6 +228,6 @@ World::Location_t World::getBlockSide(Location_t rayLanding) {
 	if (decimal.z >= POSITIVE_SIDE)	index = 1; // +z (0, 0, 1)
 	if (decimal.z <= NEGATIVE_SIDE)	index = 0; // -z (0, 0, -1)
 	
-	if(index == -1) throw std::exception();
+	if(index == -1) return World::Location_t(0, 0, 0);
 	return allBlockSides[index];
 }

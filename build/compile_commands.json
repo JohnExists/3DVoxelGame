@@ -1,6 +1,11 @@
 [
 {
   "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/AABB.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/AABB.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
   "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.cpp\"",
   "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.cpp"
 },
@@ -28,6 +33,11 @@
   "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
   "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.cpp\"",
   "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.cpp"
 },
 {
   "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",

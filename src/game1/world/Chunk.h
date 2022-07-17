@@ -8,20 +8,23 @@
 #include <string>
 #include <algorithm>
 #include <chrono>
+#include <optional>
+#include <utility>
 
 #include "../Random.h"
 #include "../render/Texture.h"
 #include "../render/Renderer.h"
 #include "../render/Mesh.h"
+#include "../render/CubeBuilder.h"
+#include "../render/Frustum.h"
+#include "../AABB.h"
 
 #include "biome/Biome.h"
 #include "biome/BiomeLoader.h"
-#include "../render/CubeBuilder.h"
 #include "FastNoise.h"
 #include "Block.h"
 #include "World.h"
 #include "Decoration.h"
-#include "World.h"
 
 class BiomeLoader;
 class Biome;
@@ -41,37 +44,36 @@ public:
 	static const int SECONDARY_MESH = 1;
 	static const int TERTIARY_MESH = 2;
 
+	AABB getAabb() const { return aabb; }
+
 private:
 	using Location_t = glm::vec3;
 	using LocalLocation_t = glm::vec3;
 
-	Mesh* primary = nullptr;
-	Mesh* secondary = nullptr;
-	Mesh* tertiary = nullptr;
+	std::unique_ptr<Mesh> primary;
+	std::unique_ptr<Mesh> secondary;
+	std::unique_ptr<Mesh> tertiary;
 	glm::vec2 position;
-	Block* blocks;
-	BiomeType* biomes;
+	
+	std::unique_ptr<Block[]> blocks;
+	std::unique_ptr<BiomeType[]> biomes;
 
 	World* world = nullptr;
 	BiomeLoader* loader = nullptr;
 	FastNoiseLite* noise = nullptr;
-	bool currentlyDrawing = false;
-	bool currentlyBuilding = false;
 
-	Chunk* cacheFront = nullptr;
-	Chunk* cacheBehind = nullptr;
-	Chunk* cacheLeft = nullptr;
-	Chunk* cacheRight = nullptr;
+	Chunk* cacheFront;
+	Chunk* cacheBehind;
+	Chunk* cacheLeft;
+	Chunk* cacheRight;
+
+	AABB aabb;
 
 public:
 	Chunk(const glm::vec2& position, World* world, BiomeLoader& loader, FastNoiseLite* noise);
-	~Chunk();
 
 	void draw(Renderer& renderer, int meshToDraw);
 	void buildBlocks();
-	bool isReady();
-	bool isCurrentlyDrawing() const;
-	bool isCurrentlyBuilding() const;
 
 	Block& getBlockAt(Location_t& positon);
 	void setBlockAt(Location_t& position, BlockType newBlock, bool replaceAir);
@@ -81,7 +83,11 @@ public:
 	void setBiomeAt(int x, int z, BiomeType newBiome);
 
 	const glm::vec2& getPosition() const;
-	Chunk* getCachedChunk(char cachedDirection) const;
+	const AABB& getAABB() const;
+
+	Chunk** getCachedChunk(char cachedDirection);
+	void clearCache();
+	void cacheChunks();
 
 	Location_t toWorldCoordinatesAt(int x, int y, int z);
 	LocalLocation_t toChunkCoordinatesAt(int x, int y, int z);
@@ -90,7 +96,6 @@ public:
 
 
 private:
-	void cacheChunks();
 
 	void loadMatrix(Renderer& renderer);
 	void loadBlocks();

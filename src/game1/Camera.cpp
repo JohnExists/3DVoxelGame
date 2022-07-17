@@ -70,11 +70,9 @@ glm::vec3 Camera::getPosition()
 
 void Camera::setPosition(float x, float y, float z)
 {
-	//std::cout << y << '\n';
 	position.x += x;
 	position.y += y;
 	position.z += z;
-	//std::cout << y << '\n';
 
 }
 
@@ -91,6 +89,24 @@ float Camera::getPitch() const
 glm::vec3 Camera::getDirectionVector()
 {
 	return front;
+}
+
+Frustum Camera::generateFrustum()
+{
+	const float HALF_V_SIDE = Renderer::FAR * tanf(Renderer::FOV * 0.8f);
+	const float HALF_H_SIDE = HALF_V_SIDE * Renderer::ASPECT_RATIO;
+	const glm::vec3 FRONT_MULT_FAR = Renderer::FAR * front;
+
+	return Frustum(
+		Plane( position, glm::cross(right, FRONT_MULT_FAR - up * HALF_V_SIDE) 	), // TOP
+		Plane( position, glm::cross(FRONT_MULT_FAR + up * HALF_V_SIDE, right) 	), // BOTTOM
+
+		Plane( position, glm::cross(up, FRONT_MULT_FAR + right * HALF_H_SIDE) 	), // RIGHT
+		Plane( position, glm::cross(FRONT_MULT_FAR - right * HALF_H_SIDE, up) 	), // LEFT
+		
+		Plane( position + FRONT_MULT_FAR, -front 								), // FAR
+		Plane( position + Renderer::NEAR * front, front 						)  // NEAR
+	);
 }
 
 //////////////////////////////////

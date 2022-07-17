@@ -11,11 +11,13 @@ Mesh::Mesh(
 {
 	this->quads		= quads;
 	this->texture	= texture;
+	this->quads.reserve(1000);
 }
 
 Mesh::Mesh(const Texture* texture)
 {
 	this->texture = texture;
+	this->quads.reserve(1000);
 }
 
 bool Mesh::isLoaded() 
@@ -38,15 +40,12 @@ void Mesh::translate(float x, float y, float z)
 	modelMatrix = glm::translate(modelMatrix, glm::vec3(x, y, z));
 }
 
-
 void Mesh::draw()
 {
 	if(quads.empty()) return;
-	if(vao == nullptr) loadVertexObject();
+	if(!vao) loadVertexObject();
 
-	vao->use();
-	glDrawArrays(GL_TRIANGLES, 0, quads.size() * 6);
-	// vao->abandon();
+	vao->draw();
 }
 
 void Mesh::loadVertexObject()
@@ -61,7 +60,6 @@ std::vector<Quad>& Mesh::getQuads()
 {
 	return quads;
 }
-
 
 void Mesh::setModelMatrix(const glm::mat4 model)
 {

@@ -4,9 +4,9 @@
 /*		Public Functions		*/
 //////////////////////////////////
 
-Biome::Biome(int scaleBy, int addBy, BlockType top, BlockType center, BlockType bottom, 
+Biome::Biome(int minHeight, int altitude, BlockType top, BlockType center, BlockType bottom, 
 	std::initializer_list<Placeables_t> decoration) : 
-	scaleBy(scaleBy), addBy(addBy), 
+	minHeight(minHeight), altitude(altitude), 
 	topBlock(top), centerBlocks(center), bottomBlocks(bottom)
 {
 	this->decorationCount = decoration.size();
@@ -37,7 +37,7 @@ BlockType Biome::get(int valueToGet)
 
 int Biome::obtainHeight(float noiseOutput)
 {
-	return (noiseOutput * scaleBy + addBy);
+	return std::lerp(minHeight, minHeight + altitude, noiseOutput);
 }
 
 Decoration Biome::obtainDecoration()

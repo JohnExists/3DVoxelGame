@@ -13,7 +13,20 @@
 class Shader
 {
 private:
-	GLuint ID;
+	class ShaderUniform
+	{
+	private:
+		GLuint value;
+	public:
+		ShaderUniform(GLint value);
+		void operator=(glm::mat4& variableName);
+		void operator=(glm::vec3 variableName);
+		void operator=(float variableName);
+		void operator=(int variableName);
+
+	};
+
+	GLint ID;
 
 public:
 	Shader(const char* vertexPath, const char* fragmentPath, int filler);
@@ -21,13 +34,7 @@ public:
 	Shader() = default;
 
 	void use() const;
-
-	void setBool(const std::string& name, bool value) const;
-	void setInt(const std::string& name, int value) const;
-	void setFloat(const std::string& name, float value) const;
-	void setMatrix(const std::string& name, glm::mat4& matrix) const;
-	void setVec3(const std::string& name, float x, float y, float z) const;
-
+	ShaderUniform operator[](std::string variableName);
 	GLuint getID() const;
 
 private:
@@ -35,5 +42,7 @@ private:
 	void compile(const GLenum type, const char* shaderCode, GLuint& shader);
 	void checkErrors(GLuint data, const std::string& name);
 };
+
+
 
 #endif // !SHADER_H

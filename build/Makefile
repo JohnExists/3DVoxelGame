@@ -129,6 +129,30 @@ MinecraftGL/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/build
 .PHONY : MinecraftGL/fast
 
+src/game1/AABB.obj: src/game1/AABB.cpp.obj
+.PHONY : src/game1/AABB.obj
+
+# target to build an object file
+src/game1/AABB.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.obj
+.PHONY : src/game1/AABB.cpp.obj
+
+src/game1/AABB.i: src/game1/AABB.cpp.i
+.PHONY : src/game1/AABB.i
+
+# target to preprocess a source file
+src/game1/AABB.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.i
+.PHONY : src/game1/AABB.cpp.i
+
+src/game1/AABB.s: src/game1/AABB.cpp.s
+.PHONY : src/game1/AABB.s
+
+# target to generate assembly for a file
+src/game1/AABB.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.s
+.PHONY : src/game1/AABB.cpp.s
+
 src/game1/Camera.obj: src/game1/Camera.cpp.obj
 .PHONY : src/game1/Camera.obj
 
@@ -272,6 +296,30 @@ src/game1/render/CubeBuilder.s: src/game1/render/CubeBuilder.cpp.s
 src/game1/render/CubeBuilder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.s
 .PHONY : src/game1/render/CubeBuilder.cpp.s
+
+src/game1/render/Frustum.obj: src/game1/render/Frustum.cpp.obj
+.PHONY : src/game1/render/Frustum.obj
+
+# target to build an object file
+src/game1/render/Frustum.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj
+.PHONY : src/game1/render/Frustum.cpp.obj
+
+src/game1/render/Frustum.i: src/game1/render/Frustum.cpp.i
+.PHONY : src/game1/render/Frustum.i
+
+# target to preprocess a source file
+src/game1/render/Frustum.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.i
+.PHONY : src/game1/render/Frustum.cpp.i
+
+src/game1/render/Frustum.s: src/game1/render/Frustum.cpp.s
+.PHONY : src/game1/render/Frustum.s
+
+# target to generate assembly for a file
+src/game1/render/Frustum.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.s
+.PHONY : src/game1/render/Frustum.cpp.s
 
 src/game1/render/GLObject.obj: src/game1/render/GLObject.cpp.obj
 .PHONY : src/game1/render/GLObject.obj
@@ -594,6 +642,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MinecraftGL"
+	@echo "... src/game1/AABB.obj"
+	@echo "... src/game1/AABB.i"
+	@echo "... src/game1/AABB.s"
 	@echo "... src/game1/Camera.obj"
 	@echo "... src/game1/Camera.i"
 	@echo "... src/game1/Camera.s"
@@ -612,6 +663,9 @@ help:
 	@echo "... src/game1/render/CubeBuilder.obj"
 	@echo "... src/game1/render/CubeBuilder.i"
 	@echo "... src/game1/render/CubeBuilder.s"
+	@echo "... src/game1/render/Frustum.obj"
+	@echo "... src/game1/render/Frustum.i"
+	@echo "... src/game1/render/Frustum.s"
 	@echo "... src/game1/render/GLObject.obj"
 	@echo "... src/game1/render/GLObject.i"
 	@echo "... src/game1/render/GLObject.s"
