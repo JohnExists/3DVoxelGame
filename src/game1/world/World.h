@@ -51,20 +51,28 @@ public:
 	World(int seed);
 
 	/**
-	*
-	* Returns a pointer to a chunk at a certain position
-	* Return nullptr if no such chunk exists
+	* @returns A pointer to the chunk at a certain position or 
+	* nullptr if no chunk exists
 	* 
 	* @param position
-	* Position that the chunk is located at
+	* Position that the chunk is located at based off chunk coordinates
 	* 
 	*/
 	Chunk* getChunkAt(const ChunkLocation_t& position);
+
+	/**
+	* @returns A pointer to the chunk at a certain position or 
+	* nullptr if no chunk exists
+	* 
+	* @param position
+	* Position that the chunk is located at based off world coordinates
+	* 
+	*/
 	Chunk* getChunkAtWorld(const Location_t& position);
 	Block* getBlockAt(Location_t position);
 	glm::vec2 getChunkPositionAt(Location_t postion);
 
-	void draw(Renderer& renderer, Frustum& frustrum);
+	void draw(Renderer& renderer, Frustum& frustum);
 	void updateChunks(Camera* camera);
 	void addToQueue(Chunk* chunk);
 

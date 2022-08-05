@@ -65,7 +65,6 @@ void World::draw(Renderer& renderer, Frustum& frustum)
 
 	for (auto& [position, chunk] : chunks)
 	{
-		++passes;
 		if( frustum.collidesWith(chunk->getAABB()) )
 		{
 			++culledPasses;

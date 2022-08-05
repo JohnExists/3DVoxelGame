@@ -62,6 +62,8 @@ private:
 	BiomeLoader* loader = nullptr;
 	FastNoiseLite* noise = nullptr;
 
+	bool isCulled = false;
+
 	Chunk* cacheFront;
 	Chunk* cacheBehind;
 	Chunk* cacheLeft;
@@ -88,6 +90,8 @@ public:
 	Chunk** getCachedChunk(char cachedDirection);
 	void clearCache();
 	void cacheChunks();
+
+	bool updateCullingStatus(Frustum& frustum);
 
 	Location_t toWorldCoordinatesAt(int x, int y, int z);
 	LocalLocation_t toChunkCoordinatesAt(int x, int y, int z);

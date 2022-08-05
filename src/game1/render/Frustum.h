@@ -43,6 +43,4 @@ namespace FrustumCulling
 
 }
 
-
-
 #endif // FRUSTUM_H

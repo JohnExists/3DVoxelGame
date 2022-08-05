@@ -10,8 +10,8 @@ Chunk::Chunk(const glm::vec2& position, World* world, BiomeLoader& loader, FastN
 	blocks = std::make_unique<Block[]>(MAX_XZ * MAX_Y * MAX_XZ);
 	biomes = std::make_unique<BiomeType[]>(MAX_XZ * MAX_XZ);
 
-	this->aabb.position = glm::vec3(position.x * MAX_XZ, 0, position.y * MAX_XZ);
-	this->aabb.size = glm::vec3(MAX_XZ, MAX_Y, MAX_XZ);
+	aabb.position = glm::vec3(position.x * MAX_XZ, 0, position.y * MAX_XZ);
+	aabb.size = glm::vec3(MAX_XZ, MAX_Y, MAX_XZ);
 
 	this->loader->loadBiomes(this);
 	loadBlocks();
@@ -20,6 +20,7 @@ Chunk::Chunk(const glm::vec2& position, World* world, BiomeLoader& loader, FastN
 
 void Chunk::draw(Renderer& renderer, int meshToDraw)
 {
+	if(isCulled) return;
 	loadMatrix(renderer);
 
 	if (meshToDraw == PRIMARY_MESH && primary != nullptr)
@@ -154,6 +155,13 @@ void Chunk::cacheChunks()
 	cacheRight = world->getChunkAt(position + glm::vec2(1, 0));  // RIGHT
 	cacheBehind = world->getChunkAt(position + glm::vec2(0, -1)); // BEHIND
 	cacheFront = world->getChunkAt(position + glm::vec2(0, 1));  // FRONT
+}
+
+bool Chunk::updateCullingStatus(Frustum& frustum)
+{
+	bool collidesWithFrustum = frustum.collidesWith(aabb);	
+	isCulled = !collidesWithFrustum;
+	return collidesWithFrustum;
 }
 
 void Chunk::loadMatrix(Renderer& renderer)

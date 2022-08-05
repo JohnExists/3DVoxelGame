@@ -32,7 +32,7 @@ class Renderer
 public:
 	static constexpr float FOV = 80.0f;
 	static constexpr float NEAR = 0.1f;
-	static constexpr float FAR = 1000.0f;
+	static constexpr float FAR = 500.0f;
 	static constexpr float ASPECT_RATIO = 960.0f / 540.0f;
 
 private:

@@ -8,7 +8,7 @@ float Plane::getSignedDistanceTo(glm::vec3 point)
 bool Frustum::collidesWith(const AABB aabb)
 {
     using namespace FrustumCulling;
-    glm::vec3 extends(aabb.size.x / 2, aabb.size.y / 2, aabb.size.z / 2);
+    glm::vec3 extends = aabb.size * 0.5f;
     glm::vec3 center = aabb.position + extends;
 
     return collidesWithPlane(center, extends, leftFace) &&
