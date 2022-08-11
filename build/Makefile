@@ -201,6 +201,30 @@ src/game1/GameState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.s
 .PHONY : src/game1/GameState.cpp.s
 
+src/game1/InputHandler.obj: src/game1/InputHandler.cpp.obj
+.PHONY : src/game1/InputHandler.obj
+
+# target to build an object file
+src/game1/InputHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/InputHandler.cpp.obj
+.PHONY : src/game1/InputHandler.cpp.obj
+
+src/game1/InputHandler.i: src/game1/InputHandler.cpp.i
+.PHONY : src/game1/InputHandler.i
+
+# target to preprocess a source file
+src/game1/InputHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/InputHandler.cpp.i
+.PHONY : src/game1/InputHandler.cpp.i
+
+src/game1/InputHandler.s: src/game1/InputHandler.cpp.s
+.PHONY : src/game1/InputHandler.s
+
+# target to generate assembly for a file
+src/game1/InputHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/InputHandler.cpp.s
+.PHONY : src/game1/InputHandler.cpp.s
+
 src/game1/Random.obj: src/game1/Random.cpp.obj
 .PHONY : src/game1/Random.obj
 
@@ -224,6 +248,30 @@ src/game1/Random.s: src/game1/Random.cpp.s
 src/game1/Random.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.s
 .PHONY : src/game1/Random.cpp.s
+
+src/game1/entity/Player.obj: src/game1/entity/Player.cpp.obj
+.PHONY : src/game1/entity/Player.obj
+
+# target to build an object file
+src/game1/entity/Player.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj
+.PHONY : src/game1/entity/Player.cpp.obj
+
+src/game1/entity/Player.i: src/game1/entity/Player.cpp.i
+.PHONY : src/game1/entity/Player.i
+
+# target to preprocess a source file
+src/game1/entity/Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.i
+.PHONY : src/game1/entity/Player.cpp.i
+
+src/game1/entity/Player.s: src/game1/entity/Player.cpp.s
+.PHONY : src/game1/entity/Player.s
+
+# target to generate assembly for a file
+src/game1/entity/Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.s
+.PHONY : src/game1/entity/Player.cpp.s
 
 src/game1/glad.obj: src/game1/glad.c.obj
 .PHONY : src/game1/glad.obj
@@ -651,9 +699,15 @@ help:
 	@echo "... src/game1/GameState.obj"
 	@echo "... src/game1/GameState.i"
 	@echo "... src/game1/GameState.s"
+	@echo "... src/game1/InputHandler.obj"
+	@echo "... src/game1/InputHandler.i"
+	@echo "... src/game1/InputHandler.s"
 	@echo "... src/game1/Random.obj"
 	@echo "... src/game1/Random.i"
 	@echo "... src/game1/Random.s"
+	@echo "... src/game1/entity/Player.obj"
+	@echo "... src/game1/entity/Player.i"
+	@echo "... src/game1/entity/Player.s"
 	@echo "... src/game1/glad.obj"
 	@echo "... src/game1/glad.i"
 	@echo "... src/game1/glad.s"

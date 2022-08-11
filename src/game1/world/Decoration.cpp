@@ -38,6 +38,7 @@ decor::positions_t decor::loadFromFile(std::string filePath)
 		while (((pos = lineAsString.find(delimiter)) != std::string::npos) &&
 			lineAsString.size() != 0) {
 			// converts the string token to an int
+			if(counter > 4) break;
 			tokens[counter] = std::stoi(lineAsString.substr(0, pos));
 
 			lineAsString.erase(0, pos + 1);

@@ -29,9 +29,9 @@
 class BiomeLoader;
 class Biome;
 class BlockBuilder;
-class Block;
 class Renderer;
 class World;
+class Block;
 class Mesh;
 
 class Chunk
@@ -39,12 +39,11 @@ class Chunk
 public:
 	static const int MAX_XZ = 16;
 	static const int MAX_Y = 256;
+	static const int MAX_BLOCKS = MAX_XZ * MAX_Y * MAX_XZ;
 
 	static const int PRIMARY_MESH = 0;
 	static const int SECONDARY_MESH = 1;
 	static const int TERTIARY_MESH = 2;
-
-	AABB getAabb() const { return aabb; }
 
 private:
 	using Location_t = glm::vec3;
@@ -58,11 +57,11 @@ private:
 	std::unique_ptr<Block[]> blocks;
 	std::unique_ptr<BiomeType[]> biomes;
 
+	// std::array<Block, MAX_BLOCKS> blocks {};
+	// std::array<BiomeType, MAX_XZ * MAX_XZ> biomes {};
+
 	World* world = nullptr;
 	BiomeLoader* loader = nullptr;
-	FastNoiseLite* noise = nullptr;
-
-	bool isCulled = false;
 
 	Chunk* cacheFront;
 	Chunk* cacheBehind;
@@ -72,7 +71,7 @@ private:
 	AABB aabb;
 
 public:
-	Chunk(const glm::vec2& position, World* world, BiomeLoader& loader, FastNoiseLite* noise);
+	Chunk(const glm::vec2& position, World* world, BiomeLoader& loader);
 
 	void draw(Renderer& renderer, int meshToDraw);
 	void buildBlocks();
@@ -90,8 +89,6 @@ public:
 	Chunk** getCachedChunk(char cachedDirection);
 	void clearCache();
 	void cacheChunks();
-
-	bool updateCullingStatus(Frustum& frustum);
 
 	Location_t toWorldCoordinatesAt(int x, int y, int z);
 	LocalLocation_t toChunkCoordinatesAt(int x, int y, int z);

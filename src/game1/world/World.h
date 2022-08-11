@@ -21,6 +21,7 @@
 #include"Chunk.h"
 #include"FastNoise.h"
 #include"Block.h"
+#include"../Settings.h"
 
 class BiomeLoader;
 class Chunk;
@@ -39,10 +40,9 @@ private:
 
 	using ChunkPtr_t = std::unique_ptr<Chunk>;
 	using ChunkList_t = std::map<std::string, std::unique_ptr<Chunk>>;
-	using Location_t = glm::vec3;
-	using ChunkLocation_t = glm::vec2;
-
+	
 	ChunkList_t chunks;
+	std::queue<std::string> garbageChunks;
 	FastNoiseLite* noise;
 	BiomeLoader* loader;
 	Texture* texture;
@@ -58,7 +58,7 @@ public:
 	* Position that the chunk is located at based off chunk coordinates
 	* 
 	*/
-	Chunk* getChunkAt(const ChunkLocation_t& position);
+	Chunk* getChunkAt(const game::ChunkLocation_t& position);
 
 	/**
 	* @returns A pointer to the chunk at a certain position or 
@@ -68,9 +68,9 @@ public:
 	* Position that the chunk is located at based off world coordinates
 	* 
 	*/
-	Chunk* getChunkAtWorld(const Location_t& position);
-	Block* getBlockAt(Location_t position);
-	glm::vec2 getChunkPositionAt(Location_t postion);
+	Chunk* getChunkAtWorld(const game::Location_t& position);
+	Block* getBlockAt(game::Location_t position);
+	glm::vec2 getChunkPositionAt(game::Location_t postion);
 
 	void draw(Renderer& renderer, Frustum& frustum);
 	void updateChunks(Camera* camera);
@@ -78,16 +78,16 @@ public:
 
 	void updateChunksBuilds(Camera* camera, int task);
 
-	void castRay(Camera& camera, bool shouldBreak);
-	void breakBlockAt(Location_t position);
-	void placeBlockAt(Location_t position, BlockType type);
+	void clearGarabage();
+
+	void breakBlockAt(game::Location_t position);
+	void placeBlockAt(game::Location_t position, BlockType type);
 
 	const Texture* getTexture() const;
 private:
-	void unloadFarChunks(const ChunkLocation_t playerChunkLocation);
-	void loadNearbyChunks(const ChunkLocation_t& nearby, Camera* camera);
-	void preloadChunk(const ChunkLocation_t& vectorPosition, Camera* camera);
-	World::Location_t getBlockSide(Location_t rayLanding);
+	void unloadFarChunks(const game::ChunkLocation_t playerChunkLocation);
+	void loadNearbyChunks(const game::ChunkLocation_t& nearby, Camera* camera);
+	void preloadChunk(const game::ChunkLocation_t& vectorPosition, Camera* camera);
 };
 
 #endif // !WORLD_H

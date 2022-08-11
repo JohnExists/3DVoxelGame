@@ -16,8 +16,18 @@
 },
 {
   "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/InputHandler.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/InputHandler.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/InputHandler.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
   "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Random.cpp\"",
   "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/Random.cpp"
+},
+{
+  "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/MinecraftGL.dir/includes_CXX.rsp -g   -Wall -g -std=gnu++20 -o CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj -c \"C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/entity/Player.cpp\"",
+  "file": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/entity/Player.cpp"
 },
 {
   "directory": "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build",

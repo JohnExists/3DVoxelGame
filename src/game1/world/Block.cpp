@@ -47,7 +47,7 @@ bool Block::isSolid() const {
 
 int Block::getRenderType()
 {
-	if (getType() == BlockType::GRASS_BLADES) return 2;
+	if (getType() == BlockType::GRASS_BLADES) return 1;
 	if (isTransparent()) return 1;
 	else return 0;
 }

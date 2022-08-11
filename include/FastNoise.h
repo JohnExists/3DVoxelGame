@@ -194,7 +194,7 @@ public:
     /// <remarks>
     /// Default: 3
     /// </remarks>
-    void SetFractalOctaves(int octaves)
+    void setFractalOctaves(int octaves)
     {
         mOctaves = octaves;
         CalculateFractalBounding();

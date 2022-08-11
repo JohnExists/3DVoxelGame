@@ -4,8 +4,8 @@
 /*		Public Functions		*/
 //////////////////////////////////
 
-Chunk::Chunk(const glm::vec2& position, World* world, BiomeLoader& loader, FastNoiseLite* noise)
-	: loader(&loader), position(position), world(world), noise(noise)
+Chunk::Chunk(const glm::vec2& position, World* world, BiomeLoader& loader)
+	: loader(&loader), position(position), world(world)
 {
 	blocks = std::make_unique<Block[]>(MAX_XZ * MAX_Y * MAX_XZ);
 	biomes = std::make_unique<BiomeType[]>(MAX_XZ * MAX_XZ);
@@ -20,18 +20,12 @@ Chunk::Chunk(const glm::vec2& position, World* world, BiomeLoader& loader, FastN
 
 void Chunk::draw(Renderer& renderer, int meshToDraw)
 {
-	if(isCulled) return;
 	loadMatrix(renderer);
 
 	if (meshToDraw == PRIMARY_MESH && primary != nullptr)
 	{
 		glEnable(GL_CULL_FACE);
 		primary->draw();
-	}
-	if (meshToDraw == TERTIARY_MESH && tertiary != nullptr)
-	{
-		glDisable(GL_CULL_FACE);
-		tertiary->draw();
 	}
 	if (meshToDraw == SECONDARY_MESH && secondary != nullptr)
 	{
@@ -129,9 +123,6 @@ void Chunk::clearCache()
 	if(cacheRight != nullptr) 	cacheRight->cacheLeft = nullptr;
 	if(cacheBehind != nullptr) 	cacheBehind->cacheFront = nullptr;
 	if(cacheFront != nullptr) 	cacheFront->cacheBehind = nullptr;
-	primary = nullptr;
-	secondary = nullptr;
-	tertiary = nullptr;
 }
 
 void Chunk::ghostSetBlockAt(Location_t position, BlockType newBlock)
@@ -151,17 +142,10 @@ const AABB& Chunk::getAABB() const
 
 void Chunk::cacheChunks()
 {
-	cacheLeft = world->getChunkAt(position + glm::vec2(-1, 0)); // LEFT
-	cacheRight = world->getChunkAt(position + glm::vec2(1, 0));  // RIGHT
-	cacheBehind = world->getChunkAt(position + glm::vec2(0, -1)); // BEHIND
-	cacheFront = world->getChunkAt(position + glm::vec2(0, 1));  // FRONT
-}
-
-bool Chunk::updateCullingStatus(Frustum& frustum)
-{
-	bool collidesWithFrustum = frustum.collidesWith(aabb);	
-	isCulled = !collidesWithFrustum;
-	return collidesWithFrustum;
+	cacheLeft = 	world->getChunkAt(position + glm::vec2(-1, 0)); // LEFT
+	cacheRight = 	world->getChunkAt(position + glm::vec2(1, 0));  // RIGHT
+	cacheBehind = 	world->getChunkAt(position + glm::vec2(0, -1)); // BEHIND
+	cacheFront = 	world->getChunkAt(position + glm::vec2(0, 1));  // FRONT
 }
 
 void Chunk::loadMatrix(Renderer& renderer)
@@ -179,7 +163,6 @@ void Chunk::loadMatrix(Renderer& renderer)
 
 void Chunk::loadBlocks()
 {
-
 	for (int x = 0; x < MAX_XZ; x++)
 	{
 		for (int z = 0; z < MAX_XZ; z++)
@@ -229,7 +212,6 @@ BlockType Chunk::getBlockTypeAt(int x, int y, int z)
 			Chunk** chunk = getCachedChunk(direction);
 			if(*chunk != nullptr) return (*chunk)->getBlockAt(worldLocation).getType();
 		}
-
 
 		glm::vec2 chunkPosition;
 

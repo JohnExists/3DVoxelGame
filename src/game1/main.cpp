@@ -6,15 +6,14 @@
 
 #include <iostream>
 #include <vector>
-#include <chrono>
 #include <thread>
 
 #include "../game1/world/World.h"
+#include "GameState.h"
+#include "InputHandler.h"
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
-void mouse_callback(GLFWwindow *window, double xpos, double ypos);
-void mouse_button_callback(GLFWwindow *window, int button, int action, int mods);
 
 // settings
 const int SCR_WIDTH = 960;
@@ -23,12 +22,12 @@ const int SCR_HEIGHT = 540;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-Camera camera(glm::vec3(0.0f, 75.0f, 3.0f));
-World *worldPtr;
+Camera* cameraPtr;
 
 
-int main(int argc, char const **argv)
+int main(int argc, char const** argv)
 {
+	
 	std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
 
 	// glfw: initialize and configure
@@ -44,7 +43,7 @@ int main(int argc, char const **argv)
 	if (window == NULL)
 	{
 		std::cout << "Failed to create GLFW window" << '\n';
-		glfwTerminate();
+		glfwTerminate(); 
 		return EXIT_FAILURE;
 	}
 	glfwMakeContextCurrent(window);
@@ -59,51 +58,34 @@ int main(int argc, char const **argv)
 		return EXIT_FAILURE;
 	}
 
-	double startTime = glfwGetTime();
+	GameState gameState;
+	InputHandler::launchInputHandler(window);
 
-	World world(399393994);
-	Renderer renderer(&world, &camera);
-
-	worldPtr = &world;
+	cameraPtr = &gameState.getPlayerCamera();
 
 	double previousTime = glfwGetTime();
-	std::cout << previousTime - startTime << '\n';
 
 	int frameCount = 0;
 
 	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-	std::thread chunkCreation([&]() {
-		while (true)
-		{
-			world.updateChunksBuilds(&camera, 0);
-		}
-	});
-
-	chunkCreation.detach();
-
 	// render loop\watch
 	// -----------
 	while (!glfwWindowShouldClose(window))
 	{
-		// input
-		// -----
 		float currentFrame = static_cast<float>(glfwGetTime());
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
+		InputHandler::update();
 		processInput(window);
-		glfwSetCursorPosCallback(window, mouse_callback);
-		glfwSetMouseButtonCallback(window, mouse_button_callback);
+		// glfwSetCursorPosCallback(window, mouse_callback);
+		// glfwSetMouseButtonCallback(window, mouse_button_callback);
 
-		// render
-		// ------
-		
-		// long wrld1 = std::chrono::duration_cast<std::chrono::milliseconds>(
-		// 		std::chrono::system_clock::now().time_since_epoch()).count();
-		renderer.render();
-		world.updateChunksBuilds(&camera, 1);
-		
+		gameState.update(deltaTime);
+
+		InputHandler::reset();
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
@@ -113,68 +95,30 @@ int main(int argc, char const **argv)
 		if (currentTime - previousTime >= 1.0)
 		{
 			// Display the frame count here any way you want.
+			glm::vec3 xx = cameraPtr->getPosition();
+			glm::vec3 xz = cameraPtr->getDirectionVector();
+
+
 			std::string str = "Learning OpenGL ";
-			str.append(std::to_string(frameCount))
-				.append(" X: " + std::to_string((camera.getPosition().x)) + " ")
-				.append("Y: " + std::to_string((camera.getPosition()).y) + " ")
-				.append("Z: " + std::to_string((camera.getPosition()).z) + " ")
-				.append(" Xdir: " + std::to_string(camera.getDirectionVector().x) + " ")
-				.append("Ydir: " + std::to_string(camera.getDirectionVector().y) + " ")
-				.append("Zdir: " + std::to_string(camera.getDirectionVector().z));
-			glfwSetWindowTitle(window, str.c_str());
+			std::ostringstream stream;
+			stream << "LearningOpenGL "
+					"X: " << xx.x << ", Y: " << xx.y << ", Z: " << xx.z <<
+				" :: DirX: " << xz.x << ", DirY: " << xz.y << ", DirZ: " << xz.z
+				<< " :: FPS: " << frameCount;
+
+			glfwSetWindowTitle(window, stream.str().c_str());
 			frameCount = 0;
 			previousTime = currentTime;
 		}
 	}
-
+	gameState.disable();
 	glfwTerminate();
 	return EXIT_SUCCESS;
 }
 
 void processInput(GLFWwindow *window)
 {
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
-
-	float movementSpeed = 25;
-
-	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
-		movementSpeed = 45;
-
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		camera.moveAround(Camera::Movement::FORWARD, movementSpeed * deltaTime);
-
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		camera.moveAround(Camera::Movement::BACKWARD, movementSpeed * deltaTime);
-
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		camera.moveAround(Camera::Movement::LEFT, movementSpeed * deltaTime);
-
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		camera.moveAround(Camera::Movement::RIGHT, movementSpeed * deltaTime);
-
-	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-		camera.setPosition(0, movementSpeed * deltaTime, 0);
-
-	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
-		camera.setPosition(0, -movementSpeed * deltaTime, 0);
-}
-
-void mouse_callback(GLFWwindow *window, double x, double y)
-{
-	camera.lookAround(static_cast<float>(x), static_cast<float>(y));
-}
-
-void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
-{
-	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE)
-	{
-		worldPtr->castRay(camera, true);
-	}
-	if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE)
-	{
-		worldPtr->castRay(camera, false);
-	}
+	if(InputHandler::keyIsPressed(GLFW_KEY_ESCAPE)) glfwSetWindowShouldClose(window, true);
 }
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height)

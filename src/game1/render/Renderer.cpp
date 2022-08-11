@@ -1,7 +1,6 @@
 #include "Renderer.h"
 
-Renderer::Renderer(World* world, Camera* camera)
-	: world(world), camera(camera)
+Renderer::Renderer(World* world, Camera* camera) : world(world), camera(camera)
 {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -13,8 +12,9 @@ Renderer::Renderer(World* world, Camera* camera)
 	glFrontFace(GL_CW);
 
 	currentShader = ShaderType::DEFAULT_SHADER;
-	shaders[0] = Shader(DEF_VERTEX_SHADER, DEF_FRAG_SHADER);
-	shaders[1] = Shader(TEMP_VERTEX_SHADER, TEMP_FRAG_SHADER);
+	
+	shaders[0] = Shader("default_world");
+	shaders[1] = Shader("user_interface");
 }
 
 void Renderer::draw(Mesh* mesh)
@@ -28,6 +28,7 @@ void Renderer::draw(Mesh* mesh)
 
 void Renderer::render()
 {
+	using namespace game;
 	glClearColor(0.53f, 0.81f, 0.92f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

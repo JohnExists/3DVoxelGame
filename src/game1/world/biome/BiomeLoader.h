@@ -16,6 +16,7 @@ private:
 
 	FastNoiseLite noise;
 	World* world;
+	
 
 public:
 	BiomeLoader(World* world, const FastNoiseLite& noise);

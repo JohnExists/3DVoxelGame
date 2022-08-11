@@ -366,13 +366,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_vector.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_bvector.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/vector.tcc \
- C:/msys64/mingw64/include/c++/12.1.0/chrono \
- C:/msys64/mingw64/include/c++/12.1.0/bits/chrono.h \
- C:/msys64/mingw64/include/c++/12.1.0/ratio \
- C:/msys64/mingw64/include/c++/12.1.0/ctime \
- C:/msys64/mingw64/include/c++/12.1.0/bits/parse_numbers.h \
- C:/msys64/mingw64/include/c++/12.1.0/sstream \
- C:/msys64/mingw64/include/c++/12.1.0/bits/sstream.tcc \
  C:/msys64/mingw64/include/c++/12.1.0/thread \
  C:/msys64/mingw64/include/c++/12.1.0/stop_token \
  C:/msys64/mingw64/include/c++/12.1.0/atomic \
@@ -386,6 +379,10 @@ CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/unique_ptr.h \
  C:/msys64/mingw64/include/c++/12.1.0/semaphore \
  C:/msys64/mingw64/include/c++/12.1.0/bits/semaphore_base.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/chrono.h \
+ C:/msys64/mingw64/include/c++/12.1.0/ratio \
+ C:/msys64/mingw64/include/c++/12.1.0/ctime \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/parse_numbers.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/atomic_timed_wait.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/this_thread_sleep.h \
  C:/msys64/mingw64/include/semaphore.h \
@@ -443,6 +440,8 @@ CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/locale_conv.h \
  C:/msys64/mingw64/include/c++/12.1.0/iomanip \
  C:/msys64/mingw64/include/c++/12.1.0/bits/quoted_string.h \
+ C:/msys64/mingw64/include/c++/12.1.0/sstream \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/sstream.tcc \
  C:/msys64/mingw64/include/c++/12.1.0/codecvt \
  C:/msys64/mingw64/include/c++/12.1.0/bits/fs_dir.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/fs_ops.h \
@@ -499,6 +498,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Decoration.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Block.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.h \
+ C:/msys64/mingw64/include/c++/12.1.0/chrono \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Random.h \
  C:/msys64/mingw64/include/c++/12.1.0/random \
  C:/msys64/mingw64/include/c++/12.1.0/bits/random.h \
@@ -517,12 +517,21 @@ CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Decoration.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Constants.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLSL_Shaders.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Shader.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.h
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/GameState.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/entity/Player.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/InputHandler.h

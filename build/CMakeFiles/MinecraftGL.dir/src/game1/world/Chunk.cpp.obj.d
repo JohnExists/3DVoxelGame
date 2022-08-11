@@ -423,11 +423,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/fs_dir.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/fs_ops.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Shader.h \
- C:/msys64/mingw64/include/c++/12.1.0/fstream \
- C:/msys64/mingw64/include/c++/12.1.0/x86_64-w64-mingw32/bits/basic_file.h \
- C:/msys64/mingw64/include/c++/12.1.0/x86_64-w64-mingw32/bits/c++io.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/fstream.tcc \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.hpp \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion.hpp \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion.inl \
@@ -436,6 +431,11 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: \
  C:/msys64/mingw64/include/string.h \
  C:/msys64/mingw64/include/sec_api/string_s.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.inl \
+ C:/msys64/mingw64/include/c++/12.1.0/fstream \
+ C:/msys64/mingw64/include/c++/12.1.0/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/msys64/mingw64/include/c++/12.1.0/x86_64-w64-mingw32/bits/c++io.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/fstream.tcc \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.h \
  C:/msys64/mingw64/include/c++/12.1.0/queue \
  C:/msys64/mingw64/include/c++/12.1.0/deque \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_deque.h \
@@ -512,12 +512,15 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/AABB.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/GLFW/glfw3.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLSL_Shaders.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.h \

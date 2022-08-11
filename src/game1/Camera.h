@@ -7,6 +7,7 @@
 
 #include "render/Renderer.h"
 #include "render/Frustum.h"
+#include "Settings.h"
 
 class Camera
 {
@@ -19,11 +20,6 @@ public:
 	};
 		
 private:
-	// Camera Default Values
-	const float DEFAULT_YAW				= -90.0f;
-	const float DEFAULT_PITCH			= 0.0f;
-	const float DEFAULT_SENSITIVITY		= 0.1f;
-
 	// Canera Position
 	glm::vec3 position;
 
@@ -49,15 +45,18 @@ public:
 
 	glm::mat4 getViewMatrix();
 
-	void moveAround(Camera::Movement direction, float distance);
-	void lookAround(float xMoveDifference, float yMoveDistance);
+	void lookAround(game::CursorLocation_t distanceMoved);
 
 	glm::vec3 getPosition();
-	void setPosition(float x, float y, float z);
+	void move(glm::vec3 distanceToMove);
 
 	float getYaw() const;
 	float getPitch() const;
+
 	glm::vec3 getDirectionVector();
+
+	glm::vec3 getFrontVector();
+	glm::vec3 getRightVector();
 
 	Frustum generateFrustum();
 

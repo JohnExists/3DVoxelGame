@@ -11,10 +11,10 @@
 #include<cstdint>
 
 #include"Mesh.h"
-#include"GLSL_Shaders.h"
 #include"../world/World.h"
 #include"../Camera.h"
 #include"Frustum.h"
+#include"../Settings.h"
 
 class World;
 class Mesh;
@@ -29,12 +29,6 @@ enum class ShaderType
 
 class Renderer
 {
-public:
-	static constexpr float FOV = 80.0f;
-	static constexpr float NEAR = 0.1f;
-	static constexpr float FAR = 500.0f;
-	static constexpr float ASPECT_RATIO = 960.0f / 540.0f;
-
 private:
 	std::array<Shader, static_cast<int>(ShaderType::MAX_SHADERS_COUNT)> shaders{};
 	ShaderType currentShader;
@@ -51,4 +45,3 @@ public:
 };
 
 #endif // !RENDERER_H
-

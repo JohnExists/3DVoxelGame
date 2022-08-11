@@ -385,6 +385,16 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/detail/func_integer.inl \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/detail/func_integer_simd.inl \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/simd/integer.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.hpp \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion.hpp \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.hpp \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/constants.inl \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion.inl \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/quaternion_simd.inl \
+ C:/msys64/mingw64/include/c++/12.1.0/cstring \
+ C:/msys64/mingw64/include/string.h \
+ C:/msys64/mingw64/include/sec_api/string_s.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.inl \
  C:/msys64/mingw64/include/c++/12.1.0/fstream \
  C:/msys64/mingw64/include/c++/12.1.0/x86_64-w64-mingw32/bits/basic_file.h \
  C:/msys64/mingw64/include/c++/12.1.0/x86_64-w64-mingw32/bits/c++io.h \

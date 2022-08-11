@@ -4,11 +4,16 @@
 #include<glad/glad.h>
 
 #include<glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include<string>
 #include<fstream>
 #include<sstream>
 #include<iostream>
 #include<type_traits>
+
+#define FRAGMENT_PATH(fileName) "../res/shaders/" + fileName + ".frag"
+#define VERTEX_PATH(fileName) "../res/shaders/" + fileName + ".vert"
 
 class Shader
 {
@@ -31,6 +36,7 @@ private:
 public:
 	Shader(const char* vertexPath, const char* fragmentPath, int filler);
 	Shader(const char* vertexPath, const char* fragmentPath);
+	Shader(std::string shaderName);
 	Shader() = default;
 
 	void use() const;
@@ -38,7 +44,9 @@ public:
 	GLuint getID() const;
 
 private:
-	void readFile(const char* filePath, std::string& outputString);
+	void load(const char* vertexPath, const char* fragmentPath);
+
+	std::string readFile(const std::string filePath);
 	void compile(const GLenum type, const char* shaderCode, GLuint& shader);
 	void checkErrors(GLuint data, const std::string& name);
 };

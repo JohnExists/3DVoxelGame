@@ -12,8 +12,7 @@ BlockType BiomeLoader::getBlockAt(int y, int topY, BiomeType biome)
 	Biome& biomeData = getBiomeData(biome);
 
 	if (y <= SEA_LEVEL && y > topY) 		return WATER;
-	if (y <= SEA_LEVEL && y >= topY)		return SAND;
-	if (y == topY && y <= SEA_LEVEL + 3) 	return SAND;
+	if (y <= SEA_LEVEL + 3 && y == topY)	return SAND;
 	if (y == topY) 							return biomeData.get(Biome::TOP);
 	if (y < topY && y > topY - 3)			return biomeData.get(Biome::CENTER);
 	if (y <= topY - 3)						return biomeData.get(Biome::BOTTOM);
@@ -54,13 +53,12 @@ void BiomeLoader::loadXZ(float x, float z, Chunk* chunk)
 
 BiomeType BiomeLoader::getBiomeAt(float x, float z)
 {
-	noise.setNoiseType(FastNoiseLite::NoiseType::NoiseType_OpenSimplex2);
+	const static int totalBiomes = static_cast<int>(BiomeType::TOTAL_BIOMES);
 
 	x /= 6.f;
 	z /= 6.f;
 
-	int totalBiomes = static_cast<int>(BiomeType::TOTAL_BIOMES);
-	float generatedNoise = abs(noise.getNoise(x, z));
+	float generatedNoise = abs(noise.getNoise(x, 0.0f, z));
 	int biomeType = static_cast<int>(generatedNoise * totalBiomes);
 
 	BiomeType result = static_cast<BiomeType>(glm::clamp(biomeType, 0, totalBiomes));

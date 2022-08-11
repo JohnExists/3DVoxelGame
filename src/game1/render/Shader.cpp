@@ -1,5 +1,4 @@
 #include "Shader.h"
-#include <glm/gtc/type_ptr.hpp>
 
 //////////////////////////////////
 /*		Public Functions		*/
@@ -7,17 +6,14 @@
 
 Shader::Shader(const char* vertexCode, const char* fragmentCode)
 {
-	GLuint vertex{}, fragment{};
+	load(vertexCode, fragmentCode);
+}
 
-	ID = glCreateProgram();
-	compile(GL_VERTEX_SHADER, vertexCode, vertex);
-	compile(GL_FRAGMENT_SHADER, fragmentCode, fragment);
-
-	glLinkProgram(ID);
-
-	checkErrors(ID, "Program");
-	glDeleteProgram(vertex);
-	glDeleteProgram(fragment);
+Shader::Shader(std::string shaderName)
+{
+	std::string fragmentSource = readFile(FRAGMENT_PATH(shaderName));
+	std::string vertexSource = readFile(VERTEX_PATH(shaderName));
+	load(vertexSource.c_str(), fragmentSource.c_str());
 }
 
 void Shader::use() const
@@ -52,19 +48,42 @@ void Shader::ShaderUniform::operator=(int variableName)
 	glUniform1i(value, variableName);
 }
 
-
-
 GLuint Shader::getID() const
 {
 	return ID;
+}
+
+void Shader::load(const char* vertexCode, const char* fragmentCode)
+{
+	GLuint vertex{}, fragment{};
+
+	ID = glCreateProgram();
+	compile(GL_VERTEX_SHADER, vertexCode, vertex);
+	compile(GL_FRAGMENT_SHADER, fragmentCode, fragment);
+
+	glLinkProgram(ID);
+
+	checkErrors(ID, "Program");
+	glDeleteProgram(vertex);
+	glDeleteProgram(fragment);
+
+}
+
+std::string Shader::readFile(const std::string filePath)
+{
+	std::ifstream file(filePath);
+	if(!file.is_open()) std::cout << "File Opening Failure";
+	std::stringstream buffer;
+	buffer << file.rdbuf();
+
+	return buffer.str();
 }
 
 //////////////////////////////////
 /*		Private Functions		*/
 //////////////////////////////////
 
-void Shader::compile(const GLenum type, const char* shaderCode,
-	GLuint& shader)
+void Shader::compile(const GLenum type, const char* shaderCode, GLuint& shader)
 {
 	shader = glCreateShader(type);
 	glShaderSource(shader, 1, &shaderCode, NULL);
