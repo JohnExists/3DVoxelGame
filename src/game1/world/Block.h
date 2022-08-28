@@ -44,6 +44,7 @@ class BlockBuilder
 public:
 
 	static tex::AtlasCollection_t genTexCoords(const Block& block);
+	static tex::AtlasCollection_t genTexCoords(const BlockType block);
 
 private:
 	static float toTex(float coord);

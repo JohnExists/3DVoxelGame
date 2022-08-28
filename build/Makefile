@@ -321,6 +321,30 @@ src/game1/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.s
 .PHONY : src/game1/main.cpp.s
 
+src/game1/render/Cube.obj: src/game1/render/Cube.cpp.obj
+.PHONY : src/game1/render/Cube.obj
+
+# target to build an object file
+src/game1/render/Cube.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj
+.PHONY : src/game1/render/Cube.cpp.obj
+
+src/game1/render/Cube.i: src/game1/render/Cube.cpp.i
+.PHONY : src/game1/render/Cube.i
+
+# target to preprocess a source file
+src/game1/render/Cube.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.i
+.PHONY : src/game1/render/Cube.cpp.i
+
+src/game1/render/Cube.s: src/game1/render/Cube.cpp.s
+.PHONY : src/game1/render/Cube.s
+
+# target to generate assembly for a file
+src/game1/render/Cube.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.s
+.PHONY : src/game1/render/Cube.cpp.s
+
 src/game1/render/CubeBuilder.obj: src/game1/render/CubeBuilder.cpp.obj
 .PHONY : src/game1/render/CubeBuilder.obj
 
@@ -537,6 +561,30 @@ src/game1/render/stb_image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.s
 .PHONY : src/game1/render/stb_image.cpp.s
 
+src/game1/ui/GameInterface.obj: src/game1/ui/GameInterface.cpp.obj
+.PHONY : src/game1/ui/GameInterface.obj
+
+# target to build an object file
+src/game1/ui/GameInterface.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj
+.PHONY : src/game1/ui/GameInterface.cpp.obj
+
+src/game1/ui/GameInterface.i: src/game1/ui/GameInterface.cpp.i
+.PHONY : src/game1/ui/GameInterface.i
+
+# target to preprocess a source file
+src/game1/ui/GameInterface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.i
+.PHONY : src/game1/ui/GameInterface.cpp.i
+
+src/game1/ui/GameInterface.s: src/game1/ui/GameInterface.cpp.s
+.PHONY : src/game1/ui/GameInterface.s
+
+# target to generate assembly for a file
+src/game1/ui/GameInterface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MinecraftGL.dir/build.make CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.s
+.PHONY : src/game1/ui/GameInterface.cpp.s
+
 src/game1/world/Block.obj: src/game1/world/Block.cpp.obj
 .PHONY : src/game1/world/Block.obj
 
@@ -714,6 +762,9 @@ help:
 	@echo "... src/game1/main.obj"
 	@echo "... src/game1/main.i"
 	@echo "... src/game1/main.s"
+	@echo "... src/game1/render/Cube.obj"
+	@echo "... src/game1/render/Cube.i"
+	@echo "... src/game1/render/Cube.s"
 	@echo "... src/game1/render/CubeBuilder.obj"
 	@echo "... src/game1/render/CubeBuilder.i"
 	@echo "... src/game1/render/CubeBuilder.s"
@@ -741,6 +792,9 @@ help:
 	@echo "... src/game1/render/stb_image.obj"
 	@echo "... src/game1/render/stb_image.i"
 	@echo "... src/game1/render/stb_image.s"
+	@echo "... src/game1/ui/GameInterface.obj"
+	@echo "... src/game1/ui/GameInterface.i"
+	@echo "... src/game1/ui/GameInterface.s"
 	@echo "... src/game1/world/Block.obj"
 	@echo "... src/game1/world/Block.i"
 	@echo "... src/game1/world/Block.s"

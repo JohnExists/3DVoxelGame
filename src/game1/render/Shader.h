@@ -24,7 +24,7 @@ private:
 		GLuint value;
 	public:
 		ShaderUniform(GLint value);
-		void operator=(glm::mat4& variableName);
+		void operator=(glm::mat4 variableName);
 		void operator=(glm::vec3 variableName);
 		void operator=(float variableName);
 		void operator=(int variableName);

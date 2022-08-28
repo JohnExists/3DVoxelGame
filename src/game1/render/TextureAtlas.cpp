@@ -24,13 +24,8 @@ Atlas tex::JSONLoader(std::string face, const nlohmann::json& data)
 
     auto currentData = data.at(face);
 
-    auto location = currentData.at("location");
-    atlas.location.x = location.at(0);
-    atlas.location.y = location.at(1);
-
-    auto size = currentData.at("size");
-    atlas.size.x = size.at(0);
-    atlas.size.y = size.at(1);
+    atlas.location = jsonDataToVec2(currentData["location"]);
+    atlas.size = jsonDataToVec2(currentData["size"]);
 
     return atlas;
 }

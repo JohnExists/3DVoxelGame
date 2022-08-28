@@ -22,6 +22,7 @@
 #include"FastNoise.h"
 #include"Block.h"
 #include"../Settings.h"
+#include"../GameState.h"
 
 class BiomeLoader;
 class Chunk;
@@ -29,6 +30,7 @@ class Camera;
 class Block;
 class Renderer;
 class BiomeLoader;
+class GameState;
 
 class World
 {
@@ -46,9 +48,10 @@ private:
 	FastNoiseLite* noise;
 	BiomeLoader* loader;
 	Texture* texture;
+	GameState* gameState;
 
 public:
-	World(int seed);
+	World(GameState* gameState, int seed);
 
 	/**
 	* @returns A pointer to the chunk at a certain position or 
@@ -84,10 +87,12 @@ public:
 	void placeBlockAt(game::Location_t position, BlockType type);
 
 	const Texture* getTexture() const;
+	GameState& getGameState();
+
+	void preloadChunk(const game::ChunkLocation_t& vectorPosition, Camera* camera);
 private:
 	void unloadFarChunks(const game::ChunkLocation_t playerChunkLocation);
 	void loadNearbyChunks(const game::ChunkLocation_t& nearby, Camera* camera);
-	void preloadChunk(const game::ChunkLocation_t& vectorPosition, Camera* camera);
 };
 
 #endif // !WORLD_H

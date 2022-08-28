@@ -64,6 +64,12 @@ bool operator!=(const Block& left, const BlockType right)
 
 tex::AtlasCollection_t BlockBuilder::genTexCoords(const Block& block)
 {
+	genTexCoords(block.getType());
+}
+
+
+tex::AtlasCollection_t BlockBuilder::genTexCoords(const BlockType block)
+{
 	static tex::AtlasCollection_t blockAtlas[] = {
 		tex::load("grass.json"), 
 		tex::load("dirt.json"),
@@ -77,7 +83,7 @@ tex::AtlasCollection_t BlockBuilder::genTexCoords(const Block& block)
 
 	assert(block != BlockType::AIR && "Cannot obtain AIR texture coordinates");
 
-	int blockIndex = static_cast<int>(block.getType()) - 1;
+	int blockIndex = static_cast<int>(block) - 1;
 	return blockAtlas[blockIndex];
 }
 

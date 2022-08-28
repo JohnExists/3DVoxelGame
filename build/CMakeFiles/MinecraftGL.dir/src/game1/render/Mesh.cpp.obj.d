@@ -514,14 +514,32 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/GameState.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/entity/Player.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Cube.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/InputHandler.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/AABB.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Decoration.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Constants.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.h
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.h

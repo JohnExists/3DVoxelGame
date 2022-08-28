@@ -79,8 +79,6 @@ int main(int argc, char const** argv)
 
 		InputHandler::update();
 		processInput(window);
-		// glfwSetCursorPosCallback(window, mouse_callback);
-		// glfwSetMouseButtonCallback(window, mouse_button_callback);
 
 		gameState.update(deltaTime);
 

@@ -17,6 +17,24 @@ CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/ext/numeric_traits.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/cpp_type_traits.h \
  C:/msys64/mingw64/include/c++/12.1.0/ext/type_traits.h \
+ C:/msys64/mingw64/include/c++/12.1.0/array \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/functexcept.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/exception_defines.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/stl_algobase.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/stl_iterator_base_types.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/iterator_concepts.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/ptr_traits.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/ranges_cmp.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/stl_iterator_base_funcs.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/concept_check.h \
+ C:/msys64/mingw64/include/c++/12.1.0/debug/assertions.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/stl_iterator.h \
+ C:/msys64/mingw64/include/c++/12.1.0/new \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/exception.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/stl_construct.h \
+ C:/msys64/mingw64/include/c++/12.1.0/debug/debug.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/predefined_ops.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/range_access.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/glm.hpp \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/detail/_fixes.hpp \
@@ -37,22 +55,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj: \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/12.1.0/include/mm_malloc.h \
  C:/msys64/mingw64/include/errno.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/specfun.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/stl_algobase.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/functexcept.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/exception_defines.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/stl_iterator_base_types.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/iterator_concepts.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/ptr_traits.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/ranges_cmp.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/stl_iterator_base_funcs.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/concept_check.h \
- C:/msys64/mingw64/include/c++/12.1.0/debug/assertions.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/stl_iterator.h \
- C:/msys64/mingw64/include/c++/12.1.0/new \
- C:/msys64/mingw64/include/c++/12.1.0/bits/exception.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/stl_construct.h \
- C:/msys64/mingw64/include/c++/12.1.0/debug/debug.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/predefined_ops.h \
  C:/msys64/mingw64/include/c++/12.1.0/limits \
  C:/msys64/mingw64/include/c++/12.1.0/tr1/gamma.tcc \
  C:/msys64/mingw64/include/c++/12.1.0/tr1/special_function_util.h \
@@ -278,7 +280,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/uses_allocator.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/invoke.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_multimap.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/range_access.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/erase_if.h \
  C:/msys64/mingw64/include/c++/12.1.0/string \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stringfwd.h \
@@ -416,6 +417,11 @@ CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glm/gtc/type_ptr.inl \
  C:/msys64/mingw64/include/c++/12.1.0/stack \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_stack.h \
+ C:/msys64/mingw64/include/c++/12.1.0/unordered_map \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/hashtable.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/hashtable_policy.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/enable_special_members.h \
+ C:/msys64/mingw64/include/c++/12.1.0/bits/unordered_map.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.h \
  C:/msys64/mingw64/include/c++/12.1.0/list \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_list.h \
@@ -426,7 +432,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/glad/glad.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/KHR/khrplatform.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
- C:/msys64/mingw64/include/c++/12.1.0/array \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/stb/stb_image.h \
  C:/msys64/mingw64/include/c++/12.1.0/filesystem \
  C:/msys64/mingw64/include/c++/12.1.0/bits/fs_fwd.h \
@@ -463,11 +468,6 @@ CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/pstl/glue_algorithm_defs.h \
  C:/msys64/mingw64/include/c++/12.1.0/functional \
  C:/msys64/mingw64/include/c++/12.1.0/bits/std_function.h \
- C:/msys64/mingw64/include/c++/12.1.0/unordered_map \
- C:/msys64/mingw64/include/c++/12.1.0/bits/hashtable.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/hashtable_policy.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/enable_special_members.h \
- C:/msys64/mingw64/include/c++/12.1.0/bits/unordered_map.h \
  C:/msys64/mingw64/include/c++/12.1.0/iterator \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stream_iterator.h \
  C:/msys64/mingw64/include/c++/12.1.0/numeric \
@@ -508,6 +508,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Cube.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/AABB.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/AABB.h \
@@ -517,17 +518,31 @@ CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj: \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Decoration.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Constants.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/GLFW/glfw3.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/include/GLFW/glfw3.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Shader.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/GameState.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/entity/Player.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/InputHandler.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.h \
  C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Camera.h \
- C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/Settings.h \
+ C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.h

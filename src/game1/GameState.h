@@ -6,8 +6,15 @@
 #include"render/Renderer.h"
 #include"InputHandler.h"
 #include"Settings.h"
+#include"ui/GameInterface.h"
 
 #include<utility>
+
+class World;
+class Camera;
+class Renderer;
+class Player;
+class GameInterface;
 
 class GameState
 {
@@ -15,7 +22,7 @@ private:
     std::unique_ptr<World> world;
     std::unique_ptr<Player> player;
     std::unique_ptr<Renderer> renderer;
-
+    std::unique_ptr<GameInterface> interface;
     bool isActive;
     
 public:
@@ -29,6 +36,7 @@ public:
     World& getWorld();
     Player& getPlayer();
     Camera& getPlayerCamera();
+    Renderer& getRenderer();
 
     void disable();
 

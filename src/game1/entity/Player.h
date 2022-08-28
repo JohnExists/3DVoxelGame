@@ -2,11 +2,16 @@
 #define PLAYER_H
 
 #include<utility>
+#include<array>
 
-#include"../world/World.h"
-
+#include "../world/World.h"
 #include "../Camera.h"
 #include "../Settings.h"
+#include "../ui/GameInterface.h"
+
+class World;
+class Camera;
+class GameInterface;
 
 enum class Movement
 {
@@ -30,16 +35,19 @@ private:
     using Velocity_t = glm::vec3;
 
     World* currentWorld;
+    GameInterface* interface;
 
     std::unique_ptr<Camera> camera;
     bool currentlySprinting = false;
     float movementSpeed = 25;
     Velocity_t velocity;
 
-    
+    std::array<BlockType, 9> hotbar;
+    int selectedSlot;
+
 public:
 
-    Player(World* world, glm::vec3 position);
+    Player(GameInterface* interface, World* world, glm::vec3 position);
 
     Camera& getCamera();
 
@@ -50,17 +58,16 @@ public:
     void resetSprint();
 
     void perform(Action action);
-
     void resetVelocity();
-
     void lookAround(game::CursorLocation_t newCursorLocation);
-
+    void selectSlot(int slot);
 private:
     void castRay(Action action);
     game::Location_t getBlockSide(game::Location_t rayLanding);
 
     Velocity_t getMovementDirection(Movement playerMovement);
     float getMovementSpeed();
+    void updateInventory();
 };
 
 #endif // PLAYER_H

@@ -28,7 +28,7 @@ Shader::ShaderUniform Shader::operator[](std::string variableName)
 
 Shader::ShaderUniform::ShaderUniform(GLint value) : value(value) { }
 
-void Shader::ShaderUniform::operator=(glm::mat4& variableValue)
+void Shader::ShaderUniform::operator=(glm::mat4 variableValue)
 {
 	glUniformMatrix4fv(value, 1, GL_FALSE, glm::value_ptr(variableValue));
 }

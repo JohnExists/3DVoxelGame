@@ -1,9 +1,20 @@
 #include "Player.h"
 
 
-Player::Player(World* world, glm::vec3 position) : currentWorld(world)
+Player::Player(GameInterface* interface, World* world, glm::vec3 position) 
+    : currentWorld(world), interface(interface)
 {
     camera = std::make_unique<Camera>(position);
+	world->preloadChunk(game::ChunkLocation_t(0, 0), nullptr);
+
+    for (auto &&slot : hotbar)
+    {
+        slot = BlockType::AIR;
+    }
+
+    hotbar[0] = BlockType::GRASS;
+    hotbar[1] = BlockType::SAND;
+    hotbar[4] = BlockType::WOOD;
 }
 
 Camera& Player::getCamera()
@@ -15,6 +26,7 @@ void Player::update(float deltaTime)
 {
     camera->move(velocity * deltaTime);
     resetVelocity();
+    updateInventory();
 }
 
 void Player::move(Movement playerMovement)
@@ -74,6 +86,14 @@ void Player::lookAround(game::CursorLocation_t newCursorLocation)
 
 }
 
+void Player::selectSlot(int slot)
+{
+    selectedSlot = slot + 1;
+    interface->removeElement("hotbar_select");
+    interface->addElement("hotbar_select.json", slot);
+    interface->setupMesh();
+}
+
 
 float Player::getMovementSpeed()
 {
@@ -82,6 +102,7 @@ float Player::getMovementSpeed()
 
     return movementSpeed + extraSpeed;
 }
+
 
 Player::Velocity_t Player::getMovementDirection(Movement movementDirection)
 {
@@ -105,8 +126,6 @@ Player::Velocity_t Player::getMovementDirection(Movement movementDirection)
 
 void Player::castRay(Action action)
 {
-    //if(action != Action::BREAK_BLOCK) return;
-    //if(action != Action::PLACE_BLOCK) return;
 	static const float PLAYER_REACH = 6.0f;
 
 	game::Location_t castFrom = camera->getPosition();
@@ -123,7 +142,7 @@ void Player::castRay(Action action)
         {
         case Action::BREAK_BLOCK: currentWorld->breakBlockAt(rayLocation);
             break;
-        case Action::PLACE_BLOCK: currentWorld->placeBlockAt(rayLocation + getBlockSide(rayLocation), BlockType::SAND);
+        case Action::PLACE_BLOCK: currentWorld->placeBlockAt(rayLocation + getBlockSide(rayLocation), hotbar[selectedSlot]);
             break;
         }
         return;
@@ -153,4 +172,19 @@ game::Location_t Player::getBlockSide(game::Location_t rayLanding) {
 	
 	if(index == -1) return game::Location_t(0, 0, 0);
 	return allBlockSides[index];
+}
+
+void Player::updateInventory()
+{
+    interface->removeElement("hotbar_item");
+    
+    int counter = 0;
+    for (auto&& slot : hotbar)
+    {
+        ++counter;
+        if(slot == BlockType::AIR) continue;    
+        interface->addAlternateElement("hotbar_item.json", counter, 
+            BlockBuilder::genTexCoords(slot)[0]);
+    }
+    interface->setupMesh();      
 }

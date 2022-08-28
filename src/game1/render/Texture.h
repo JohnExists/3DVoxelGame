@@ -27,6 +27,9 @@ private:
 	int height{};
 	int numberOfColorChannels{};
 
+	GLint wrapAround{};
+	GLint scalingFilter{};
+
 public:
 	/**
 	* @param pathToTexture
@@ -62,7 +65,7 @@ public:
 	Shader& shader, 
 	std::string variableName, 
 	int slot
-);
+	) const;
 
 	/**
 	* Chooses how to wrap a texture in case
@@ -70,14 +73,11 @@ public:
 	* 
 	* (ex. GL_REPEAT, GL_MIRRORED_REPEAT, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_BORDER)
 	* 
-	* @param x
-	* Set the wrap on the x axis
-	* 
-	* @param y
-	* Set the wrap on the y axis
+	* @param value
+	* Value to set wrap around for x, y and z
 	*/
 
-	void setWrapAround(GLint x, GLint y, GLint z);
+	void setWrapAround(GLint value);
 
 	/**
 	* Chooses how to manipulate an image when
@@ -85,13 +85,10 @@ public:
 	* 
 	* (ex. GL_LINEAR, GL_NEAREST)
 	* 
-	* @param min
-	* Chooses how to maniupulate a minimizing image 
-	*
-	* @param max
-	* Chooses how to maniupulate a maximizing image
+	* @param value
+	* Chooses how to maniupulate a minimizing and maximizing image
 	*/
-	void setScalingFilter(GLint min, GLint max);
+	void setScalingFilter(GLint value);
 	
 
 private:

@@ -59,9 +59,9 @@ public:
 
 	void draw();
 
+	void linkData(int slot, int size, void* offset);
 private:
 	void link();
-	void linkData(int slot, int size, void* offset);
 
 };
 

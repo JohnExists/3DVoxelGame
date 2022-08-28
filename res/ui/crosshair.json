@@ -1,0 +1,12 @@
+{
+    "name": "crosshair",
+    "layout-order" : 1,
+    "mesh-type" : "PRIMARY",
+    "gap" : [0.0, 0.0],
+    "location" : [0.0, 0.0],
+    "size" : [0.025, 0.025],
+    "atlas" : {
+        "location" : [0.0, 22.0],
+        "size" : [16.0, 16.0]
+    }
+}

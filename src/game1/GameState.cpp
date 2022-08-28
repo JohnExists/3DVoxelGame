@@ -8,9 +8,10 @@ GameState::GameState()
 {
     isActive = true;
 
-    world       = std::make_unique<World>(399393994);    
-    player      = std::make_unique<Player>(world.get(), glm::vec3(0.0f, 75.0f, 0.0f));
-    renderer    = std::make_unique<Renderer>(world.get(), &getPlayerCamera());
+    renderer    = std::make_unique<Renderer>();
+    world       = std::make_unique<World>(this, 399393994);    
+    interface   = std::make_unique<GameInterface>(this);
+    player      = std::make_unique<Player>(interface.get(), world.get(), glm::vec3(0.0f, 75.0f, 0.0f));
     std::thread updateWorkerThread(update2, this);
     updateWorkerThread.detach();
 }
@@ -34,7 +35,7 @@ void GameState::update2()
 
 void GameState::render()
 {
-    renderer->render();    
+    renderer->render(world.get(), &getPlayerCamera(), interface.get());
 }
 
 void GameState::cleanUp()
@@ -55,6 +56,11 @@ Player& GameState::getPlayer()
 Camera& GameState::getPlayerCamera()
 {
     return player->getCamera();    
+}
+
+Renderer& GameState::getRenderer()
+{
+    return *renderer;    
 }
 
 void GameState::disable()
@@ -83,6 +89,12 @@ void GameState::registerInput()
     if(InputHandler::keyIsPressed(JUMP_OR_FLY_UP))      player->move(UP);
     if(InputHandler::keyIsPressed(CROUCH_OR_FLY_DOWN))  player->move(DOWN);
 
+    for (int key = GLFW_KEY_1; key <= GLFW_KEY_9; key++)
+    {
+        int slot = key - GLFW_KEY_0;
+        if(InputHandler::keyIsPressed(key))             player->selectSlot(slot);
+    }
+    
     // Mouse Button Input
     if(InputHandler::getMouseStatus() == PUNCH)         player->perform(BREAK_BLOCK);
     if(InputHandler::getMouseStatus() == PLACE)         player->perform(PLACE_BLOCK);

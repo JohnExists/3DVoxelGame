@@ -1,6 +1,6 @@
 #include "Renderer.h"
 
-Renderer::Renderer(World* world, Camera* camera) : world(world), camera(camera)
+Renderer::Renderer()
 {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -13,81 +13,61 @@ Renderer::Renderer(World* world, Camera* camera) : world(world), camera(camera)
 
 	currentShader = ShaderType::DEFAULT_SHADER;
 	
-	shaders[0] = Shader("default_world");
-	shaders[1] = Shader("user_interface");
+	for (auto &&[shaderName, shaderLayout] : game::gameShaders)
+	{
+		shaders[shaderName] = Shader(shaderName);
+	}
 }
 
-void Renderer::draw(Mesh* mesh)
+void Renderer::draw(Shader& shader, Mesh* mesh)
 {
-	Shader& current = getShader(currentShader);
-	current.use();
-	current["model"] = mesh->getModelMatrix();
+	shader.use();
+	shader["model"] = mesh->getModelMatrix();
 
 	mesh->draw();
 }
 
-void Renderer::render()
+void Renderer::render(World* world, Camera* camera, GameInterface* ui)
 {
 	using namespace game;
 	glClearColor(0.53f, 0.81f, 0.92f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glm::mat4 viewMatrix = camera->getViewMatrix();
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(FOV), ASPECT_RATIO, NEAR, FAR);
 
 	setShader(ShaderType::DEFAULT_SHADER);
-	Shader& shader = getShader(ShaderType::DEFAULT_SHADER);
+	Shader& shader = getShaderAt("default_world");
 	shader.use();
 	shader["minFog"] 		= World::RENDER_DISTANCE * 8.5f;
 	shader["projection"] 	= projectionMatrix;
-	shader["view"] 			= viewMatrix;
+	shader["view"] 			= camera->getViewMatrix();
 	shader["cameraPos"] 	= camera->getPosition();
 
+	Shader& shader2 = getShaderAt("block_hotbar_select");
+	shader2.use();
+	shader2["projection"] 	= projectionMatrix;
+	shader2["view"] 		= ui->getCamera().getViewMatrix();
+
+	Shader& shader3 = getShaderAt("user_interface");
+	shader3.use();
+	shader3["projection"] 	= projectionMatrix;
+	shader3["view"] 		= ui->getCamera().getViewMatrix();
+
+	
 	Frustum frustum = camera->generateFrustum();
 	world->draw(*this, frustum);
-
-	setShader(ShaderType::TEMPORARY_SHADER);
-	drawTempGUI();
+	ui->draw(*this);	
 }
 
-Shader& Renderer::getShader(ShaderType type)
+Shader& Renderer::getShaderAt(std::string shader)
 {
-	return shaders.at(static_cast<int>(type));
+	auto search = shaders.find(shader);
+
+	if(search != shaders.end()) return search->second;
+	throw("Failed to find shader: " + shader);
 }
 
 void Renderer::setShader(ShaderType shaderType)
 {
 	this->currentShader = shaderType;
-}
-
-void Renderer::drawTempGUI()
-{
-	static Texture texture("../res/crosshair.png");
-	texture.setScalingFilter(GL_NEAREST, GL_NEAREST);
-	texture.setWrapAround(GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE);
-
-	static std::vector<Quad> blockVertices{
-		Quad{			// positions	// norms    // texture coords
-			Vertex{ { -0.5f, -0.5f, 0.0f },		-1,	{ 0.0f, 0.0f} }, // bottom left
-			Vertex{ {  0.5f, -0.5f, 0.0f },		-1,	{ 1.0f, 0.0f} }, // bottom right
-			Vertex{ {  0.5f,  0.5f, 0.0f },		-1,	{ 1.0f, 1.0f} }, // top right
-			Vertex{ {  0.5f,  0.5f, 0.0f },		-1,	{ 1.0f, 1.0f} }, // top right
-			Vertex{ { -0.5f,  0.5f, 0.0f },		-1,	{ 0.0f, 1.0f} }, // top left 
-			Vertex{ { -0.5f, -0.5f, 0.0f },		-1,	{ 0.0f, 0.0f} }, // bottom left
-		}
-	};
-
-	static Mesh mesh(blockVertices, &texture);
-	mesh.loadVertexObject();
-
-	static bool scaled = false;
-	if (!scaled) 
-	{
-		mesh.scale(0.025, 0.0425, 0);
-		scaled = true;
-	}
-
-	texture.useSlot(getShader(ShaderType::TEMPORARY_SHADER), "texture1", 0);
-	draw(&mesh);
-
 }

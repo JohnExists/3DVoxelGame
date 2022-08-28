@@ -1,0 +1,12 @@
+{
+    "name": "hotbar_item",
+    "layout-order" : 1,
+    "mesh-type" : "SECONDARY",
+    "gap" : [0.015, 0.0],
+    "location" : [-0.06, -0.0765],
+    "size" : [0.01, 0.01],
+    "atlas" : {
+        "location" : [0.0, 0.0],
+        "size" : [0.0, 0.0]
+    }
+}

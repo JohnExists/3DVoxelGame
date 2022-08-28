@@ -7,43 +7,55 @@ void CubeBuilder::loadVertices(std::uint8_t flags, std::vector<Quad>& quads, con
 	{
 		if ((flags & (1 << i)))
 		{
-			loadFace(quads, tex, static_cast<CubeBuilder::Face>(1 << i) );
+			quads.push_back(loadFace(tex, static_cast<CubeBuilder::Face>(1 << i)));
 		}
 	}
 
 }
 
-void CubeBuilder::loadFace(std::vector<Quad>& quads, const tex::AtlasCollection_t& tex,
-	CubeBuilder::Face face)
+Cube CubeBuilder::loadVertices(std::uint8_t flags, const tex::AtlasCollection_t& tex)
+{
+	Cube cube;
+	for (int i = 0; i < 6; i++)
+	{
+		if ((flags & (1 << i)))
+		{
+			cube.addQuad(loadFace(tex, static_cast<CubeBuilder::Face>(1 << i)));
+		}
+	}
+
+	return cube;
+}
+
+Quad CubeBuilder::loadFace(const tex::AtlasCollection_t& tex, CubeBuilder::Face face)
 {
 	switch (face)
 	{
 	case CubeBuilder::Face::BACK:
 		//quads.push_back(getBack(tex[0], res));
-		quads.push_back(Quad{
-		Vertex{ LEFT_BOTTOM_BACK,	0, TEX_BOTTOM_LEFT(tex[0])	},
-		Vertex{ RIGHT_TOP_BACK,		0, TEX_TOP_RIGHT(tex[0])	},
-		Vertex{ RIGHT_BOTTOM_BACK,	0, TEX_BOTTOM_RIGHT(tex[0])	},
-		Vertex{ RIGHT_TOP_BACK,		0, TEX_TOP_RIGHT(tex[0])	},
-		Vertex{ LEFT_BOTTOM_BACK,	0, TEX_BOTTOM_LEFT(tex[0])	},
-		Vertex{ LEFT_TOP_BACK,		0, TEX_TOP_LEFT(tex[0])		}
-			}
-		);
+		return Quad{
+			Vertex{ LEFT_BOTTOM_BACK,	0, TEX_BOTTOM_LEFT(tex[0])	},
+			Vertex{ RIGHT_TOP_BACK,		0, TEX_TOP_RIGHT(tex[0])	},
+			Vertex{ RIGHT_BOTTOM_BACK,	0, TEX_BOTTOM_RIGHT(tex[0])	},
+			Vertex{ RIGHT_TOP_BACK,		0, TEX_TOP_RIGHT(tex[0])	},
+			Vertex{ LEFT_BOTTOM_BACK,	0, TEX_BOTTOM_LEFT(tex[0])	},
+			Vertex{ LEFT_TOP_BACK,		0, TEX_TOP_LEFT(tex[0])		}
+		};
 		break;
 	case CubeBuilder::Face::FRONT:
-		quads.push_back(getFront(tex[1]));
+		return (getFront(tex[1]));
 		break;
 	case CubeBuilder::Face::LEFT:
-		quads.push_back(getLeft(tex[2]));
+		return (getLeft(tex[2]));
 		break;
 	case CubeBuilder::Face::RIGHT:
-		quads.push_back(getRight(tex[3]));
+		return (getRight(tex[3]));
 		break;
 	case CubeBuilder::Face::TOP:
-		quads.push_back(getTop(tex[5]));
+		return (getTop(tex[5]));
 		break;
 	case CubeBuilder::Face::BOTTOM:
-		quads.push_back(getBottom(tex[4]));
+		return (getBottom(tex[4]));
 		break;
 	}
 }

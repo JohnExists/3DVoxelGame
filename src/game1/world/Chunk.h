@@ -107,7 +107,6 @@ private:
 	bool shouldRender(const LocalLocation_t& position, bool isBlockWater);
 
 	std::uint8_t getFlags(int x, int y, int z);
-	glm::vec3 getVertexPosition(const glm::vec3& blockPosition, const glm::vec3& positon);
 	void buildBlockAt(int x, int y, int z);
 
 	Block& getLocalBlockAt(int x, int y, int z) const;

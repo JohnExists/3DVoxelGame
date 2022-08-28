@@ -10,6 +10,7 @@
 
 #include<JSONParser.h>
 
+#define jsonDataToVec2(data) glm::vec2(data[0], data[1])
 
 struct Atlas
 {

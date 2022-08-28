@@ -9,16 +9,19 @@
 #include<stack>
 #include<map>
 #include<cstdint>
+#include<unordered_map>
 
 #include"Mesh.h"
 #include"../world/World.h"
 #include"../Camera.h"
 #include"Frustum.h"
 #include"../Settings.h"
+#include"../ui/GameInterface.h"
 
 class World;
 class Mesh;
 class Camera;
+class GameInterface;
 
 enum class ShaderType
 {
@@ -30,15 +33,15 @@ enum class ShaderType
 class Renderer
 {
 private:
-	std::array<Shader, static_cast<int>(ShaderType::MAX_SHADERS_COUNT)> shaders{};
+	std::unordered_map<std::string, Shader> shaders;
 	ShaderType currentShader;
-	World* world;
 	Camera* camera;
 public:
-	Renderer(World* world, Camera* camera);
-	void draw(Mesh* mesh);
-	void render();
-	Shader& getShader(ShaderType type);
+	Renderer();
+	void draw(Shader& shader, Mesh* mesh);
+
+	void render(World* world, Camera* camera, GameInterface* ui);
+	Shader& getShaderAt(std::string shader);
 	void setShader(ShaderType shaderType);
 	void drawTempGUI();
 

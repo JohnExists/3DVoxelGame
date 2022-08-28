@@ -58,7 +58,7 @@ void VertexArrayObject::draw()
 {
 	use();
 	glDrawArrays(GL_TRIANGLES, 0, quads->size() * 6);
-	abandon();	
+	abandon();
 }
 
 void VertexArrayObject::link()

@@ -6,6 +6,9 @@
 
 Texture::Texture(const char* pathToTexture)
 {
+	setScalingFilter(GL_NEAREST);
+	setWrapAround(GL_CLAMP_TO_EDGE);
+
 	target = GL_TEXTURE_2D;
 	init();
 	try
@@ -22,43 +25,35 @@ Texture::Texture(const char* pathToTexture)
 void Texture::use() const
 {
 	if (texture == TEXTURE_LOADING_FAILURE) return;
+
+	glTexParameteri(target, GL_TEXTURE_MIN_FILTER, scalingFilter);
+	glTexParameteri(target, GL_TEXTURE_MAG_FILTER, scalingFilter);
+	glTexParameteri(target, GL_TEXTURE_WRAP_S, wrapAround);
+	glTexParameteri(target, GL_TEXTURE_WRAP_T, wrapAround);
+	glTexParameteri(target, GL_TEXTURE_WRAP_R, wrapAround);
+
 	glBindTexture(target, texture);
 }
 
-void Texture::useSlot(
-	Shader& shader, 
-	std::string variableName, 
-	int slot
-)
+void Texture::useSlot(Shader& shader, std::string variableName, int slot) const
 {
 	if (texture == TEXTURE_LOADING_FAILURE) return;
 	assert((slot < 31 || slot > 0) && "Assign a slot between 0 and 31");
 
-	shader.use();
 	shader[variableName] = slot;
 
 	glActiveTexture(GL_TEXTURE0 + slot);
 	use();
 }
 
-void Texture::setWrapAround(
-	const GLint x = GL_REPEAT,
-	const GLint y = GL_REPEAT,
-	const GLint z = GL_REPEAT
-)
+void Texture::setWrapAround(const GLint value = GL_REPEAT)
 {
-	glTexParameteri(target, GL_TEXTURE_WRAP_S, x);
-	glTexParameteri(target, GL_TEXTURE_WRAP_T, y);
-	glTexParameteri(target, GL_TEXTURE_WRAP_R, z);
+	wrapAround = value;
 }
 
-void Texture::setScalingFilter(
-	const GLint min = GL_LINEAR,
-	const GLint max = GL_LINEAR
-) 
+void Texture::setScalingFilter(const GLint value = GL_LINEAR) 
 {
-	glTexParameteri(target, GL_TEXTURE_MIN_FILTER, min);
-	glTexParameteri(target, GL_TEXTURE_MAG_FILTER, max);
+	scalingFilter = value;
 }
 
 //////////////////////////////////

@@ -189,11 +189,26 @@ CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.s"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/main.cpp" -o CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.s
 
+CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj: CMakeFiles/MinecraftGL.dir/flags.make
+CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
+CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Cube.cpp
+CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj"
+	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Cube.cpp"
+
+CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.i"
+	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Cube.cpp" > CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.i
+
+CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.s"
+	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Cube.cpp" -o CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.s
+
 CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj: CMakeFiles/MinecraftGL.dir/flags.make
 CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/CubeBuilder.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.i: cmake_force
@@ -208,7 +223,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj: CMakeFiles/Minecraf
 CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Frustum.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.i: cmake_force
@@ -223,7 +238,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj: CMakeFiles/Minecra
 CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLObject.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/GLObject.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.i: cmake_force
@@ -238,7 +253,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj: CMakeFiles/MinecraftGL
 CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Mesh.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.i: cmake_force
@@ -253,7 +268,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj: CMakeFiles/Minecra
 CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Renderer.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.i: cmake_force
@@ -268,7 +283,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj: CMakeFiles/Minecraft
 CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Shader.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Shader.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.i: cmake_force
@@ -283,7 +298,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj: CMakeFiles/Minecraf
 CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/Texture.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.i: cmake_force
@@ -298,7 +313,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj: CMakeFiles/Min
 CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/TextureAtlas.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.i: cmake_force
@@ -313,7 +328,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj: CMakeFiles/Minecr
 CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/stb_image.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/stb_image.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.i: cmake_force
@@ -324,11 +339,26 @@ CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.s"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/render/stb_image.cpp" -o CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.s
 
+CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj: CMakeFiles/MinecraftGL.dir/flags.make
+CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
+CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.cpp
+CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj"
+	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.cpp"
+
+CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.i"
+	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.cpp" > CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.i
+
+CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.s"
+	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/ui/GameInterface.cpp" -o CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.s
+
 CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: CMakeFiles/MinecraftGL.dir/flags.make
 CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Block.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Block.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.i: cmake_force
@@ -343,7 +373,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: CMakeFiles/MinecraftGL
 CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Chunk.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.i: cmake_force
@@ -358,7 +388,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj: CMakeFiles/Minecr
 CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Decoration.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/Decoration.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.i: cmake_force
@@ -373,7 +403,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj: CMakeFiles/MinecraftGL
 CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/World.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.i: cmake_force
@@ -388,7 +418,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj: CMakeFiles/Minec
 CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/Biome.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/Biome.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.i: cmake_force
@@ -403,7 +433,7 @@ CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj: CMakeFiles
 CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj: CMakeFiles/MinecraftGL.dir/includes_CXX.rsp
 CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj: C:/Users/John\ Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.cpp
 CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj: CMakeFiles/MinecraftGL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj"
 	C:/msys64/mingw64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj -MF CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj.d -o CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj -c "C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/src/game1/world/biome/BiomeLoader.cpp"
 
 CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.i: cmake_force
@@ -424,6 +454,7 @@ MinecraftGL_OBJECTS = \
 "CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/glad.c.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj" \
+"CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj" \
@@ -433,6 +464,7 @@ MinecraftGL_OBJECTS = \
 "CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj" \
+"CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj" \
 "CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj" \
@@ -451,6 +483,7 @@ MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/glad.c.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj
+MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj
@@ -460,6 +493,7 @@ MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj
+MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj
@@ -469,7 +503,7 @@ MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cp
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/build.make
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/linklibs.rsp
 MinecraftGL.exe: CMakeFiles/MinecraftGL.dir/objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX executable MinecraftGL.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable MinecraftGL.exe"
 	"C:/Program Files/CMake/bin/cmake.exe" -E rm -f CMakeFiles/MinecraftGL.dir/objects.a
 	C:/msys64/mingw64/bin/ar.exe qc CMakeFiles/MinecraftGL.dir/objects.a @CMakeFiles/MinecraftGL.dir/objects1.rsp
 	C:/msys64/mingw64/bin/g++.exe -g -Wl,--whole-archive CMakeFiles/MinecraftGL.dir/objects.a -Wl,--no-whole-archive -o MinecraftGL.exe -Wl,--out-implib,libMinecraftGL.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/MinecraftGL.dir/linklibs.rsp

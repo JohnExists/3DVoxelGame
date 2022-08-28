@@ -9,6 +9,7 @@
 
 #include"Mesh.h"
 #include"TextureAtlas.h"
+#include"Cube.h"
 
 #define LEFT_BOTTOM_BACK	glm::vec3(0.0f, 0.0f, 0.0f)
 #define RIGHT_TOP_BACK		glm::vec3(1.0f, 1.0f, 0.0f)
@@ -26,6 +27,7 @@
 #define TEX_TOP_RIGHT(v)	glm::vec2(v.location.x + v.size.x, v.location.y + v.size.y)
 
 class Mesh;
+class Cube;
 struct Vertex;
 struct Quad;
 
@@ -45,7 +47,11 @@ public:
 	static void loadVertices(std::uint8_t flags, std::vector<Quad>& quads, const 
 		tex::AtlasCollection_t& tex);
 
-	static void loadFace(std::vector<Quad>& quads, const tex::AtlasCollection_t& tex, Face face);
+	static Cube loadVertices(std::uint8_t flags, const tex::AtlasCollection_t& tex);
+
+
+	static Quad loadFace(const tex::AtlasCollection_t& tex, CubeBuilder::Face face);
+
 	static Quad getBack(const Atlas& atlas);
 	static Quad getFront(const Atlas& atlas);
 	static Quad getLeft(const Atlas& atlas);

@@ -6,7 +6,7 @@ std::string World::vectorToString(const glm::vec2& vec)
 		std::to_string(vec.y);
 }
 
-World::World(int seed)
+World::World(GameState* gameState, int seed) : gameState(gameState)
 {
 	noise = new FastNoiseLite(seed);
 	loader = new BiomeLoader(this, *noise);
@@ -14,11 +14,8 @@ World::World(int seed)
 	noise->setFractalOctaves(16);
 
 	this->texture = new Texture("../res/atlas.png");
-
-	texture->setScalingFilter(GL_NEAREST, GL_NEAREST);
-	texture->setWrapAround(GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE);
-
-	preloadChunk(game::ChunkLocation_t(0, 0), nullptr);
+	texture->setWrapAround(GL_CLAMP_TO_BORDER);
+	texture->setScalingFilter(GL_NEAREST);
 }
 
 Chunk* World::getChunkAt(const game::ChunkLocation_t& vectorPosition)
@@ -58,8 +55,6 @@ glm::vec2 World::getChunkPositionAt(game::Location_t position)
 
 void World::draw(Renderer& renderer, Frustum& frustum)
 {
-	texture->useSlot(renderer.getShader(ShaderType::DEFAULT_SHADER), "texture1", 0);
-
 	for (auto& [position, chunk] : chunks)
 	{
 		if( frustum.collidesWith(chunk->getAABB()) )
@@ -117,6 +112,11 @@ void World::placeBlockAt(game::Location_t position, BlockType type)
 const Texture* World::getTexture() const
 {
 	return texture;
+}
+
+GameState& World::getGameState()
+{
+	return *gameState;	
 }
 
 void World::unloadFarChunks(const game::ChunkLocation_t playerChunkLocation) 

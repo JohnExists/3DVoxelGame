@@ -4,6 +4,9 @@
 #include<GLFW/glfw3.h>
 #include<tuple>
 #include<string>
+#include<array>
+#include<vector>
+#include<unordered_map>
 
 namespace game
 {
@@ -11,6 +14,8 @@ namespace game
 	using Location_t = glm::vec3;
 	using ChunkLocation_t = glm::vec2;
 	using CursorLocation_t = glm::vec2;
+	using ShaderLayout_t = std::vector<float>;
+	using ShaderPair_t = std::pair<std::string, ShaderLayout_t>;
 
 	// Window Settings
 	constexpr float WINDOW_WIDTH		= 960.0f;
@@ -40,10 +45,15 @@ namespace game
 	constexpr MouseStatus_t PUNCH		= MouseStatus_t(GLFW_MOUSE_BUTTON_LEFT, GLFW_RELEASE);
 	constexpr MouseStatus_t PLACE		= MouseStatus_t(GLFW_MOUSE_BUTTON_RIGHT, GLFW_RELEASE);
 
-	std::string availableShaders = {
-		"default_world",
-		"user_interface"
+	// Shaders
+	const std::unordered_map<std::string, ShaderLayout_t> gameShaders = {
+		{ "default_world", { sizeof(glm::vec3), sizeof(int), sizeof(glm::vec2) } },
+		{ "user_interface", { sizeof(glm::vec3), sizeof(glm::vec2) } },
+		{ "block_hotbar_select", { sizeof(glm::vec3), sizeof(int), sizeof(glm::vec2) } },
 	};
+
+	#define WORLD_SHADER "default_world"
+	#define GUI_SHADER "user_interface"
 }
 
 #endif // SETTINGS_H
