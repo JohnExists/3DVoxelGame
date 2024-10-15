@@ -1,3 +1,0 @@
-C:/Users/gamil/OneDrive/Desktop/JohnsStuff/Desktop/VSCode/MinecraftGL/build/CMakeFiles/VoxelGL.dir
-C:/Users/gamil/OneDrive/Desktop/JohnsStuff/Desktop/VSCode/MinecraftGL/build/CMakeFiles/edit_cache.dir
-C:/Users/gamil/OneDrive/Desktop/JohnsStuff/Desktop/VSCode/MinecraftGL/build/CMakeFiles/rebuild_cache.dir
