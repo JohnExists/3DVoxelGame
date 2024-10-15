@@ -11,26 +11,18 @@ GameState::GameState()
     renderer    = std::make_unique<Renderer>();
     world       = std::make_unique<World>(this, 399393994);    
     interface   = std::make_unique<GameInterface>(this);
-    player      = std::make_unique<Player>(interface.get(), world.get(), glm::vec3(0.0f, 75.0f, 0.0f));
-    std::thread updateWorkerThread(update2, this);
-    updateWorkerThread.detach();
+    player      = std::make_unique<Player>(interface.get(), world.get(), 
+        glm::vec3(100.0f, 100.0f, 100.0f));
+
 }
 
 void GameState::update(float deltaTime)
 {
     registerInput();
     render();
-    cleanUp();
     player->update(deltaTime);
-}
-
-void GameState::update2()
-{
-    std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
-    while (isActive)
-    {
-        world->updateChunksBuilds(&getPlayerCamera(), 0);
-    }
+    world->updateChunksBuilds(&getPlayerCamera(), 0);
+    cleanUp();
 }
 
 void GameState::render()
@@ -40,7 +32,8 @@ void GameState::render()
 
 void GameState::cleanUp()
 {
-    world->updateChunksBuilds(&getPlayerCamera(), 1);
+    glm::vec2 playerLocation = world->getChunkPositionAt(getPlayerCamera().getPosition());
+    world->unloadFarChunks(playerLocation);
 }
 
 World& GameState::getWorld()

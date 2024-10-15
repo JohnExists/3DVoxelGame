@@ -109,7 +109,7 @@ void Mesh::draw()
 
 	texture->useSlot(*shader, "texture1", 0);
 
-	vao->draw();
+	if(vao) vao->draw();
 }
 
 void Mesh::addQuad(Quad quad)

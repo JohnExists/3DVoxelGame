@@ -10,8 +10,14 @@
 
 namespace random
 {
+	/**
+	 * 
+	 * @param min The minimum value the RNG can produce
+	 * @param max The maximum value the RNG can produce
+	 * @param seed The integer value that determines how "random" numbers are
+	 * @returns 
+	 */
 	float generateRandom(float min, float max, int seed = std::random_device{}());
-
 
 }
 

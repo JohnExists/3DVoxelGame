@@ -45,11 +45,10 @@ namespace game
 	constexpr MouseStatus_t PUNCH		= MouseStatus_t(GLFW_MOUSE_BUTTON_LEFT, GLFW_RELEASE);
 	constexpr MouseStatus_t PLACE		= MouseStatus_t(GLFW_MOUSE_BUTTON_RIGHT, GLFW_RELEASE);
 
-	// Shaders
+	// Shaders (The values stored in each vertex)
 	const std::unordered_map<std::string, ShaderLayout_t> gameShaders = {
 		{ "default_world", { sizeof(glm::vec3), sizeof(int), sizeof(glm::vec2) } },
 		{ "user_interface", { sizeof(glm::vec3), sizeof(glm::vec2) } },
-		{ "block_hotbar_select", { sizeof(glm::vec3), sizeof(int), sizeof(glm::vec2) } },
 	};
 
 	#define WORLD_SHADER "default_world"

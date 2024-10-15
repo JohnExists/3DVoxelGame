@@ -17,6 +17,7 @@ Chunk::Chunk(const glm::vec2 &position, World *world, BiomeLoader &loader)
 	loadBlocks();
 	buildBlocks();
 }
+ 
 
 void Chunk::draw(Renderer &renderer, int meshToDraw)
 {
@@ -77,12 +78,12 @@ BiomeType Chunk::getBiomeAt(int x, int z)
 	return biomes[MAX_XZ * x + z];
 }
 
-Block &Chunk::getBlockAt(Location_t &blockPositon)
+Block &Chunk::getBlockAt(Location_t &blockPosition)
 {
 	return getLocalBlockAt(
-		blockPositon.x - (this->position.x * MAX_XZ),
-		blockPositon.y,
-		blockPositon.z - (this->position.y * MAX_XZ));
+		blockPosition.x - (this->position.x * MAX_XZ),
+		blockPosition.y,
+		blockPosition.z - (this->position.y * MAX_XZ));
 }
 
 void Chunk::setBlockAt(Location_t &position, BlockType newBlock, bool replaceNonAirBlocks)
@@ -104,16 +105,27 @@ const glm::vec2 &Chunk::getPosition() const
 	return position;
 }
 
-Chunk **Chunk::getCachedChunk(char cachedDirection)
+std::optional<Chunk*> Chunk::getCachedChunk(char cachedDirection)
 {
 	switch (cachedDirection)
 	{
-	case 'F': return &cacheFront;
-	case 'B': return &cacheBehind;
-	case 'L': return &cacheLeft;
-	case 'R': return &cacheRight;
-	default:
-		return nullptr;
+	case 'F': return (cacheFront != nullptr ? 
+			std::make_optional<Chunk*>(cacheFront) : 
+			std::nullopt);
+
+	case 'B': return (cacheBehind != nullptr ? 
+			std::make_optional<Chunk*>(cacheBehind) : 
+			std::nullopt);
+
+	case 'L': return (cacheLeft != nullptr ? 
+			std::make_optional<Chunk*>(cacheLeft) : 
+			std::nullopt);
+
+	case 'R': return (cacheRight != nullptr ? 
+			std::make_optional<Chunk*>(cacheRight) : 
+			std::nullopt);
+
+	default: return std::nullopt;
 	}
 }
 
@@ -131,14 +143,10 @@ void Chunk::ghostSetBlockAt(Location_t position, BlockType newBlock)
 	block = newBlock;
 }
 
-const AABB &Chunk::getAABB() const
+const AABB& Chunk::getAABB() const
 {
 	return aabb;
 }
-
-//////////////////////////////////
-/*		Private Functions		*/
-//////////////////////////////////
 
 void Chunk::cacheChunks()
 {
@@ -146,6 +154,11 @@ void Chunk::cacheChunks()
 	cacheRight = world->getChunkAt(position + glm::vec2(1, 0));	  // RIGHT
 	cacheBehind = world->getChunkAt(position + glm::vec2(0, -1)); // BEHIND
 	cacheFront = world->getChunkAt(position + glm::vec2(0, 1));	  // FRONT
+
+	if(cacheLeft) cacheLeft->cacheRight = this;
+	if(cacheRight) cacheRight->cacheLeft = this;
+	if(cacheFront) cacheFront->cacheBehind = this;
+	if(cacheBehind) cacheBehind->cacheFront = this;
 }
 
 void Chunk::loadMatrix(Renderer &renderer)
@@ -179,6 +192,10 @@ void Chunk::loadDecoration(Decoration decoration, int x, int y, int z)
 	}
 }
 
+//////////////////////////////////
+/*		Private Functions		*/
+//////////////////////////////////
+
 Block &Chunk::getLocalBlockAt(int x, int y, int z) const
 {
 	return blocks[x + MAX_XZ * (y + MAX_Y * z)];
@@ -204,9 +221,8 @@ BlockType Chunk::getBlockTypeAt(int x, int y, int z)
 
 		if (direction != ' ')
 		{
-			Chunk **chunk = getCachedChunk(direction);
-			if (*chunk != nullptr)
-				return (*chunk)->getBlockAt(worldLocation).getType();
+			auto chunk = getCachedChunk(direction);
+			if (chunk) return chunk.value()->getBlockAt(worldLocation).getType();
 		}
 
 		glm::vec2 chunkPosition;
@@ -286,35 +302,30 @@ void Chunk::buildBlockAt(int x, int y, int z)
 	if (currentBlock == BlockType::AIR) return;
 	if (!isBlockWithinBounds(x, z)) return;
 
-	std::vector<Quad> blockQuads;
+	Cube cube;
 	if (currentBlock != BlockType::GRASS_BLADES)
 	{
-		CubeBuilder::loadVertices(
+		cube = CubeBuilder::loadVertices(
 			getFlags(x, y, z),
-			blockQuads,
-			BlockBuilder::genTexCoords(currentBlock.getType()));
+			BlockBuilder::genTexCoords(currentBlock.getType())
+		);
 	}
 	else
 	{
-		CubeBuilder::loadGrassVertices(
-			blockQuads,
-			BlockBuilder::genTexCoords(BlockType::GRASS_BLADES)[0]);
+		cube = CubeBuilder::loadGrassVertices(
+			BlockBuilder::genTexCoords(BlockType::GRASS_BLADES)[0]
+		);
 	}
 
-	for (auto &quads : blockQuads)
-	{
-		for (auto &v : quads.vertices)
-		{
-			v.position += glm::vec3(x, y, z);
-		}
-		switch (currentBlock.getRenderType())
-		{
-		case PRIMARY_MESH: primary->addQuad(quads);
-			break;
-		case SECONDARY_MESH: secondary->addQuad(quads);
-			break;
+	if(cube.getQuads().empty()) return;
 
-		}
+	cube.translate(x, y, z);
+	switch (currentBlock.getRenderType())
+	{
+	case PRIMARY_MESH: primary->addCube(cube);
+		break;
+	case SECONDARY_MESH: secondary->addCube(cube);
+		break;
 	}
 }
 

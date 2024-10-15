@@ -95,7 +95,8 @@ void Shader::compile(const GLenum type, const char* shaderCode, GLuint& shader)
 void Shader::checkErrors(const GLuint data, const std::string& type)
 {
 	int success;
-	char infoLog[1024];
+	char infoLog[1024]{ };
+	infoLog[0] = '!';
 	if (type == "Program")
 	{
 		glGetShaderiv(data, GL_LINK_STATUS, &success);
@@ -108,6 +109,8 @@ void Shader::checkErrors(const GLuint data, const std::string& type)
 		if (success) return;
 		glGetShaderInfoLog(data, 1024, NULL, infoLog);
 	}
-
-	std::cout << type << " failed to compile!\n" << infoLog << '\n';
+	if(infoLog[0] != '!')
+	{
+		std::cout << type << " failed to compile!\n" << infoLog << '\n';
+	}
 }

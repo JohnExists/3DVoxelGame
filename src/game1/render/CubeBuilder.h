@@ -44,12 +44,33 @@ public:
 		BOTTOM = 1 << 5 //	(-y)
 	};
 
+	/**
+	 * @brief Loads the vertices based on given data
+	 * 
+	 * @param flags The binary value representing which faces will be shown (ie 00101011)
+	 * @param quads The list of quads that the vertices will be added to
+	 * @param tex The texture data for the vertices
+	 */
 	static void loadVertices(std::uint8_t flags, std::vector<Quad>& quads, const 
 		tex::AtlasCollection_t& tex);
 
+	/**
+	 * @brief Loads the vertices based on given data
+	 * 
+	 * @param flags The binary value representing which faces will be shown (ie 00101011)
+	 * @param tex The texture data for the vertices
+	 * 
+	 * @returns The cubes will all the vertice data
+	 */
 	static Cube loadVertices(std::uint8_t flags, const tex::AtlasCollection_t& tex);
 
-
+	/**
+	 * @brief Loads a specific face of the cube
+	 * 
+	 * @param tex The texture data for that specific face
+	 * @param face The face that will be shown
+	 * @return Quad 
+	 */
 	static Quad loadFace(const tex::AtlasCollection_t& tex, CubeBuilder::Face face);
 
 	static Quad getBack(const Atlas& atlas);
@@ -59,7 +80,7 @@ public:
 	static Quad getTop(const Atlas& atlas);
 	static Quad getBottom(const Atlas& atlas);
 
-	static void loadGrassVertices(std::vector<Quad>& quads, const Atlas& atlas);
+	static Cube loadGrassVertices(const Atlas& atlas);
 
 };
 

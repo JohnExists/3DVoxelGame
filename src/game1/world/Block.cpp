@@ -42,7 +42,8 @@ bool Block::isAir() const
 
 bool Block::isSolid() const {
 	return (getType() != BlockType::WATER) &&
-		(getType() != BlockType::WATER);
+		(getType() != BlockType::GRASS_BLADES) &&
+		(getType() != BlockType::AIR);
 }
 
 int Block::getRenderType()

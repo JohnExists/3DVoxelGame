@@ -10,12 +10,13 @@ VertexObject::VertexObject(std::vector<Quad>* quads)
 	glGenBuffers(1, &data);
 
 	this->use();
-	glBufferData(
-		GL_ARRAY_BUFFER,
-		quads->size() * (sizeof(Quad)),
-		&quads->at(0),
-		GL_STATIC_DRAW
-	);
+	if(&quads->at(0) != nullptr)
+		glBufferData(
+			GL_ARRAY_BUFFER,
+			quads->size() * (sizeof(Quad)),
+			&quads->at(0),
+			GL_STATIC_DRAW
+		);
 
 }
 

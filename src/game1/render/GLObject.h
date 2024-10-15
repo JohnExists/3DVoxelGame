@@ -38,6 +38,11 @@ public:
 class VertexObject : public GLObject
 {
 public:
+	/**
+	 * @brief Construct a new Vertex Object object
+	 * 
+	 * @param vertices The list of vertices in this object
+	 */
 	VertexObject(std::vector<Quad>* vertices);
 
 	// Inherited via GLObject
@@ -51,6 +56,11 @@ private:
 	std::unique_ptr<VertexObject> vertexData;
 	std::vector<Quad>* quads;
 public:
+	/**
+	 * @brief Construct a new Vertex Array Object object
+	 * 
+	 * @param vertices The list of vertices in this object
+	 */
 	VertexArrayObject(std::vector<Quad>* vertices);
 
 	// Inherited via GLObject

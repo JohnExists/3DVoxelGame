@@ -40,13 +40,41 @@ private:
 	BlockType bottomBlocks = BlockType::AIR;
 
 public:
-	Biome(int scaleBy, int addBy, BlockType top, BlockType center, BlockType bottom,
+	/**
+	 * @brief Initializes a specific biome based on certain values
+	 * 
+	 * @param minHeight the minimum block height of that biome
+	 * @param altitude The maximum block height of that biome
+	 * @param top The block type that is in the highest point of the y location
+	 * @param center The block type that is in the middle point of y location
+	 * @param bottom The block type that is in the lowest point of y location
+	 * @param decoration The decorating objects used for that biome
+	 * 
+	 */
+	Biome(int minHeight, int altitude, BlockType top, BlockType center, BlockType bottom,
 		  std::initializer_list<Placeables_t> decoration);
 
+	/**
+	 * @param valueToGet the value of the block height (TOP, CENTER, BOTTOM)
+	 * 
+	 * @returns Returns the block type at a y-location in the biome
+	 */
 	BlockType get(int valueToGet);
+	/**
+	 * @param noiseOutput The perlin noise value
+	 * 
+	 * @returns The height of an xz point given a noise input
+	 */
 	int obtainHeight(float noiseOutput);
+
+	/**
+	 * @returns The decorations  of the biome as a decoration object
+	 */
 	Decoration obtainDecoration();
 
+	/**
+	 * @brief Compares placeables by their float values
+	 */
 	friend bool operator<(const Placeables_t &left, const Placeables_t &right);
 
 private:

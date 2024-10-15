@@ -11,10 +11,11 @@ Player::Player(GameInterface* interface, World* world, glm::vec3 position)
     {
         slot = BlockType::AIR;
     }
+    
 
     hotbar[0] = BlockType::GRASS;
-    hotbar[1] = BlockType::SAND;
-    hotbar[4] = BlockType::WOOD;
+    hotbar[1] = BlockType::GRASS_BLADES;
+    hotbar[2] = BlockType::LEAVES;
 }
 
 Camera& Player::getCamera()
@@ -24,7 +25,9 @@ Camera& Player::getCamera()
 
 void Player::update(float deltaTime)
 {
-    camera->move(velocity * deltaTime);
+    updateJump(deltaTime);
+    updateFall(deltaTime);
+    updateMovement(deltaTime);
     resetVelocity();
     updateInventory();
 }
@@ -44,6 +47,65 @@ void Player::resetSprint()
 {
     if(currentlySprinting) movementSpeed -= 25;
     currentlySprinting = false;    
+}
+
+void Player::updateMovement(float deltaTime)
+{
+    glm::vec3 travel = velocity * deltaTime;
+    if(velocity != glm::vec3(0.0f, 0.0f, 0.0f))
+    {
+        AABB xHitbox = generateHitbox(getPosition() + glm::vec3(travel.x, 0.0f, 0.0f));
+        if(!currentWorld->collidesWithSurface(xHitbox))
+        {
+            camera->move(glm::vec3(travel.x, 0.0f, 0.0f));
+        }
+
+        AABB yHitbox = generateHitbox(getPosition() + glm::vec3(0.0f, travel.y, 0.0f));
+        if(!currentWorld->collidesWithSurface(yHitbox))
+        {
+            camera->move(glm::vec3(0.0f, travel.y, 0.0f));
+            landed = false;
+        }
+        else
+        {
+            landed = true;
+        }
+
+        AABB zHitbox = generateHitbox(getPosition() + glm::vec3(0.0f, 0.0f, travel.z));
+        if(!currentWorld->collidesWithSurface(zHitbox))
+        {
+            camera->move(glm::vec3(0.0f, 0.0f, travel.z));
+        }
+    }
+}
+
+void Player::updateFall(float deltaTime)
+{
+    static float timeFalling = 0.0f;
+    if(landed) 
+    {
+        timeFalling = 0.0f;
+        return;
+    }
+    timeFalling += deltaTime;
+    float distanceToFall = -(392.0f/35.0f) * timeFalling;
+    velocity += Velocity_t(0.0, distanceToFall, 0.0f);
+}
+
+void Player::updateJump(float deltaTime)
+{
+    static const float JUMP_SPEED_PER_SECOND = 15.0f;
+    static float distanceJumped = 0.0f;
+
+    if(!jumping) return;
+    if(distanceJumped >= 2.5f) 
+    {
+        distanceJumped = 0.0f; 
+        jumping = false;
+        return;
+    }
+    distanceJumped += JUMP_SPEED_PER_SECOND * deltaTime;
+    velocity += Velocity_t(0.0f, JUMP_SPEED_PER_SECOND, 0.0f);
 }
 
 void Player::perform(Action action)
@@ -88,10 +150,36 @@ void Player::lookAround(game::CursorLocation_t newCursorLocation)
 
 void Player::selectSlot(int slot)
 {
-    selectedSlot = slot + 1;
+    selectedSlot = slot - 1;
     interface->removeElement("hotbar_select");
     interface->addElement("hotbar_select.json", slot);
     interface->setupMesh();
+}
+
+void Player::give(BlockType block)
+{
+    for (size_t i = 0; i < hotbar.size(); i++)
+    {
+        if(hotbar[i] != BlockType::AIR) continue;
+        hotbar[i] = block;
+        return;
+    }
+}
+
+glm::vec3 Player::getPosition()
+{
+    return camera->getPosition();    
+}
+
+AABB Player::generateHitbox(glm::vec3 position)
+{
+    AABB currentHitbox;
+    const glm::vec3 hitBoxSize = glm::vec3(0.6, 1.8, 0.6);
+
+    currentHitbox.position = position - (hitBoxSize / 2.0f) - glm::vec3(0.0f, 0.6f, 0.0f);
+    currentHitbox.size = hitBoxSize;
+
+    return currentHitbox;
 }
 
 
@@ -117,7 +205,7 @@ Player::Velocity_t Player::getMovementDirection(Movement movementDirection)
     case Movement::BACKWARD:    return -front * speed;
     case Movement::RIGHT:       return right * speed;
     case Movement::LEFT:        return -right * speed;
-    case Movement::UP:          return Velocity_t(0.0f, 25.0f, 0.0f);
+    case Movement::UP:          if(landed) jumping = true; return Velocity_t(0.0f, 0.0f, 0.0f);
     case Movement::DOWN:        return Velocity_t(0.0f, -25.0f, 0.0f);
     }
     return Velocity_t();
@@ -140,17 +228,30 @@ void Player::castRay(Action action)
 
         switch (action)
         {
-        case Action::BREAK_BLOCK: currentWorld->breakBlockAt(rayLocation);
-            break;
-        case Action::PLACE_BLOCK: currentWorld->placeBlockAt(rayLocation + getBlockSide(rayLocation), hotbar[selectedSlot]);
-            break;
+        case Action::BREAK_BLOCK: 
+            {
+                BlockType block = currentWorld->breakBlockAt(rayLocation);
+                give(block);
+                break;
+            }
+        case Action::PLACE_BLOCK: 
+            {
+                if(hotbar[selectedSlot] == BlockType::AIR) return;
+                game::Location_t blockLocation = rayLocation + getBlockSide(rayLocation);
+                if(abs( glm::length(blockLocation - getPosition() )) > 1.25f)
+                {
+                    currentWorld->placeBlockAt(blockLocation, hotbar[selectedSlot]);
+                }
+                break;
+            }
         }
         return;
 	}
 }
 
 
-game::Location_t Player::getBlockSide(game::Location_t rayLanding) {
+game::Location_t Player::getBlockSide(game::Location_t rayLanding) 
+{
 	static const float POSITIVE_SIDE = 0.99f;
 	static const float NEGATIVE_SIDE = 0.01;
 	static const game::Location_t allBlockSides[] = GET_NEARBY_BLOCKS(0, 0, 0);

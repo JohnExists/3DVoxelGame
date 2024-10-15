@@ -43,15 +43,9 @@ void Renderer::render(World* world, Camera* camera, GameInterface* ui)
 	shader["view"] 			= camera->getViewMatrix();
 	shader["cameraPos"] 	= camera->getPosition();
 
-	Shader& shader2 = getShaderAt("block_hotbar_select");
-	shader2.use();
-	shader2["projection"] 	= projectionMatrix;
-	shader2["view"] 		= ui->getCamera().getViewMatrix();
-
 	Shader& shader3 = getShaderAt("user_interface");
 	shader3.use();
 	shader3["projection"] 	= projectionMatrix;
-	shader3["view"] 		= ui->getCamera().getViewMatrix();
 
 	
 	Frustum frustum = camera->generateFrustum();

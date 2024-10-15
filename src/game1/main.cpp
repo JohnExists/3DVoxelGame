@@ -6,7 +6,6 @@
 
 #include <iostream>
 #include <vector>
-#include <thread>
 
 #include "../game1/world/World.h"
 #include "GameState.h"
@@ -28,8 +27,6 @@ Camera* cameraPtr;
 int main(int argc, char const** argv)
 {
 	
-	std::cout << "Starting Thread... " << std::this_thread::get_id() << '\n';
-
 	// glfw: initialize and configure
 	// ------------------------------
 	glfwInit();
@@ -67,8 +64,6 @@ int main(int argc, char const** argv)
 
 	int frameCount = 0;
 
-	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
 	// render loop\watch
 	// -----------
 	while (!glfwWindowShouldClose(window))
@@ -89,25 +84,7 @@ int main(int argc, char const** argv)
 
 		double currentTime = glfwGetTime();
 		frameCount++;
-		// If a second has passed.
-		if (currentTime - previousTime >= 1.0)
-		{
-			// Display the frame count here any way you want.
-			glm::vec3 xx = cameraPtr->getPosition();
-			glm::vec3 xz = cameraPtr->getDirectionVector();
-
-
-			std::string str = "Learning OpenGL ";
-			std::ostringstream stream;
-			stream << "LearningOpenGL "
-					"X: " << xx.x << ", Y: " << xx.y << ", Z: " << xx.z <<
-				" :: DirX: " << xz.x << ", DirY: " << xz.y << ", DirZ: " << xz.z
-				<< " :: FPS: " << frameCount;
-
-			glfwSetWindowTitle(window, stream.str().c_str());
-			frameCount = 0;
-			previousTime = currentTime;
-		}
+		glfwSetWindowTitle(window, "OpenGL Voxel Game");
 	}
 	gameState.disable();
 	glfwTerminate();

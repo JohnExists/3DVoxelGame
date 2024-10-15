@@ -34,13 +34,29 @@ private:
 	GLint ID;
 
 public:
-	Shader(const char* vertexPath, const char* fragmentPath, int filler);
+	/**
+	 * @brief Loads the initializes shaders from both file paths (.vert and .frag)
+	 */
 	Shader(const char* vertexPath, const char* fragmentPath);
+	/**
+	 * @brief Loads the initializes shaders through name
+	 */
 	Shader(std::string shaderName);
 	Shader() = default;
 
+	/**
+	 * @brief Activeates the current shader for use
+	 */
 	void use() const;
+	/**
+	 * @param variableName The name of the variable to load from the file
+	 * 
+	 * @returns The variable value at that variable name
+	 */
 	ShaderUniform operator[](std::string variableName);
+	/**
+	 * @returns The unique ID for this specific shader
+	 */
 	GLuint getID() const;
 
 private:

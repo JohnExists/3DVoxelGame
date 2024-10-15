@@ -65,7 +65,10 @@
         "semaphore": "cpp",
         "stop_token": "cpp",
         "thread": "cpp",
-        "hash_set": "cpp"
+        "hash_set": "cpp",
+        "charconv": "cpp",
+        "format": "cpp",
+        "variant": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

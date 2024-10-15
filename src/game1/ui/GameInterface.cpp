@@ -2,29 +2,24 @@
 
 GameInterface::GameInterface(GameState* gameState)
 {
-    texture = std::make_unique<Texture>("../res/gui.png");
+    uiTexture = std::make_unique<Texture>("../res/gui.png");
     blockTexture = std::make_unique<Texture>("../res/atlas.png");
 
-    texture->setScalingFilter(GL_NEAREST);
+    uiTexture->setScalingFilter(GL_NEAREST);
     blockTexture->setScalingFilter(GL_NEAREST);
 
-    mesh = std::make_unique<Mesh>(texture.get(), &gameState->getRenderer().getShaderAt("user_interface"));
-    // mesh->scale(0.075, 0.075, 0.075);
-    mesh->scale(1.0, 1.7, 0);
+    primary = std::make_unique<Mesh>(uiTexture.get(), &gameState->getRenderer().getShaderAt("user_interface"));
+    primary->scale(1.0, 1.7, 1.0);
 
-    blockMesh = std::make_unique<Mesh>(blockTexture.get(), &gameState->getRenderer()
-        .getShaderAt("block_hotbar_select"));
-
-    glm::vec3 positon = glm::vec3(0.0f, 0.0f, -0.1f);
-    camera = std::make_unique<Camera>(positon);
+    secondary = std::make_unique<Mesh>(blockTexture.get(), &gameState->getRenderer()
+        .getShaderAt("user_interface"));
+    secondary->scale(1.0, 1.7, 1.0);
 
     addElement("crosshair.json");
     addElement("hotbar_select.json", 4);
     addElement("hotbar.json");
 
     setupMesh();
-
-    // loadBlock();
 }
 
 void GameInterface::setupMesh()
@@ -34,23 +29,19 @@ void GameInterface::setupMesh()
             return left.layoutOrder > right.layoutOrder;
     });
 
-    mesh->clear();
-    blockMesh->clear();
+    primary->clear();
+    secondary->clear();
 
     for (auto &&element : elements)
     {
         Mesh* meshUsed;
-        if(element.meshType == "PRIMARY") meshUsed = mesh.get();
-        if(element.meshType == "SECONDARY") meshUsed = blockMesh.get();
+        if(element.meshType == "PRIMARY") meshUsed = primary.get();
+        if(element.meshType == "SECONDARY") meshUsed = secondary.get();
         meshUsed->addRect(element.position, element.size, element.atlas);
     }
-    mesh->loadVertexObject();
-    blockMesh->loadVertexObject();
+    primary->loadVertexObject();
+    secondary->loadVertexObject();
 
-}
-
-void GameInterface::generateElementMesh(InterfaceElement element)
-{
 }
 
 void GameInterface::addAlternateElement(std::string path, float state, Atlas atlas)
@@ -99,9 +90,9 @@ void GameInterface::draw(Renderer& renderer)
 {
     glClear(GL_DEPTH_BUFFER_BIT);
     glDepthMask(GL_FALSE);
-    mesh->draw();
+    primary->draw();
     glDepthMask(GL_TRUE);
-    blockMesh->draw();
+    secondary->draw();
 }
 
 void GameInterface::loadBlock()
@@ -113,13 +104,8 @@ void GameInterface::loadBlock()
     Block block = Block(BlockType::GRASS);
     auto tex = BlockBuilder::genTexCoords(block);
     
-    blockMesh->addRect(glm::vec2(data["x1"], data["y1"]), glm::vec2(0.01f, 0.01f), tex[0]);
-    blockMesh->loadVertexObject();
-}
-
-Camera& GameInterface::getCamera()
-{
-    return *camera;    
+    secondary->addRect(glm::vec2(data["x1"], data["y1"]), glm::vec2(0.01f, 0.01f), tex[0]);
+    secondary->loadVertexObject();
 }
 
 InterfaceElement GameInterface::createElement(nlohmann::json data, float state, Atlas atlas)

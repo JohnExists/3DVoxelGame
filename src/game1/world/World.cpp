@@ -90,17 +90,19 @@ void World::clearGarabage()
 {
 	while (!garbageChunks.empty())
 	{
-		chunks[garbageChunks.front()] = nullptr;
+		chunks[garbageChunks.front()]->clearCache();
 		chunks.erase(garbageChunks.front());
 		garbageChunks.pop();
 	}
 }
 
-void World::breakBlockAt(game::Location_t position)
+BlockType World::breakBlockAt(game::Location_t position)
 {
 	Chunk* chunk = getChunkAtWorld(position);
+	BlockType block = chunk->getBlockAt(position).getType();
 	chunk->setBlockAt(position, BlockType::AIR, true);
 
+	return block;
 }
 
 void World::placeBlockAt(game::Location_t position, BlockType type)
@@ -121,17 +123,25 @@ GameState& World::getGameState()
 
 void World::unloadFarChunks(const game::ChunkLocation_t playerChunkLocation) 
 {
+	std::vector<std::string> removeableChunks;
 	for (auto it = chunks.cbegin(); it != chunks.cend(); ++it)	
 	{
 		Chunk* chunk =  it->second.get();
-		
+
 		if(chunk == nullptr) continue;
 		if(abs(glm::length(chunk->getPosition() - playerChunkLocation)) >= RENDER_DISTANCE)
 		{
 			chunk->clearCache();
-			garbageChunks.push(it->first);
+			removeableChunks.push_back(it->first);
 		}
 	}
+
+	for (auto &&removeable : removeableChunks)
+	{
+		std::unique_ptr<Chunk>& chunk = chunks.at(removeable);
+		chunks.erase(removeable);
+	}
+	
 }        
 
 void World::loadNearbyChunks(const game::ChunkLocation_t& nearby, Camera* camera)
@@ -168,14 +178,38 @@ void World::preloadChunk(const game::ChunkLocation_t& vectorPosition, Camera* ca
 	if(camera != nullptr)
 	{
 		game::ChunkLocation_t cameraLocation = getChunkPositionAt(camera->getPosition());
-		if (abs(glm::length(cameraLocation - vectorPosition)) > RENDER_DISTANCE) 
-		{
-			return;	
-		}
+		if (abs(glm::length(cameraLocation - vectorPosition)) > RENDER_DISTANCE) return;	
 	}
  
 	chunks.insert({ 
 		positon, 
 		(std::make_unique<Chunk>(vectorPosition, this, *loader)) 
 	});
+}
+
+bool World::collidesWithSurface(AABB object)
+{
+	glm::vec3 objectMin = object.position;
+	glm::vec3 objectMax = object.position + object.size;
+
+	for (int x = floor(objectMin.x); x <= ceil(objectMax.x); x++)
+	{
+		for (int z = floor(objectMin.z); z <= ceil(objectMax.z); z++)
+		{
+			Chunk* chunk = getChunkAtWorld(game::Location_t(x, 0.0f, z));
+			if(!chunk) continue;
+
+			for (int y = floor(objectMin.y); y <= ceil(objectMax.y); y++)
+			{
+				game::Location_t location = game::Location_t(x, y, z);
+				Block* block = &chunk->getBlockAt(location);
+				if(!block) continue;
+				if(!block->isSolid()) continue;
+				AABB currentAABB = AABB(location, glm::vec3(1.0f, 1.0f, 1.0f));
+				if(currentAABB.collidesWith(object)) return true;
+			}
+		}
+	}
+
+	return false;
 }

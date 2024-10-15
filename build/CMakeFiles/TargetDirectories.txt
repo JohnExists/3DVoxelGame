@@ -1,3 +1,3 @@
-C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles/MinecraftGL.dir
-C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles/edit_cache.dir
-C:/Users/John Kolta/Desktop/VSCode/MinecraftGL/build/CMakeFiles/rebuild_cache.dir
+C:/Users/gamil/OneDrive/Desktop/JohnsStuff/Desktop/VSCode/MinecraftGL/build/CMakeFiles/MinecraftGL.dir
+C:/Users/gamil/OneDrive/Desktop/JohnsStuff/Desktop/VSCode/MinecraftGL/build/CMakeFiles/edit_cache.dir
+C:/Users/gamil/OneDrive/Desktop/JohnsStuff/Desktop/VSCode/MinecraftGL/build/CMakeFiles/rebuild_cache.dir

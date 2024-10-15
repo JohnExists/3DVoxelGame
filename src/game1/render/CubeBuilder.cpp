@@ -132,9 +132,10 @@ Quad CubeBuilder::getBottom(const Atlas& atlas)
 	};
 }
 
-void CubeBuilder::loadGrassVertices(std::vector<Quad>& quads, const Atlas& atlas)
+Cube CubeBuilder::loadGrassVertices(const Atlas& atlas)
 {
-	quads.push_back(Quad{
+	Cube cube;
+	cube.addQuad(Quad{
 		Vertex{ LEFT_BOTTOM_FRONT,	-1,  TEX_BOTTOM_LEFT(atlas)		},
 		Vertex{ RIGHT_BOTTOM_BACK,	-1,  TEX_BOTTOM_RIGHT(atlas)	},
 		Vertex{ RIGHT_TOP_BACK,		-1,  TEX_TOP_RIGHT(atlas)		},
@@ -143,7 +144,7 @@ void CubeBuilder::loadGrassVertices(std::vector<Quad>& quads, const Atlas& atlas
 		Vertex{ LEFT_BOTTOM_FRONT,	-1,  TEX_BOTTOM_LEFT(atlas)		}
 		}
 	);
-	quads.push_back(Quad{
+	cube.addQuad(Quad{
 		Vertex{ LEFT_BOTTOM_BACK,	-1, TEX_BOTTOM_LEFT(atlas)		},
 		Vertex{ RIGHT_TOP_FRONT,	-1, TEX_TOP_RIGHT(atlas)		},
 		Vertex{ RIGHT_BOTTOM_FRONT,	-1, TEX_BOTTOM_RIGHT(atlas)		},
@@ -152,4 +153,5 @@ void CubeBuilder::loadGrassVertices(std::vector<Quad>& quads, const Atlas& atlas
 		Vertex{ LEFT_TOP_BACK,		-1, TEX_TOP_LEFT(atlas)			}
 		}
 	);
+	return cube;
 }
