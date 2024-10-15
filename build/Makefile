@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MinecraftGL
+# Target rules for targets named VoxelGL
 
 # Build rule for target.
-MinecraftGL: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 MinecraftGL
-.PHONY : MinecraftGL
+VoxelGL: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 VoxelGL
+.PHONY : VoxelGL
 
 # fast build rule for target.
-MinecraftGL/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/build
-.PHONY : MinecraftGL/fast
+VoxelGL/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/build
+.PHONY : VoxelGL/fast
 
 src/game1/AABB.obj: src/game1/AABB.cpp.obj
 .PHONY : src/game1/AABB.obj
 
 # target to build an object file
 src/game1/AABB.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/AABB.cpp.obj
 .PHONY : src/game1/AABB.cpp.obj
 
 src/game1/AABB.i: src/game1/AABB.cpp.i
@@ -141,7 +141,7 @@ src/game1/AABB.i: src/game1/AABB.cpp.i
 
 # target to preprocess a source file
 src/game1/AABB.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/AABB.cpp.i
 .PHONY : src/game1/AABB.cpp.i
 
 src/game1/AABB.s: src/game1/AABB.cpp.s
@@ -149,7 +149,7 @@ src/game1/AABB.s: src/game1/AABB.cpp.s
 
 # target to generate assembly for a file
 src/game1/AABB.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/AABB.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/AABB.cpp.s
 .PHONY : src/game1/AABB.cpp.s
 
 src/game1/Camera.obj: src/game1/Camera.cpp.obj
@@ -157,7 +157,7 @@ src/game1/Camera.obj: src/game1/Camera.cpp.obj
 
 # target to build an object file
 src/game1/Camera.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/Camera.cpp.obj
 .PHONY : src/game1/Camera.cpp.obj
 
 src/game1/Camera.i: src/game1/Camera.cpp.i
@@ -165,7 +165,7 @@ src/game1/Camera.i: src/game1/Camera.cpp.i
 
 # target to preprocess a source file
 src/game1/Camera.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/Camera.cpp.i
 .PHONY : src/game1/Camera.cpp.i
 
 src/game1/Camera.s: src/game1/Camera.cpp.s
@@ -173,7 +173,7 @@ src/game1/Camera.s: src/game1/Camera.cpp.s
 
 # target to generate assembly for a file
 src/game1/Camera.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/Camera.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/Camera.cpp.s
 .PHONY : src/game1/Camera.cpp.s
 
 src/game1/GameState.obj: src/game1/GameState.cpp.obj
@@ -181,7 +181,7 @@ src/game1/GameState.obj: src/game1/GameState.cpp.obj
 
 # target to build an object file
 src/game1/GameState.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/GameState.cpp.obj
 .PHONY : src/game1/GameState.cpp.obj
 
 src/game1/GameState.i: src/game1/GameState.cpp.i
@@ -189,7 +189,7 @@ src/game1/GameState.i: src/game1/GameState.cpp.i
 
 # target to preprocess a source file
 src/game1/GameState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/GameState.cpp.i
 .PHONY : src/game1/GameState.cpp.i
 
 src/game1/GameState.s: src/game1/GameState.cpp.s
@@ -197,7 +197,7 @@ src/game1/GameState.s: src/game1/GameState.cpp.s
 
 # target to generate assembly for a file
 src/game1/GameState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/GameState.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/GameState.cpp.s
 .PHONY : src/game1/GameState.cpp.s
 
 src/game1/InputHandler.obj: src/game1/InputHandler.cpp.obj
@@ -205,7 +205,7 @@ src/game1/InputHandler.obj: src/game1/InputHandler.cpp.obj
 
 # target to build an object file
 src/game1/InputHandler.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/InputHandler.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/InputHandler.cpp.obj
 .PHONY : src/game1/InputHandler.cpp.obj
 
 src/game1/InputHandler.i: src/game1/InputHandler.cpp.i
@@ -213,7 +213,7 @@ src/game1/InputHandler.i: src/game1/InputHandler.cpp.i
 
 # target to preprocess a source file
 src/game1/InputHandler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/InputHandler.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/InputHandler.cpp.i
 .PHONY : src/game1/InputHandler.cpp.i
 
 src/game1/InputHandler.s: src/game1/InputHandler.cpp.s
@@ -221,7 +221,7 @@ src/game1/InputHandler.s: src/game1/InputHandler.cpp.s
 
 # target to generate assembly for a file
 src/game1/InputHandler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/InputHandler.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/InputHandler.cpp.s
 .PHONY : src/game1/InputHandler.cpp.s
 
 src/game1/Random.obj: src/game1/Random.cpp.obj
@@ -229,7 +229,7 @@ src/game1/Random.obj: src/game1/Random.cpp.obj
 
 # target to build an object file
 src/game1/Random.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/Random.cpp.obj
 .PHONY : src/game1/Random.cpp.obj
 
 src/game1/Random.i: src/game1/Random.cpp.i
@@ -237,7 +237,7 @@ src/game1/Random.i: src/game1/Random.cpp.i
 
 # target to preprocess a source file
 src/game1/Random.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/Random.cpp.i
 .PHONY : src/game1/Random.cpp.i
 
 src/game1/Random.s: src/game1/Random.cpp.s
@@ -245,7 +245,7 @@ src/game1/Random.s: src/game1/Random.cpp.s
 
 # target to generate assembly for a file
 src/game1/Random.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/Random.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/Random.cpp.s
 .PHONY : src/game1/Random.cpp.s
 
 src/game1/entity/Player.obj: src/game1/entity/Player.cpp.obj
@@ -253,7 +253,7 @@ src/game1/entity/Player.obj: src/game1/entity/Player.cpp.obj
 
 # target to build an object file
 src/game1/entity/Player.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/entity/Player.cpp.obj
 .PHONY : src/game1/entity/Player.cpp.obj
 
 src/game1/entity/Player.i: src/game1/entity/Player.cpp.i
@@ -261,7 +261,7 @@ src/game1/entity/Player.i: src/game1/entity/Player.cpp.i
 
 # target to preprocess a source file
 src/game1/entity/Player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/entity/Player.cpp.i
 .PHONY : src/game1/entity/Player.cpp.i
 
 src/game1/entity/Player.s: src/game1/entity/Player.cpp.s
@@ -269,7 +269,7 @@ src/game1/entity/Player.s: src/game1/entity/Player.cpp.s
 
 # target to generate assembly for a file
 src/game1/entity/Player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/entity/Player.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/entity/Player.cpp.s
 .PHONY : src/game1/entity/Player.cpp.s
 
 src/game1/glad.obj: src/game1/glad.c.obj
@@ -277,7 +277,7 @@ src/game1/glad.obj: src/game1/glad.c.obj
 
 # target to build an object file
 src/game1/glad.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/glad.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/glad.c.obj
 .PHONY : src/game1/glad.c.obj
 
 src/game1/glad.i: src/game1/glad.c.i
@@ -285,7 +285,7 @@ src/game1/glad.i: src/game1/glad.c.i
 
 # target to preprocess a source file
 src/game1/glad.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/glad.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/glad.c.i
 .PHONY : src/game1/glad.c.i
 
 src/game1/glad.s: src/game1/glad.c.s
@@ -293,7 +293,7 @@ src/game1/glad.s: src/game1/glad.c.s
 
 # target to generate assembly for a file
 src/game1/glad.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/glad.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/glad.c.s
 .PHONY : src/game1/glad.c.s
 
 src/game1/main.obj: src/game1/main.cpp.obj
@@ -301,7 +301,7 @@ src/game1/main.obj: src/game1/main.cpp.obj
 
 # target to build an object file
 src/game1/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/main.cpp.obj
 .PHONY : src/game1/main.cpp.obj
 
 src/game1/main.i: src/game1/main.cpp.i
@@ -309,7 +309,7 @@ src/game1/main.i: src/game1/main.cpp.i
 
 # target to preprocess a source file
 src/game1/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/main.cpp.i
 .PHONY : src/game1/main.cpp.i
 
 src/game1/main.s: src/game1/main.cpp.s
@@ -317,7 +317,7 @@ src/game1/main.s: src/game1/main.cpp.s
 
 # target to generate assembly for a file
 src/game1/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/main.cpp.s
 .PHONY : src/game1/main.cpp.s
 
 src/game1/render/Cube.obj: src/game1/render/Cube.cpp.obj
@@ -325,7 +325,7 @@ src/game1/render/Cube.obj: src/game1/render/Cube.cpp.obj
 
 # target to build an object file
 src/game1/render/Cube.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Cube.cpp.obj
 .PHONY : src/game1/render/Cube.cpp.obj
 
 src/game1/render/Cube.i: src/game1/render/Cube.cpp.i
@@ -333,7 +333,7 @@ src/game1/render/Cube.i: src/game1/render/Cube.cpp.i
 
 # target to preprocess a source file
 src/game1/render/Cube.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Cube.cpp.i
 .PHONY : src/game1/render/Cube.cpp.i
 
 src/game1/render/Cube.s: src/game1/render/Cube.cpp.s
@@ -341,7 +341,7 @@ src/game1/render/Cube.s: src/game1/render/Cube.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/Cube.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Cube.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Cube.cpp.s
 .PHONY : src/game1/render/Cube.cpp.s
 
 src/game1/render/CubeBuilder.obj: src/game1/render/CubeBuilder.cpp.obj
@@ -349,7 +349,7 @@ src/game1/render/CubeBuilder.obj: src/game1/render/CubeBuilder.cpp.obj
 
 # target to build an object file
 src/game1/render/CubeBuilder.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/CubeBuilder.cpp.obj
 .PHONY : src/game1/render/CubeBuilder.cpp.obj
 
 src/game1/render/CubeBuilder.i: src/game1/render/CubeBuilder.cpp.i
@@ -357,7 +357,7 @@ src/game1/render/CubeBuilder.i: src/game1/render/CubeBuilder.cpp.i
 
 # target to preprocess a source file
 src/game1/render/CubeBuilder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/CubeBuilder.cpp.i
 .PHONY : src/game1/render/CubeBuilder.cpp.i
 
 src/game1/render/CubeBuilder.s: src/game1/render/CubeBuilder.cpp.s
@@ -365,7 +365,7 @@ src/game1/render/CubeBuilder.s: src/game1/render/CubeBuilder.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/CubeBuilder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/CubeBuilder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/CubeBuilder.cpp.s
 .PHONY : src/game1/render/CubeBuilder.cpp.s
 
 src/game1/render/Frustum.obj: src/game1/render/Frustum.cpp.obj
@@ -373,7 +373,7 @@ src/game1/render/Frustum.obj: src/game1/render/Frustum.cpp.obj
 
 # target to build an object file
 src/game1/render/Frustum.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Frustum.cpp.obj
 .PHONY : src/game1/render/Frustum.cpp.obj
 
 src/game1/render/Frustum.i: src/game1/render/Frustum.cpp.i
@@ -381,7 +381,7 @@ src/game1/render/Frustum.i: src/game1/render/Frustum.cpp.i
 
 # target to preprocess a source file
 src/game1/render/Frustum.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Frustum.cpp.i
 .PHONY : src/game1/render/Frustum.cpp.i
 
 src/game1/render/Frustum.s: src/game1/render/Frustum.cpp.s
@@ -389,7 +389,7 @@ src/game1/render/Frustum.s: src/game1/render/Frustum.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/Frustum.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Frustum.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Frustum.cpp.s
 .PHONY : src/game1/render/Frustum.cpp.s
 
 src/game1/render/GLObject.obj: src/game1/render/GLObject.cpp.obj
@@ -397,7 +397,7 @@ src/game1/render/GLObject.obj: src/game1/render/GLObject.cpp.obj
 
 # target to build an object file
 src/game1/render/GLObject.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/GLObject.cpp.obj
 .PHONY : src/game1/render/GLObject.cpp.obj
 
 src/game1/render/GLObject.i: src/game1/render/GLObject.cpp.i
@@ -405,7 +405,7 @@ src/game1/render/GLObject.i: src/game1/render/GLObject.cpp.i
 
 # target to preprocess a source file
 src/game1/render/GLObject.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/GLObject.cpp.i
 .PHONY : src/game1/render/GLObject.cpp.i
 
 src/game1/render/GLObject.s: src/game1/render/GLObject.cpp.s
@@ -413,7 +413,7 @@ src/game1/render/GLObject.s: src/game1/render/GLObject.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/GLObject.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/GLObject.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/GLObject.cpp.s
 .PHONY : src/game1/render/GLObject.cpp.s
 
 src/game1/render/Mesh.obj: src/game1/render/Mesh.cpp.obj
@@ -421,7 +421,7 @@ src/game1/render/Mesh.obj: src/game1/render/Mesh.cpp.obj
 
 # target to build an object file
 src/game1/render/Mesh.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Mesh.cpp.obj
 .PHONY : src/game1/render/Mesh.cpp.obj
 
 src/game1/render/Mesh.i: src/game1/render/Mesh.cpp.i
@@ -429,7 +429,7 @@ src/game1/render/Mesh.i: src/game1/render/Mesh.cpp.i
 
 # target to preprocess a source file
 src/game1/render/Mesh.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Mesh.cpp.i
 .PHONY : src/game1/render/Mesh.cpp.i
 
 src/game1/render/Mesh.s: src/game1/render/Mesh.cpp.s
@@ -437,7 +437,7 @@ src/game1/render/Mesh.s: src/game1/render/Mesh.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/Mesh.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Mesh.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Mesh.cpp.s
 .PHONY : src/game1/render/Mesh.cpp.s
 
 src/game1/render/Renderer.obj: src/game1/render/Renderer.cpp.obj
@@ -445,7 +445,7 @@ src/game1/render/Renderer.obj: src/game1/render/Renderer.cpp.obj
 
 # target to build an object file
 src/game1/render/Renderer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Renderer.cpp.obj
 .PHONY : src/game1/render/Renderer.cpp.obj
 
 src/game1/render/Renderer.i: src/game1/render/Renderer.cpp.i
@@ -453,7 +453,7 @@ src/game1/render/Renderer.i: src/game1/render/Renderer.cpp.i
 
 # target to preprocess a source file
 src/game1/render/Renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Renderer.cpp.i
 .PHONY : src/game1/render/Renderer.cpp.i
 
 src/game1/render/Renderer.s: src/game1/render/Renderer.cpp.s
@@ -461,7 +461,7 @@ src/game1/render/Renderer.s: src/game1/render/Renderer.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/Renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Renderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Renderer.cpp.s
 .PHONY : src/game1/render/Renderer.cpp.s
 
 src/game1/render/Shader.obj: src/game1/render/Shader.cpp.obj
@@ -469,7 +469,7 @@ src/game1/render/Shader.obj: src/game1/render/Shader.cpp.obj
 
 # target to build an object file
 src/game1/render/Shader.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Shader.cpp.obj
 .PHONY : src/game1/render/Shader.cpp.obj
 
 src/game1/render/Shader.i: src/game1/render/Shader.cpp.i
@@ -477,7 +477,7 @@ src/game1/render/Shader.i: src/game1/render/Shader.cpp.i
 
 # target to preprocess a source file
 src/game1/render/Shader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Shader.cpp.i
 .PHONY : src/game1/render/Shader.cpp.i
 
 src/game1/render/Shader.s: src/game1/render/Shader.cpp.s
@@ -485,7 +485,7 @@ src/game1/render/Shader.s: src/game1/render/Shader.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/Shader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Shader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Shader.cpp.s
 .PHONY : src/game1/render/Shader.cpp.s
 
 src/game1/render/Texture.obj: src/game1/render/Texture.cpp.obj
@@ -493,7 +493,7 @@ src/game1/render/Texture.obj: src/game1/render/Texture.cpp.obj
 
 # target to build an object file
 src/game1/render/Texture.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Texture.cpp.obj
 .PHONY : src/game1/render/Texture.cpp.obj
 
 src/game1/render/Texture.i: src/game1/render/Texture.cpp.i
@@ -501,7 +501,7 @@ src/game1/render/Texture.i: src/game1/render/Texture.cpp.i
 
 # target to preprocess a source file
 src/game1/render/Texture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Texture.cpp.i
 .PHONY : src/game1/render/Texture.cpp.i
 
 src/game1/render/Texture.s: src/game1/render/Texture.cpp.s
@@ -509,7 +509,7 @@ src/game1/render/Texture.s: src/game1/render/Texture.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/Texture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/Texture.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/Texture.cpp.s
 .PHONY : src/game1/render/Texture.cpp.s
 
 src/game1/render/TextureAtlas.obj: src/game1/render/TextureAtlas.cpp.obj
@@ -517,7 +517,7 @@ src/game1/render/TextureAtlas.obj: src/game1/render/TextureAtlas.cpp.obj
 
 # target to build an object file
 src/game1/render/TextureAtlas.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/TextureAtlas.cpp.obj
 .PHONY : src/game1/render/TextureAtlas.cpp.obj
 
 src/game1/render/TextureAtlas.i: src/game1/render/TextureAtlas.cpp.i
@@ -525,7 +525,7 @@ src/game1/render/TextureAtlas.i: src/game1/render/TextureAtlas.cpp.i
 
 # target to preprocess a source file
 src/game1/render/TextureAtlas.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/TextureAtlas.cpp.i
 .PHONY : src/game1/render/TextureAtlas.cpp.i
 
 src/game1/render/TextureAtlas.s: src/game1/render/TextureAtlas.cpp.s
@@ -533,7 +533,7 @@ src/game1/render/TextureAtlas.s: src/game1/render/TextureAtlas.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/TextureAtlas.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/TextureAtlas.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/TextureAtlas.cpp.s
 .PHONY : src/game1/render/TextureAtlas.cpp.s
 
 src/game1/render/stb_image.obj: src/game1/render/stb_image.cpp.obj
@@ -541,7 +541,7 @@ src/game1/render/stb_image.obj: src/game1/render/stb_image.cpp.obj
 
 # target to build an object file
 src/game1/render/stb_image.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/stb_image.cpp.obj
 .PHONY : src/game1/render/stb_image.cpp.obj
 
 src/game1/render/stb_image.i: src/game1/render/stb_image.cpp.i
@@ -549,7 +549,7 @@ src/game1/render/stb_image.i: src/game1/render/stb_image.cpp.i
 
 # target to preprocess a source file
 src/game1/render/stb_image.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/stb_image.cpp.i
 .PHONY : src/game1/render/stb_image.cpp.i
 
 src/game1/render/stb_image.s: src/game1/render/stb_image.cpp.s
@@ -557,7 +557,7 @@ src/game1/render/stb_image.s: src/game1/render/stb_image.cpp.s
 
 # target to generate assembly for a file
 src/game1/render/stb_image.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/render/stb_image.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/render/stb_image.cpp.s
 .PHONY : src/game1/render/stb_image.cpp.s
 
 src/game1/ui/GameInterface.obj: src/game1/ui/GameInterface.cpp.obj
@@ -565,7 +565,7 @@ src/game1/ui/GameInterface.obj: src/game1/ui/GameInterface.cpp.obj
 
 # target to build an object file
 src/game1/ui/GameInterface.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/ui/GameInterface.cpp.obj
 .PHONY : src/game1/ui/GameInterface.cpp.obj
 
 src/game1/ui/GameInterface.i: src/game1/ui/GameInterface.cpp.i
@@ -573,7 +573,7 @@ src/game1/ui/GameInterface.i: src/game1/ui/GameInterface.cpp.i
 
 # target to preprocess a source file
 src/game1/ui/GameInterface.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/ui/GameInterface.cpp.i
 .PHONY : src/game1/ui/GameInterface.cpp.i
 
 src/game1/ui/GameInterface.s: src/game1/ui/GameInterface.cpp.s
@@ -581,7 +581,7 @@ src/game1/ui/GameInterface.s: src/game1/ui/GameInterface.cpp.s
 
 # target to generate assembly for a file
 src/game1/ui/GameInterface.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/ui/GameInterface.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/ui/GameInterface.cpp.s
 .PHONY : src/game1/ui/GameInterface.cpp.s
 
 src/game1/world/Block.obj: src/game1/world/Block.cpp.obj
@@ -589,7 +589,7 @@ src/game1/world/Block.obj: src/game1/world/Block.cpp.obj
 
 # target to build an object file
 src/game1/world/Block.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Block.cpp.obj
 .PHONY : src/game1/world/Block.cpp.obj
 
 src/game1/world/Block.i: src/game1/world/Block.cpp.i
@@ -597,7 +597,7 @@ src/game1/world/Block.i: src/game1/world/Block.cpp.i
 
 # target to preprocess a source file
 src/game1/world/Block.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Block.cpp.i
 .PHONY : src/game1/world/Block.cpp.i
 
 src/game1/world/Block.s: src/game1/world/Block.cpp.s
@@ -605,7 +605,7 @@ src/game1/world/Block.s: src/game1/world/Block.cpp.s
 
 # target to generate assembly for a file
 src/game1/world/Block.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Block.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Block.cpp.s
 .PHONY : src/game1/world/Block.cpp.s
 
 src/game1/world/Chunk.obj: src/game1/world/Chunk.cpp.obj
@@ -613,7 +613,7 @@ src/game1/world/Chunk.obj: src/game1/world/Chunk.cpp.obj
 
 # target to build an object file
 src/game1/world/Chunk.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Chunk.cpp.obj
 .PHONY : src/game1/world/Chunk.cpp.obj
 
 src/game1/world/Chunk.i: src/game1/world/Chunk.cpp.i
@@ -621,7 +621,7 @@ src/game1/world/Chunk.i: src/game1/world/Chunk.cpp.i
 
 # target to preprocess a source file
 src/game1/world/Chunk.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Chunk.cpp.i
 .PHONY : src/game1/world/Chunk.cpp.i
 
 src/game1/world/Chunk.s: src/game1/world/Chunk.cpp.s
@@ -629,7 +629,7 @@ src/game1/world/Chunk.s: src/game1/world/Chunk.cpp.s
 
 # target to generate assembly for a file
 src/game1/world/Chunk.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Chunk.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Chunk.cpp.s
 .PHONY : src/game1/world/Chunk.cpp.s
 
 src/game1/world/Decoration.obj: src/game1/world/Decoration.cpp.obj
@@ -637,7 +637,7 @@ src/game1/world/Decoration.obj: src/game1/world/Decoration.cpp.obj
 
 # target to build an object file
 src/game1/world/Decoration.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Decoration.cpp.obj
 .PHONY : src/game1/world/Decoration.cpp.obj
 
 src/game1/world/Decoration.i: src/game1/world/Decoration.cpp.i
@@ -645,7 +645,7 @@ src/game1/world/Decoration.i: src/game1/world/Decoration.cpp.i
 
 # target to preprocess a source file
 src/game1/world/Decoration.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Decoration.cpp.i
 .PHONY : src/game1/world/Decoration.cpp.i
 
 src/game1/world/Decoration.s: src/game1/world/Decoration.cpp.s
@@ -653,7 +653,7 @@ src/game1/world/Decoration.s: src/game1/world/Decoration.cpp.s
 
 # target to generate assembly for a file
 src/game1/world/Decoration.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/Decoration.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/Decoration.cpp.s
 .PHONY : src/game1/world/Decoration.cpp.s
 
 src/game1/world/World.obj: src/game1/world/World.cpp.obj
@@ -661,7 +661,7 @@ src/game1/world/World.obj: src/game1/world/World.cpp.obj
 
 # target to build an object file
 src/game1/world/World.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/World.cpp.obj
 .PHONY : src/game1/world/World.cpp.obj
 
 src/game1/world/World.i: src/game1/world/World.cpp.i
@@ -669,7 +669,7 @@ src/game1/world/World.i: src/game1/world/World.cpp.i
 
 # target to preprocess a source file
 src/game1/world/World.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/World.cpp.i
 .PHONY : src/game1/world/World.cpp.i
 
 src/game1/world/World.s: src/game1/world/World.cpp.s
@@ -677,7 +677,7 @@ src/game1/world/World.s: src/game1/world/World.cpp.s
 
 # target to generate assembly for a file
 src/game1/world/World.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/World.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/World.cpp.s
 .PHONY : src/game1/world/World.cpp.s
 
 src/game1/world/biome/Biome.obj: src/game1/world/biome/Biome.cpp.obj
@@ -685,7 +685,7 @@ src/game1/world/biome/Biome.obj: src/game1/world/biome/Biome.cpp.obj
 
 # target to build an object file
 src/game1/world/biome/Biome.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/biome/Biome.cpp.obj
 .PHONY : src/game1/world/biome/Biome.cpp.obj
 
 src/game1/world/biome/Biome.i: src/game1/world/biome/Biome.cpp.i
@@ -693,7 +693,7 @@ src/game1/world/biome/Biome.i: src/game1/world/biome/Biome.cpp.i
 
 # target to preprocess a source file
 src/game1/world/biome/Biome.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/biome/Biome.cpp.i
 .PHONY : src/game1/world/biome/Biome.cpp.i
 
 src/game1/world/biome/Biome.s: src/game1/world/biome/Biome.cpp.s
@@ -701,7 +701,7 @@ src/game1/world/biome/Biome.s: src/game1/world/biome/Biome.cpp.s
 
 # target to generate assembly for a file
 src/game1/world/biome/Biome.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/biome/Biome.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/biome/Biome.cpp.s
 .PHONY : src/game1/world/biome/Biome.cpp.s
 
 src/game1/world/biome/BiomeLoader.obj: src/game1/world/biome/BiomeLoader.cpp.obj
@@ -709,7 +709,7 @@ src/game1/world/biome/BiomeLoader.obj: src/game1/world/biome/BiomeLoader.cpp.obj
 
 # target to build an object file
 src/game1/world/biome/BiomeLoader.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/biome/BiomeLoader.cpp.obj
 .PHONY : src/game1/world/biome/BiomeLoader.cpp.obj
 
 src/game1/world/biome/BiomeLoader.i: src/game1/world/biome/BiomeLoader.cpp.i
@@ -717,7 +717,7 @@ src/game1/world/biome/BiomeLoader.i: src/game1/world/biome/BiomeLoader.cpp.i
 
 # target to preprocess a source file
 src/game1/world/biome/BiomeLoader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/biome/BiomeLoader.cpp.i
 .PHONY : src/game1/world/biome/BiomeLoader.cpp.i
 
 src/game1/world/biome/BiomeLoader.s: src/game1/world/biome/BiomeLoader.cpp.s
@@ -725,7 +725,7 @@ src/game1/world/biome/BiomeLoader.s: src/game1/world/biome/BiomeLoader.cpp.s
 
 # target to generate assembly for a file
 src/game1/world/biome/BiomeLoader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MinecraftGL.dir\build.make CMakeFiles/MinecraftGL.dir/src/game1/world/biome/BiomeLoader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VoxelGL.dir\build.make CMakeFiles/VoxelGL.dir/src/game1/world/biome/BiomeLoader.cpp.s
 .PHONY : src/game1/world/biome/BiomeLoader.cpp.s
 
 # Help Target
@@ -736,7 +736,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... MinecraftGL
+	@echo ... VoxelGL
 	@echo ... src/game1/AABB.obj
 	@echo ... src/game1/AABB.i
 	@echo ... src/game1/AABB.s
