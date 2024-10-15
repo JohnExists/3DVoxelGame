@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\MinecraftGL.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\MinecraftGL.dir/objects.a @CMakeFiles\MinecraftGL.dir\objects1.rsp
-C:\msys64\mingw64\bin\c++.exe -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\MinecraftGL.dir/objects.a -Wl,--no-whole-archive -o MinecraftGL.exe -Wl,--out-implib,libMinecraftGL.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MinecraftGL.dir\linklibs.rsp
