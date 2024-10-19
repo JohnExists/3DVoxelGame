@@ -27,8 +27,8 @@ This project is a 3D sandbox game inspired by the popular game "Minecraft". Play
 * Performance Optimization in 3D Graphics
 * GLFW and Glad to allow communication with the OpenGL API
 * Git and GitHub for proper version control
-* Matrix Multiplication in the context of 3D Graphics
-* Large Project Management
+* Matrix and Vector Manipulation in the context of 3D Graphics
+* Large-Scale Project Management
 * Utilizing JSON to read and extract data
 
 ## How To Build
