@@ -31,7 +31,7 @@ This project is a 3D sandbox game inspired by the popular game "Minecraft". Play
 * Large-Scale Project Management
 * Utilizing JSON to read and extract data
 
-## How To Build
+## How To Build (For MinGW)
 ### 1. Clone The Repository
 ```
 git clone https://github.com/JohnExists/VoxelGame.git
@@ -43,7 +43,8 @@ git clone https://github.com/JohnExists/VoxelGame.git
 ```
 mkdir build
 cd build
-cmake -A ..
+cmake .. -G "MinGW Makefiles"
+cmake --build .
 ```
 
 ### 4. Run The Game
