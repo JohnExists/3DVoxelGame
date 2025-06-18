@@ -38,15 +38,7 @@ git clone https://github.com/JohnExists/VoxelGame.git
 ```
 
 ### 2. Make sure that CMake is installed and that it is added to the system PATH variable.
-### 3. Build The Project
-
-```
-mkdir build
-cd build
-cmake .. -G "MinGW Makefiles"
-cmake --build .
-```
-
+### 3. Build The Project Using CMake
 ### 4. Run The Game
 ```
 ./VoxelGame
