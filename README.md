@@ -20,6 +20,10 @@ This project is a 3D sandbox game inspired by the popular game "Minecraft". Play
 ![Screenshot 2024-10-15 132932](https://github.com/user-attachments/assets/da78e632-2a70-486f-8761-33b85ab65f21)
 ![Screenshot 2024-10-15 134140](https://github.com/user-attachments/assets/4b9f9ba7-d4be-4b92-9038-11098b73714f)
 
+## Old Versions
+<img width="2836" height="1648" alt="OLD SS1" src="https://github.com/user-attachments/assets/081839b2-e166-4aba-88cc-f364ab39a302" />
+<img width="2862" height="1616" alt="OLD SS2" src="https://github.com/user-attachments/assets/00b4879c-027a-49fb-a60e-815fa5d9e4b5" />
+
 
 ## Skills Developed
 #### Through this project I was introduced to numerous technologies. Here are some of the new technologies I learned:
